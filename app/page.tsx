@@ -164,18 +164,18 @@ export default function Home() {
                 <button
                   onClick={handleSaveData}
                   className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 text-xs font-medium rounded-lg bg-slate-800/80 border border-slate-700/50 text-slate-300 hover:bg-slate-700/80 hover:text-white hover:border-slate-600 transition-all cursor-pointer"
-                  title="Download saved data"
+                  title="Save your stars, priorities, and view settings"
                 >
                   <DownloadIcon className="h-3.5 w-3.5" />
-                  <span>Save Data</span>
+                  <span>Export Setup</span>
                 </button>
                 <button
                   onClick={handleImportData}
                   className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 text-xs font-medium rounded-lg bg-slate-800/80 border border-slate-700/50 text-slate-300 hover:bg-slate-700/80 hover:text-white hover:border-slate-600 transition-all cursor-pointer"
-                  title="Import saved data"
+                  title="Restore your stars, priorities, and view settings from a file"
                 >
                   <UploadIcon className="h-3.5 w-3.5" />
-                  <span>Import Data</span>
+                  <span>Import Setup</span>
                 </button>
               </div>
             </div>
