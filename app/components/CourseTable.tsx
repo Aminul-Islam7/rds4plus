@@ -631,11 +631,12 @@ function SearchBar({
 }
 
 // Filter bar component
-function FilterBar({ tableState, totalCount, filteredCount, displayedCount }: { 
+function FilterBar({ tableState, totalCount, filteredCount, displayedCount, lastUpdated }: { 
   tableState: ReturnType<typeof useTableState>; 
   totalCount: number; 
   filteredCount: number;
   displayedCount: number;
+  lastUpdated?: string;
 }) {
   const hasActiveFilters =
     tableState.activeCourseFilters.size > 0 ||
@@ -730,9 +731,11 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount }: {
       {/* Results count + Clear + Updated text */}
       <div className="flex items-center justify-between pt-2">
         <div className="flex items-center gap-4">
-          <div className="text-sm text-slate-400">
-            Updated on <span className="text-slate-300">Jan 12, 2:43 AM</span>
-          </div>
+          {lastUpdated && (
+            <div className="text-sm text-slate-400">
+              Updated on <span className="text-slate-300">{lastUpdated}</span>
+            </div>
+          )}
         </div>
         
         <div className="flex items-center gap-3">
@@ -909,6 +912,7 @@ export function CourseTable() {
         totalCount={data.courses.length}
         filteredCount={tableState.filteredCourses.length}
         displayedCount={displayedCourses.length}
+        lastUpdated={data.meta.lastUpdated}
       />
 
       {/* Table */}
