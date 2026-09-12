@@ -65,16 +65,13 @@ export default function Home() {
     setShowHelpModal(false);
   };
 
-  // Calculate unique faculty count (case-insensitive) - accurate count
+  // Calculate unique faculty count (case-insensitive)
   const uniqueFacultyCount = useMemo(() => {
     if (!data?.courses) return 0;
     const seen = new Set<string>();
     data.courses.forEach((c) => {
-      // Normalize faculty name for accurate deduplication
       const normalizedFaculty = c.faculty.toLowerCase().trim();
-      if (normalizedFaculty) {
-        seen.add(normalizedFaculty);
-      }
+      if (normalizedFaculty) seen.add(normalizedFaculty);
     });
     return seen.size;
   }, [data?.courses]);
@@ -85,12 +82,11 @@ export default function Home() {
     Object.values(STORAGE_KEYS).forEach((key) => {
       exportData[key] = localStorage.getItem(key);
     });
-    
     const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `rds4plus_data_${new Date().toISOString().split('T')[0]}.json`;
+    link.download = `rds4plus_data_${new Date().toISOString().split("T")[0]}.json`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -98,14 +94,11 @@ export default function Home() {
   };
 
   // Import localStorage data
-  const handleImportData = () => {
-    fileInputRef.current?.click();
-  };
+  const handleImportData = () => fileInputRef.current?.click();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-
     const reader = new FileReader();
     reader.onload = (event) => {
       try {
@@ -115,125 +108,117 @@ export default function Home() {
             localStorage.setItem(key, value as string);
           }
         });
-        // Reload to apply imported data
         window.location.reload();
-      } catch (error) {
+      } catch {
         alert("Failed to import data. Please check the file format.");
       }
     };
     reader.readAsText(file);
-    
-    // Reset input
     e.target.value = "";
   };
+
+  // Shared button class for header action buttons
+  const btnClass =
+    "flex items-center gap-1.5 px-2 sm:px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-all cursor-pointer shrink-0";
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Hidden file input for import */}
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept=".json"
-        onChange={handleFileChange}
-        className="hidden"
-      />
+      <input ref={fileInputRef} type="file" accept=".json" onChange={handleFileChange} className="hidden" />
 
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl">
-        <div className="mx-auto max-w-7xl px-3 sm:px-4 py-3 sm:py-4">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
-            {/* Logo & Title */}
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 flex-col items-center justify-center rounded-xl bg-slate-800 leading-none">
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-xs sm:text-sm font-bold text-transparent">RDS4</span>
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-[10px] sm:text-[12px] font-semibold tracking-wider text-transparent">PLUS</span>
+      {/* Header — single row, never wraps */}
+      <header className="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50">
+        <div className="mx-auto max-w-7xl px-3 sm:px-4 py-2.5 sm:py-3">
+          <div className="flex items-center justify-between gap-2">
+
+            {/* Left: Logo + Title */}
+            <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+              <div className="flex h-9 w-9 sm:h-10 sm:w-10 flex-col items-center justify-center rounded-xl bg-slate-800 leading-none">
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-[10px] sm:text-xs font-bold text-transparent">RDS4</span>
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-[8px] sm:text-[10px] font-semibold tracking-wider text-transparent">PLUS</span>
               </div>
-              <div>
-                <h1 className="text-lg sm:text-xl font-bold text-white">
+              <div className="leading-tight">
+                <h1 className="text-sm sm:text-lg font-bold text-white leading-tight">
                   RDS4<span className="text-cyan-400">+</span>
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-400">NSU Advising Planner</p>
+                <p className="text-[10px] sm:text-xs text-slate-400 leading-tight hidden xs:block">NSU Advising Planner</p>
               </div>
             </div>
 
-            {/* Right side: Semester, Stats, Buttons */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-              {/* Semester Badge & Stats */}
-              {data && (
-                <>
-                  {/* Semester Badge */}
-                  <div className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/20 px-2.5 sm:px-3 py-1 sm:py-1.5">
-                    <svg className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span className="text-cyan-300 font-medium text-xs">{data.meta.semester}</span>
-                  </div>
-                  {/* Stats */}
-                  <div className="flex items-center gap-2 sm:gap-3 rounded-lg bg-slate-800/80 px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs">
-                    <div className="text-center">
-                      <span className="font-bold text-cyan-400">{data.meta.uniqueCourses}</span>
-                      <span className="text-slate-400 ml-1">courses</span>
-                    </div>
-                    <div className="h-3 w-px bg-slate-700/60"></div>
-                    <div className="text-center">
-                      <span className="font-bold text-violet-400">{data.meta.totalSections}</span>
-                      <span className="text-slate-400 ml-1">sections</span>
-                    </div>
-                    <div className="h-3 w-px bg-slate-700/60"></div>
-                    <div className="text-center">
-                      <span className="font-bold text-emerald-400">{uniqueFacultyCount}</span>
-                      <span className="text-slate-400 ml-1">faculties</span>
-                    </div>
-                  </div>
-                </>
-              )}
-
-              {/* Action Buttons: Export, Import, Help */}
-              <div className="flex items-center gap-1.5">
-                <button
-                  onClick={handleSaveData}
-                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-all cursor-pointer"
-                  title="Save your stars, priorities, and view settings"
-                >
-                  <DownloadIcon className="h-3.5 w-3.5" />
-                  <span>Export Setup</span>
-                </button>
-                <button
-                  onClick={handleImportData}
-                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-all cursor-pointer"
-                  title="Restore your stars, priorities, and view settings from a file"
-                >
-                  <UploadIcon className="h-3.5 w-3.5" />
-                  <span>Import Setup</span>
-                </button>
-                <button
-                  onClick={() => setShowHelpModal(true)}
-                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-all cursor-pointer"
-                  title="How to use RDS4+"
-                >
-                  <QuestionMarkCircleIcon className="h-3.5 w-3.5 text-cyan-400" />
-                  <span>Help</span>
-                </button>
-                <a
-                  href="https://github.com/Aminul-Islam7/rds4plus"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-all cursor-pointer"
-                  title="Star RDS4+ on GitHub"
-                >
-                  <GithubIcon className="h-3.5 w-3.5" />
-                  <span>Star on GitHub</span>
-                  <svg className="h-3 w-3 text-yellow-400 fill-yellow-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                </a>
+            {/* Center: Semester badge + stats — hides labels on mobile, shows numbers only */}
+            {data && (
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 overflow-hidden">
+                {/* Semester badge — hidden on xs */}
+                <div className="hidden sm:inline-flex items-center gap-1 rounded-full bg-cyan-500/20 px-2.5 py-1">
+                  <svg className="h-3 w-3 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-cyan-300 font-medium text-xs whitespace-nowrap">{data.meta.semester}</span>
+                </div>
+                {/* Stats pill */}
+                <div className="flex items-center gap-1.5 sm:gap-2 rounded-lg bg-slate-800/80 px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs whitespace-nowrap">
+                  <span className="font-bold text-cyan-400">{data.meta.uniqueCourses}</span>
+                  <span className="text-slate-500 hidden sm:inline">courses</span>
+                  <div className="h-2.5 w-px bg-slate-700/60" />
+                  <span className="font-bold text-violet-400">{data.meta.totalSections}</span>
+                  <span className="text-slate-500 hidden sm:inline">sections</span>
+                  <div className="h-2.5 w-px bg-slate-700/60" />
+                  <span className="font-bold text-emerald-400">{uniqueFacultyCount}</span>
+                  <span className="text-slate-500 hidden sm:inline">faculties</span>
+                </div>
               </div>
+            )}
+
+            {/* Right: Action buttons — icon-only on mobile, icon+label on sm+ */}
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+              <button
+                onClick={handleSaveData}
+                className={btnClass}
+                title="Export your stars, priorities, and view settings"
+              >
+                <DownloadIcon className="h-3.5 w-3.5 shrink-0" />
+                <span className="hidden sm:inline">Export</span>
+              </button>
+
+              <button
+                onClick={handleImportData}
+                className={btnClass}
+                title="Import stars, priorities, and view settings from a file"
+              >
+                <UploadIcon className="h-3.5 w-3.5 shrink-0" />
+                <span className="hidden sm:inline">Import</span>
+              </button>
+
+              <button
+                onClick={() => setShowHelpModal(true)}
+                className={btnClass}
+                title="How to use RDS4+"
+              >
+                <QuestionMarkCircleIcon className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+                <span className="hidden sm:inline">Help</span>
+              </button>
+
+              <a
+                href="https://github.com/Aminul-Islam7/rds4plus"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={btnClass}
+                title="Star RDS4+ on GitHub"
+              >
+                <GithubIcon className="h-3.5 w-3.5 shrink-0" />
+                <span className="hidden sm:inline">Star</span>
+                <svg className="h-3 w-3 fill-yellow-400 hidden sm:block shrink-0" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </a>
             </div>
+
           </div>
         </div>
       </header>
 
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-3 sm:px-4 py-4 sm:py-6">
-        {/* Course Table */}
         <CourseTable />
       </main>
 
