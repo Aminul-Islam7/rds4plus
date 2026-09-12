@@ -14,16 +14,35 @@ interface BffCourseRow {
 }
 
 /**
+ * Format semester code (e.g. "263" -> "Fall 2026", "262" -> "Summer 2026", "261" -> "Spring 2026").
+ */
+export function formatSemesterCode(raw: string): string {
+  const trimmed = raw.trim();
+  const match = trimmed.match(/^(\d{2})([123])$/);
+  if (match) {
+    const year = `20${match[1]}`;
+    const termCode = match[2];
+    const termMap: Record<string, string> = {
+      "1": "Spring",
+      "2": "Summer",
+      "3": "Fall",
+    };
+    return `${termMap[termCode]} ${year}`;
+  }
+  return trimmed || "Fall 2026";
+}
+
+/**
  * Extract semester label from BFF rows.
- * Uses the Semester field of the first row that has it, or falls back to "Summer 2026".
+ * Uses the Semester field of the first row that has it, or falls back to "Fall 2026".
  */
 function extractSemesterFromRows(rows: BffCourseRow[]): string {
   for (const row of rows) {
     if (row.Semester && row.Semester.trim()) {
-      return row.Semester.trim();
+      return formatSemesterCode(row.Semester);
     }
   }
-  return "Summer 2026";
+  return "Fall 2026";
 }
 
 const MONTH_MAP: Record<string, string> = {
@@ -69,10 +88,10 @@ export function formatCurrentDate(): string {
 /**
  * Parse BFF API JSON array into structured CourseData.
  */
-export function parseBffJson(json: BffCourseRow[], lastUpdated?: string): CourseData {
+export function parseBffJson(json: BffCourseRow[], lastUpdated?: string, semesterHint?: string): CourseData {
   const courses: Course[] = [];
   const courseSet = new Set<string>();
-  const semester = extractSemesterFromRows(json);
+  const semester = semesterHint ? formatSemesterCode(semesterHint) : extractSemesterFromRows(json);
 
   let index = 1;
   for (const row of json) {

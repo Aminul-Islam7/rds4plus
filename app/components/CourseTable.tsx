@@ -111,20 +111,20 @@ function PrioritySelector({
   // Calculate relative color
   const getColorClass = () => {
     // Prevent division by zero
-    if (maxVisible === minVisible) return "text-slate-400 bg-slate-800/50 border-slate-600/50";
+    if (maxVisible === minVisible) return "text-slate-400 bg-slate-800/80";
     
     // Normalize value between 0 and 1 relative to visible range
     const normalized = (value - minVisible) / (maxVisible - minVisible);
     
     // Bucket into 5 distinct color levels
-    if (normalized < 0.2) return "text-red-400 bg-red-500/10 border-red-500/30";
-    if (normalized < 0.4) return "text-orange-400 bg-orange-500/10 border-orange-500/30";
-    if (normalized < 0.6) return "text-yellow-400 bg-yellow-500/10 border-yellow-500/30";
-    if (normalized < 0.8) return "text-teal-400 bg-teal-500/10 border-teal-500/30";
-    return "text-cyan-400 bg-cyan-500/10 border-cyan-500/30";
+    if (normalized < 0.2) return "text-red-400 bg-red-500/20";
+    if (normalized < 0.4) return "text-orange-400 bg-orange-500/20";
+    if (normalized < 0.6) return "text-yellow-400 bg-yellow-500/20";
+    if (normalized < 0.8) return "text-teal-400 bg-teal-500/20";
+    return "text-cyan-400 bg-cyan-500/20";
   };
 
-  const colorClass = value === 0 ? "text-slate-400 bg-slate-800/50 border-slate-600/50" : getColorClass();
+  const colorClass = value === 0 ? "text-slate-400 bg-slate-800/80" : getColorClass();
 
   const handleDecrement = () => {
     if (value > -9) onChange(value - 1);
@@ -135,7 +135,7 @@ function PrioritySelector({
   };
 
   return (
-    <div className={`flex items-center gap-1 border rounded px-1 py-0.5 ${colorClass} transition-colors h-7`}>
+    <div className={`flex items-center gap-1 rounded px-1.5 py-0.5 ${colorClass} transition-colors h-7`}>
       <button 
         onClick={handleDecrement}
         className="p-0.5 hover:text-white disabled:opacity-30 disabled:hover:text-current transition-colors cursor-pointer"
@@ -220,10 +220,10 @@ function SortableHeader({
           {/* Sort Button */}
           <button
             onClick={() => tableState.toggleSort(sortKey)}
-            className={`flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] transition-all cursor-pointer border ${
+            className={`flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] transition-all cursor-pointer ${
               isSorted 
-                ? "bg-cyan-500/10 border-cyan-500/30 text-cyan-400" 
-                : "bg-slate-800/50 border-slate-700/50 text-slate-500 hover:text-white hover:border-slate-600"
+                ? "bg-cyan-500/20 text-cyan-400" 
+                : "bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700"
             }`}
             title="Toggle sort"
           >
@@ -238,7 +238,7 @@ function SortableHeader({
           {canHide && (
             <button
               onClick={() => tableState.toggleColumnVisibility(columnKey)}
-              className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-slate-800/50 border border-slate-700/50 text-slate-500 hover:text-red-300 hover:border-red-500/30 transition-all cursor-pointer"
+              className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-slate-800 text-slate-400 hover:text-red-300 hover:bg-slate-700 transition-all cursor-pointer"
               title="Hide column"
             >
               <EyeOffIcon className="h-3 w-3" />
@@ -276,7 +276,7 @@ function CourseRow({
   );
 
   return (
-    <tr className={`border-b border-slate-700/50 transition-all hover:bg-slate-800/50 group ${isStarred ? "bg-yellow-500/5" : ""}`}>
+    <tr className={`transition-all hover:bg-slate-800/60 group ${isStarred ? "bg-yellow-500/5" : ""}`}>
       {/* Index - leftmost, less prominent */}
       {tableState.isColumnVisible("index") && (
         <td className="px-4 py-2 text-slate-600 text-center font-mono text-xs">
@@ -291,10 +291,10 @@ function CourseRow({
             <span className="font-semibold text-cyan-400">{course.courseCode}</span>
             <button
               onClick={() => tableState.toggleSavedCourse(course.courseCode)}
-              className={`text-xs px-1.5 py-0.5 rounded border opacity-0 group-hover:opacity-100 transition-all cursor-pointer ${
+              className={`text-xs px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-all cursor-pointer ${
                 isSavedCourse 
-                  ? "bg-cyan-500/10 border-cyan-500/30 text-cyan-400" 
-                  : "bg-slate-800 border-slate-600 text-slate-400 hover:text-white hover:border-slate-500"
+                  ? "bg-cyan-500/20 text-cyan-300" 
+                  : "bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700"
               }`}
             >
               {isSavedCourse ? "Saved" : "Save"}
@@ -319,10 +319,10 @@ function CourseRow({
             <span className="font-medium text-emerald-400">{course.faculty}</span>
             <button
               onClick={() => tableState.toggleSavedFaculty(course.faculty)}
-              className={`text-xs px-1.5 py-0.5 rounded border opacity-0 group-hover:opacity-100 transition-all cursor-pointer ${
+              className={`text-xs px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-all cursor-pointer ${
                 isSavedFaculty 
-                  ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400" 
-                  : "bg-slate-800 border-slate-600 text-slate-400 hover:text-white hover:border-slate-500"
+                  ? "bg-emerald-500/20 text-emerald-300" 
+                  : "bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700"
               }`}
             >
               {isSavedFaculty ? "Saved" : "Save"}
@@ -400,20 +400,20 @@ function FilterPill({
 }) {
   const colors = {
     cyan: {
-      active: "bg-cyan-500/20 border-cyan-500/50 text-cyan-300",
-      inactive: "bg-cyan-900/10 border-cyan-800/30 text-cyan-400/60 hover:bg-cyan-900/20 hover:text-cyan-400 hover:border-cyan-500/30",
+      active: "bg-cyan-500/25 text-cyan-300",
+      inactive: "bg-slate-800 text-cyan-400/80 hover:bg-slate-700 hover:text-cyan-300",
     },
     emerald: {
-      active: "bg-emerald-500/20 border-emerald-500/50 text-emerald-300",
-      inactive: "bg-emerald-900/10 border-emerald-800/30 text-emerald-400/60 hover:bg-emerald-900/20 hover:text-emerald-400 hover:border-emerald-500/30",
+      active: "bg-emerald-500/25 text-emerald-300",
+      inactive: "bg-slate-800 text-emerald-400/80 hover:bg-slate-700 hover:text-emerald-300",
     },
     amber: {
-      active: "bg-amber-500/20 border-amber-500/50 text-amber-300",
-      inactive: "bg-slate-900/50 border-slate-700 text-slate-400 hover:text-amber-400 hover:border-amber-500/30",
+      active: "bg-amber-500/25 text-amber-300",
+      inactive: "bg-slate-800 text-slate-300 hover:text-amber-300 hover:bg-slate-700",
     },
     violet: {
-      active: "bg-violet-500/20 border-violet-500/50 text-violet-300",
-      inactive: "bg-slate-800/50 border-slate-600/50 text-slate-400 hover:border-violet-500/30 hover:text-violet-400",
+      active: "bg-violet-500/25 text-violet-300",
+      inactive: "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-violet-300",
     },
   };
 
@@ -421,7 +421,7 @@ function FilterPill({
     <div className={`flex items-center h-8 ${className}`}>
       <button
         onClick={onToggle}
-        className={`px-3 h-full flex items-center justify-center text-sm font-medium rounded-l-lg border transition-all cursor-pointer ${
+        className={`px-3 h-full flex items-center justify-center text-sm font-medium rounded-l-lg transition-all cursor-pointer ${
           isActive ? colors[color].active : colors[color].inactive
         } ${!onRemove ? "rounded-r-lg" : ""}`}
       >
@@ -430,10 +430,10 @@ function FilterPill({
       {onRemove && (
         <button
           onClick={onRemove}
-          className={`px-1.5 h-full flex items-center justify-center text-sm rounded-r-lg border border-l-0 transition-all cursor-pointer ${
+          className={`px-1.5 h-full flex items-center justify-center text-sm rounded-r-lg transition-all cursor-pointer ${
              isActive 
-               ? "bg-slate-800/30 border-slate-600/30 text-white/50 hover:text-red-400 hover:bg-slate-800/50" 
-               : "bg-slate-800/30 border-slate-600/30 text-slate-500 hover:text-red-400 hover:bg-slate-800/50"
+               ? "bg-slate-800/80 text-white/50 hover:text-red-400 hover:bg-slate-700" 
+               : "bg-slate-800/80 text-slate-400 hover:text-red-400 hover:bg-slate-700"
           } ${isActive ? colors[color].active.split(' ')[0] : colors[color].inactive.split(' ')[0]}`}
           title="Remove from saved"
         >
@@ -523,10 +523,10 @@ function SearchBar({
   return (
     <div ref={containerRef} className="relative flex-1">
       <div
-        className={`relative flex items-center rounded-xl border bg-slate-800/50 transition-all ${
+        className={`relative flex items-center rounded-xl bg-slate-800/70 transition-all ${
           isFocused
-            ? "border-cyan-500/50 ring-2 ring-cyan-500/20"
-            : "border-slate-600/50 hover:border-slate-500"
+            ? "bg-slate-800 ring-2 ring-cyan-500/30"
+            : "hover:bg-slate-800/90"
         }`}
       >
         <SearchIcon className="absolute left-4 h-5 w-5 text-slate-400" />
@@ -561,17 +561,17 @@ function SearchBar({
 
       {/* Suggestions dropdown */}
       {showSuggestions && hasSuggestions && (
-        <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-slate-800 border border-slate-600 rounded-xl shadow-xl overflow-hidden">
+        <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-slate-800 rounded-xl shadow-2xl overflow-hidden">
           {courseSuggestions.length > 0 && (
             <div className="p-2">
-              <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider px-2 py-1">
+              <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 py-1">
                 Courses
               </div>
               {courseSuggestions.map((course) => (
                 <div
                   key={course}
                   onClick={() => applySuggestion(course)}
-                  className="w-full text-left px-3 py-2 text-sm text-cyan-400 hover:bg-slate-700/50 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
+                  className="w-full text-left px-3 py-2 text-sm text-cyan-400 hover:bg-slate-700/60 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
                 >
                   <span>{course}</span>
                   <button
@@ -581,8 +581,8 @@ function SearchBar({
                     }}
                     className={`flex items-center gap-1.5 px-2 py-1 rounded text-xs transition-all cursor-pointer ${
                       isCourseInSaved(course)
-                        ? "text-cyan-400 bg-cyan-500/10"
-                        : "text-slate-500 hover:text-cyan-400 hover:bg-slate-600/50"
+                        ? "text-cyan-400 bg-cyan-500/20"
+                        : "text-slate-400 hover:text-cyan-300 hover:bg-slate-600/50"
                     }`}
                     title="Save course for filtering"
                   >
@@ -594,15 +594,15 @@ function SearchBar({
             </div>
           )}
           {facultySuggestions.length > 0 && (
-            <div className="p-2 border-t border-slate-700">
-              <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider px-2 py-1">
+            <div className="p-2 bg-slate-850">
+              <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 py-1">
                 Faculty
               </div>
               {facultySuggestions.map((faculty) => (
                 <div
                   key={faculty}
                   onClick={() => applySuggestion(faculty)}
-                  className="w-full text-left px-3 py-2 text-sm text-emerald-400 hover:bg-slate-700/50 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
+                  className="w-full text-left px-3 py-2 text-sm text-emerald-400 hover:bg-slate-700/60 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
                 >
                   <span>{faculty}</span>
                   <button
@@ -612,8 +612,8 @@ function SearchBar({
                     }}
                     className={`flex items-center gap-1.5 px-2 py-1 rounded text-xs transition-all cursor-pointer ${
                       isFacultyInSaved(faculty)
-                        ? "text-emerald-400 bg-emerald-500/10"
-                        : "text-slate-500 hover:text-emerald-400 hover:bg-slate-600/50"
+                        ? "text-emerald-400 bg-emerald-500/20"
+                        : "text-slate-400 hover:text-emerald-300 hover:bg-slate-600/50"
                     }`}
                     title="Save faculty for filtering"
                   >
@@ -698,10 +698,10 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
                 <button
                   key={day}
                   onClick={() => tableState.toggleDayFilter(day)}
-                  className={`px-4.5 py-1.5 h-8 text-sm font-medium rounded-lg border transition-all cursor-pointer ${
+                  className={`px-4.5 py-1.5 h-8 text-sm font-medium rounded-lg transition-all cursor-pointer ${
                     tableState.activeDayFilters.has(day)
-                      ? "bg-violet-500/20 border-violet-500/50 text-violet-300"
-                      : "bg-slate-800/50 border-slate-600/50 text-slate-400 hover:border-violet-500/30 hover:text-violet-400"
+                      ? "bg-violet-500/25 text-violet-300"
+                      : "bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-violet-300"
                   }`}
                 >
                   {day}
@@ -714,10 +714,10 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
                 <button
                   key={day}
                   onClick={() => tableState.toggleDayFilter(day)}
-                  className={`px-2 py-1.5 h-8 text-sm font-medium rounded-lg border transition-all cursor-pointer ${
+                  className={`px-2 py-1.5 h-8 text-sm font-medium rounded-lg transition-all cursor-pointer ${
                     tableState.activeDayFilters.has(day)
-                      ? "bg-violet-500/20 border-violet-500/50 text-violet-300"
-                      : "bg-slate-800/50 border-slate-600/50 text-slate-400 hover:border-violet-500/30 hover:text-violet-400"
+                      ? "bg-violet-500/25 text-violet-300"
+                      : "bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-violet-300"
                   }`}
                 >
                   {day}
@@ -873,7 +873,7 @@ export function CourseTable() {
 
   if (isLoading) {
     return (
-      <div className="rounded-xl border border-slate-700/50 bg-slate-900/50 backdrop-blur-sm overflow-hidden">
+      <div className="rounded-xl bg-slate-900/60 backdrop-blur-sm overflow-hidden">
         <LoadingSkeleton />
       </div>
     );
@@ -881,7 +881,7 @@ export function CourseTable() {
 
   if (error && !data) {
     return (
-      <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-8 text-center">
+      <div className="rounded-xl bg-red-500/10 p-8 text-center">
         <div className="text-red-400 text-lg font-medium mb-2">Failed to load courses</div>
         <div className="text-red-300/70 text-sm">{error}</div>
       </div>
@@ -890,7 +890,7 @@ export function CourseTable() {
 
   if (!data || data.courses.length === 0) {
     return (
-      <div className="rounded-xl border border-slate-700/50 bg-slate-900/50 p-8 text-center">
+      <div className="rounded-xl bg-slate-900/60 p-8 text-center">
         <div className="text-slate-400 text-lg">No courses available</div>
       </div>
     );
@@ -918,14 +918,14 @@ export function CourseTable() {
       {/* Table */}
       <div 
         ref={tableContainerRef}
-        className="rounded-xl border border-slate-700/50 bg-slate-900/50 backdrop-blur-sm overflow-hidden"
+        className="rounded-xl bg-slate-900/60 backdrop-blur-sm overflow-hidden"
       >
         <div className="overflow-x-auto">
           <table className="w-full min-w-[800px]">
              {/* No colgroup used here to let the browser auto-layout based on content, avoiding offsets */}
             <thead>
               <tr 
-                className="border-b border-slate-700 bg-gradient-to-r from-slate-800/80 to-slate-800/40 group/header"
+                className="bg-slate-800/80 group/header"
                 onMouseEnter={() => setHeaderRowHovered(true)}
                 onMouseLeave={() => setHeaderRowHovered(false)}
               >
@@ -947,7 +947,7 @@ export function CourseTable() {
                   <SortableHeader label="Schedule" sortKey="time" columnKey="time" tableState={tableState} align="left" headerRowHovered={headerRowHovered} />
                 )}
                 {tableState.isColumnVisible("room") && (
-                  <SortableHeader label="Room" sortKey="room" columnKey="room" tableState={tableState} headerRowHovered={headerRowHovered} />
+                  <SortableHeader label="Seats" sortKey="room" columnKey="room" tableState={tableState} headerRowHovered={headerRowHovered} />
                 )}
                 
                 {tableState.isColumnVisible("priority") && (
@@ -963,7 +963,7 @@ export function CourseTable() {
                         {canHide && (
                           <button
                             onClick={() => tableState.toggleColumnVisibility("star")}
-                            className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-slate-800/50 border border-slate-700/50 text-slate-500 hover:text-red-300 hover:border-red-500/30 transition-all cursor-pointer"
+                            className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-slate-800 text-slate-400 hover:text-red-300 hover:bg-slate-700 transition-all cursor-pointer"
                             title="Hide column"
                           >
                             <EyeOffIcon className="h-3 w-3" />

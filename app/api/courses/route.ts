@@ -6,7 +6,7 @@ import path from "path";
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 const BFF_URL =
-  "https://rds2-bff.vercel.app/api/courses?semester=262_v1.csv";
+  "https://rds2-bff.vercel.app/api/courses?semester=263_v1.csv";
 
 /** Server-side in-memory TTL cache (5 minutes) */
 const CACHE_TTL_MS = 5 * 60 * 1000;
@@ -15,16 +15,41 @@ const CACHE_TTL_MS = 5 * 60 * 1000;
 let cachedData: CourseData | null = null;
 let cacheTimestamp = 0;
 
+function getSemesterHint(url: string): string {
+  const match = url.match(/semester=(\d{2}[123])/);
+  return match ? match[1] : "263";
+}
+
 // ─── Fallback: local CSV (which is actually JSON from BFF) ────────────────────
 async function loadFallbackData(): Promise<CourseData> {
   const filePath = path.join(process.cwd(), "data", "response.json");
   const raw = await fs.readFile(filePath, "utf-8");
   const json = JSON.parse(raw);
-  return parseBffJson(json);
+  return parseBffJson(json, undefined, getSemesterHint(BFF_URL));
 }
 
-// ─── Scrape update time from main page ────────────────────────────────────────
+// ─── Fetch update time from last_updated.json ─────────────────────────────────
 async function fetchUpdateTime(): Promise<string> {
+  try {
+    const res = await fetch("https://rds2-bff.vercel.app/last_updated.json", {
+      cache: "no-store",
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+        Accept: "application/json",
+      },
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data?.time) {
+        return data.time.trim();
+      }
+    }
+  } catch (err) {
+    console.warn("Failed to fetch update time from last_updated.json:", err);
+  }
+
+  // Fallback: scrape from landing page
   try {
     const res = await fetch("https://rds2-bff.vercel.app/", {
       cache: "no-store",
@@ -38,8 +63,7 @@ async function fetchUpdateTime(): Promise<string> {
     const html = await res.text();
     const match = html.match(/<span>UPDATED:\s*([^<]+)<\/span>/i);
     return match ? match[1].trim() : "";
-  } catch (err) {
-    console.warn("Failed to fetch update time from landing page:", err);
+  } catch {
     return "";
   }
 }
@@ -64,7 +88,7 @@ async function fetchLiveData(): Promise<CourseData> {
   }
 
   const json = await coursesRes.json();
-  return parseBffJson(json, updateTime || undefined);
+  return parseBffJson(json, updateTime || undefined, getSemesterHint(BFF_URL));
 }
 
 // ─── Main loader with TTL cache + fallback ────────────────────────────────────
@@ -118,10 +142,10 @@ export async function GET(): Promise<NextResponse<ApiResponse<CourseData>>> {
       timestamp: new Date().toISOString(),
     });
 
-    // Cache-Control: allow browsers/CDN to cache for 5 min, then revalidate
+    // Disable aggressive browser caching so semester updates immediately
     response.headers.set(
       "Cache-Control",
-      "public, max-age=300, stale-while-revalidate=60"
+      "no-store, no-cache, must-revalidate, proxy-revalidate"
     );
     // Custom header so we can debug which path was used
     response.headers.set("X-Data-Source", source);

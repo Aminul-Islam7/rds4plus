@@ -107,17 +107,14 @@ export default function Home() {
       />
 
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-3 sm:px-4 py-3 sm:py-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
             {/* Logo & Title */}
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 opacity-50 blur"></div>
-                <div className="relative flex h-10 w-10 sm:h-12 sm:w-12 flex-col items-center justify-center rounded-xl bg-slate-900 leading-none">
-                  <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-xs sm:text-sm font-bold text-transparent">RDS4</span>
-                  <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-[10px] sm:text-[12px] font-semibold tracking-wider text-transparent">PLUS</span>
-                </div>
+              <div className="flex h-10 w-10 sm:h-12 sm:w-12 flex-col items-center justify-center rounded-xl bg-slate-800 leading-none">
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-xs sm:text-sm font-bold text-transparent">RDS4</span>
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-[10px] sm:text-[12px] font-semibold tracking-wider text-transparent">PLUS</span>
               </div>
               <div>
                 <h1 className="text-lg sm:text-xl font-bold text-white">
@@ -133,27 +130,27 @@ export default function Home() {
               {data && (
                 <>
                   {/* Semester Badge */}
-                  <div className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-2.5 sm:px-3 py-1 sm:py-1.5 border border-cyan-500/30">
+                  <div className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/20 px-2.5 sm:px-3 py-1 sm:py-1.5">
                     <svg className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     <span className="text-cyan-300 font-medium text-xs">{data.meta.semester}</span>
                   </div>
                   {/* Stats */}
-                  <div className="flex items-center gap-2 sm:gap-3 rounded-lg bg-slate-800/50 px-2.5 sm:px-3 py-1 sm:py-1.5 border border-slate-700/50 text-xs">
+                  <div className="flex items-center gap-2 sm:gap-3 rounded-lg bg-slate-800/80 px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs">
                     <div className="text-center">
                       <span className="font-bold text-cyan-400">{data.meta.uniqueCourses}</span>
-                      <span className="text-slate-500 ml-1">courses</span>
+                      <span className="text-slate-400 ml-1">courses</span>
                     </div>
-                    <div className="h-3 w-px bg-slate-700"></div>
+                    <div className="h-3 w-px bg-slate-700/60"></div>
                     <div className="text-center">
                       <span className="font-bold text-violet-400">{data.meta.totalSections}</span>
-                      <span className="text-slate-500 ml-1">sections</span>
+                      <span className="text-slate-400 ml-1">sections</span>
                     </div>
-                    <div className="h-3 w-px bg-slate-700"></div>
+                    <div className="h-3 w-px bg-slate-700/60"></div>
                     <div className="text-center">
                       <span className="font-bold text-emerald-400">{uniqueFacultyCount}</span>
-                      <span className="text-slate-500 ml-1">faculties</span>
+                      <span className="text-slate-400 ml-1">faculties</span>
                     </div>
                   </div>
                 </>
@@ -163,7 +160,7 @@ export default function Home() {
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={handleSaveData}
-                  className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 text-xs font-medium rounded-lg bg-slate-800/80 border border-slate-700/50 text-slate-300 hover:bg-slate-700/80 hover:text-white hover:border-slate-600 transition-all cursor-pointer"
+                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-all cursor-pointer"
                   title="Save your stars, priorities, and view settings"
                 >
                   <DownloadIcon className="h-3.5 w-3.5" />
@@ -171,7 +168,7 @@ export default function Home() {
                 </button>
                 <button
                   onClick={handleImportData}
-                  className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 text-xs font-medium rounded-lg bg-slate-800/80 border border-slate-700/50 text-slate-300 hover:bg-slate-700/80 hover:text-white hover:border-slate-600 transition-all cursor-pointer"
+                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-all cursor-pointer"
                   title="Restore your stars, priorities, and view settings from a file"
                 >
                   <UploadIcon className="h-3.5 w-3.5" />

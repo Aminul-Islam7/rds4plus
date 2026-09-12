@@ -23,7 +23,7 @@ export function useCourseData(): UseCourseDataReturn {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch("/api/courses");
+        const response = await fetch("/api/courses", { cache: "no-store" });
         const result: ApiResponse<CourseData> = await response.json();
 
         if (result.success && result.data) {
