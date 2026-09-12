@@ -67,6 +67,33 @@ function ChevronDownIcon({ className }: { className?: string }) {
   );
 }
 
+function FilterIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+    </svg>
+  );
+}
+
+function SortDualIcon({ direction, className }: { direction: "asc" | "desc" | null; className?: string }) {
+  return (
+    <svg className={className || "h-3.5 w-3.5"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8 9l4-4 4 4"
+        className={direction === "asc" ? "stroke-cyan-400 stroke-[2.5]" : "stroke-slate-500 opacity-60"}
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16 15l-4 4-4-4"
+        className={direction === "desc" ? "stroke-cyan-400 stroke-[2.5]" : "stroke-slate-500 opacity-60"}
+      />
+    </svg>
+  );
+}
+
 function BookmarkIcon({ className, filled }: { className?: string; filled?: boolean }) {
   return filled ? (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
@@ -157,96 +184,129 @@ function PrioritySelector({
   );
 }
 
-// Sortable column header with visibility toggle
+// Columns dropdown menu component
+const AVAILABLE_COLUMNS: { key: ColumnKey; label: string }[] = [
+  { key: "courseCode", label: "Course" },
+  { key: "faculty", label: "Faculty" },
+  { key: "room", label: "Seats" },
+  { key: "section", label: "Section" },
+  { key: "time", label: "Schedule" },
+  { key: "priority", label: "Priority" },
+  { key: "star", label: "Star" },
+  { key: "index", label: "# (Number)" },
+];
+
+function ColumnsDropdown({ tableState }: { tableState: ReturnType<typeof useTableState> }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [isOpen]);
+
+  const visibleCount = AVAILABLE_COLUMNS.filter((col) => tableState.isColumnVisible(col.key)).length;
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer select-none ${
+          isOpen
+            ? "bg-slate-700 text-white shadow-lg"
+            : "bg-slate-800/90 hover:bg-slate-700 text-slate-200"
+        }`}
+        title="Select visible columns"
+      >
+        <FilterIcon className="h-3.5 w-3.5 text-slate-300 shrink-0" />
+        <span>Columns</span>
+      </button>
+
+      {isOpen && (
+        <div className="absolute right-0 mt-1.5 w-48 rounded-xl bg-slate-900/95 backdrop-blur-md shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-100">
+          <div className="px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-slate-400 select-none">
+            Visible Columns
+          </div>
+          <div className="flex flex-col gap-1 mt-1">
+            {AVAILABLE_COLUMNS.map((col) => {
+              const isVisible = tableState.isColumnVisible(col.key);
+              // prevent disabling if it's the only visible column
+              const isLastVisible = isVisible && visibleCount <= 1;
+
+              return (
+                <button
+                  key={col.key}
+                  disabled={isLastVisible}
+                  onClick={() => tableState.toggleColumnVisibility(col.key)}
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer select-none text-left disabled:opacity-50 disabled:cursor-not-allowed ${
+                    isVisible
+                      ? "bg-slate-800 text-slate-100 hover:bg-slate-750"
+                      : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-200"
+                  }`}
+                >
+                  <span>{col.label}</span>
+                  {isVisible ? (
+                    <EyeIcon className="h-4 w-4 text-cyan-400 shrink-0" />
+                  ) : (
+                    <EyeOffIcon className="h-4 w-4 text-slate-500 shrink-0" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Sortable column header with compact sort button beside label
 function SortableHeader({
   label,
   sortKey,
-  columnKey,
   tableState,
   className,
   align = "center",
-  headerRowHovered,
 }: {
   label: string;
   sortKey: keyof Course | "priority";
-  columnKey: ColumnKey;
+  columnKey?: ColumnKey;
   tableState: ReturnType<typeof useTableState>;
   className?: string;
   align?: "left" | "center" | "right";
-  headerRowHovered: boolean;
+  headerRowHovered?: boolean;
 }) {
   const sortIndex = tableState.getSortIndex(sortKey);
   const sortDirection = tableState.getSortDirection(sortKey);
   const isSorted = sortIndex > 0;
-  
-  // Count visible columns to ensure at least one is visible
-  const visibleColumnsCount = 
-    (tableState.isColumnVisible("courseCode") ? 1 : 0) +
-    (tableState.isColumnVisible("section") ? 1 : 0) +
-    (tableState.isColumnVisible("faculty") ? 1 : 0) +
-    (tableState.isColumnVisible("time") ? 1 : 0) +
-    (tableState.isColumnVisible("room") ? 1 : 0) +
-    (tableState.isColumnVisible("index") ? 1 : 0) +
-    (tableState.isColumnVisible("star") ? 1 : 0) +
-    (tableState.isColumnVisible("priority") ? 1 : 0);
-
-  const canHide = visibleColumnsCount > 1;
-
-  // Get sort button text and icon
-  const getSortDisplay = () => {
-    if (!isSorted) {
-      return { text: "Sort", icon: <ChevronUpIcon className="h-3 w-3" /> };
-    }
-    if (sortDirection === "asc") {
-      return { text: "Asc", icon: <ChevronUpIcon className="h-3 w-3" /> };
-    }
-    return { text: "Desc", icon: <ChevronDownIcon className="h-3 w-3" /> };
-  };
-
-  const sortDisplay = getSortDisplay();
-  const showButtons = headerRowHovered || isSorted;
 
   return (
     <th
-      className={`px-4 pt-6 pb-2 text-xs font-semibold uppercase tracking-wider text-slate-400 select-none transition-colors ${className}`}
-      style={{ textAlign: align, verticalAlign: 'top' }}
+      className={`px-3 py-3 text-xs font-semibold uppercase tracking-wider select-none transition-colors ${className}`}
+      style={{ textAlign: align }}
     >
-      <div className={`flex flex-col gap-1.5 ${align === "center" ? "items-center" : align === "right" ? "items-end" : "items-start"}`}>
-        {/* Column Label */}
-        <span className="cursor-default">{label}</span>
-        
-        {/* Action buttons - visible on row hover */}
-        <div className={`flex items-center gap-1 transition-opacity ${showButtons ? "opacity-100" : "opacity-0"}`}>
-          {/* Sort Button */}
-          <button
-            onClick={() => tableState.toggleSort(sortKey)}
-            className={`flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] transition-all cursor-pointer ${
-              isSorted 
-                ? "bg-cyan-500/20 text-cyan-400" 
-                : "bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700"
-            }`}
-            title="Toggle sort"
-          >
-            {sortDisplay.icon}
-            <span>{sortDisplay.text}</span>
-            {sortIndex > 0 && tableState.sortConfigs.length > 1 && (
-              <span className="text-cyan-300 ml-0.5">{sortIndex}</span>
-            )}
-          </button>
-          
-          {/* Hide Button */}
-          {canHide && (
-            <button
-              onClick={() => tableState.toggleColumnVisibility(columnKey)}
-              className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-slate-800 text-slate-400 hover:text-red-300 hover:bg-slate-700 transition-all cursor-pointer"
-              title="Hide column"
-            >
-              <EyeOffIcon className="h-3 w-3" />
-              <span>Hide</span>
-            </button>
+      <button
+        onClick={() => tableState.toggleSort(sortKey)}
+        className={`group inline-flex items-center gap-1.5 cursor-pointer rounded px-1 py-0.5 transition-colors ${
+          isSorted ? "text-cyan-400" : "text-slate-400 hover:text-slate-200"
+        }`}
+        title={`Sort by ${label}`}
+      >
+        <span>{label}</span>
+        <div className="flex items-center gap-0.5">
+          <SortDualIcon direction={sortDirection} />
+          {sortIndex > 0 && tableState.sortConfigs.length > 1 && (
+            <span className="text-[10px] text-cyan-300 font-bold ml-0.5">{sortIndex}</span>
           )}
         </div>
-      </div>
+      </button>
     </th>
   );
 }
@@ -753,16 +813,6 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
         </div>
         
         <div className="flex items-center flex-wrap gap-3">
-          {tableState.hiddenColumns.size > 0 && (
-             <button
-               onClick={tableState.resetColumnVisibility}
-               className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
-             >
-               <EyeIcon className="h-4 w-4 shrink-0" />
-               <span>Show all columns</span>
-             </button>
-          )}
-
           {tableState.sortConfigs.length > 0 && (
             <button
               onClick={tableState.clearSorts}
@@ -782,6 +832,8 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
               <span>Clear all filters</span>
             </button>
           )}
+
+          <ColumnsDropdown tableState={tableState} />
         </div>
       </div>
     </div>
@@ -819,9 +871,6 @@ export function CourseTable() {
   const loaderRef = useRef<HTMLDivElement>(null);
   const tableContainerRef = useRef<HTMLDivElement>(null);
   
-  // Header row hover state for showing sort/hide buttons
-  const [headerRowHovered, setHeaderRowHovered] = useState(false);
-
   // Reset display count when filters change
   useEffect(() => {
     setDisplayCount(INITIAL_LOAD);
@@ -881,9 +930,6 @@ export function CourseTable() {
     (tableState.isColumnVisible("star") ? 1 : 0) +
     (tableState.isColumnVisible("priority") ? 1 : 0)
   ) || 1;
-
-  // Check if at least one column is visible to enable hiding
-  const canHide = visibleColumnCount > 1;
 
   if (isLoading) {
     return (
@@ -961,54 +1007,36 @@ export function CourseTable() {
           <table className="w-full min-w-[800px]">
              {/* No colgroup used here to let the browser auto-layout based on content, avoiding offsets */}
             <thead>
-              <tr 
-                className="bg-slate-800/80 group/header"
-                onMouseEnter={() => setHeaderRowHovered(true)}
-                onMouseLeave={() => setHeaderRowHovered(false)}
-              >
+              <tr className="bg-slate-800/80">
                 {/* Index - Leftmost */}
                 {tableState.isColumnVisible("index") && (
-                  <SortableHeader label="#" sortKey="index" columnKey="index" tableState={tableState} align="center" headerRowHovered={headerRowHovered} />
+                  <SortableHeader label="#" sortKey="index" tableState={tableState} align="center" />
                 )}
 
                 {tableState.isColumnVisible("courseCode") && (
-                  <SortableHeader label="Course" sortKey="courseCode" columnKey="courseCode" tableState={tableState} headerRowHovered={headerRowHovered} />
+                  <SortableHeader label="Course" sortKey="courseCode" tableState={tableState} />
                 )}
                 {tableState.isColumnVisible("section") && (
-                  <SortableHeader label="Section" sortKey="section" columnKey="section" tableState={tableState} align="center" headerRowHovered={headerRowHovered} />
+                  <SortableHeader label="Section" sortKey="section" tableState={tableState} align="center" />
                 )}
                 {tableState.isColumnVisible("faculty") && (
-                  <SortableHeader label="Faculty" sortKey="faculty" columnKey="faculty" tableState={tableState} headerRowHovered={headerRowHovered} />
+                  <SortableHeader label="Faculty" sortKey="faculty" tableState={tableState} />
                 )}
                 {tableState.isColumnVisible("time") && (
-                  <SortableHeader label="Schedule" sortKey="time" columnKey="time" tableState={tableState} align="left" headerRowHovered={headerRowHovered} />
+                  <SortableHeader label="Schedule" sortKey="time" tableState={tableState} align="left" />
                 )}
                 {tableState.isColumnVisible("room") && (
-                  <SortableHeader label="Seats" sortKey="room" columnKey="room" tableState={tableState} headerRowHovered={headerRowHovered} />
+                  <SortableHeader label="Seats" sortKey="room" tableState={tableState} />
                 )}
                 
                 {tableState.isColumnVisible("priority") && (
-                  <SortableHeader label="Priority" sortKey="priority" columnKey="priority" tableState={tableState} align="center" headerRowHovered={headerRowHovered} />
+                  <SortableHeader label="Priority" sortKey="priority" tableState={tableState} align="center" />
                 )}
 
                 {/* Star - Rightmost */}
                 {tableState.isColumnVisible("star") && (
-                  <th className="px-3 pt-6 pb-2 text-center text-xs font-semibold uppercase tracking-wider text-slate-400" style={{ verticalAlign: 'top' }}>
-                    <div className="flex flex-col gap-1.5 items-center">
-                      <span>STAR</span>
-                      <div className={`flex items-center gap-1 transition-opacity ${headerRowHovered ? "opacity-100" : "opacity-0"}`}>
-                        {canHide && (
-                          <button
-                            onClick={() => tableState.toggleColumnVisibility("star")}
-                            className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-slate-800 text-slate-400 hover:text-red-300 hover:bg-slate-700 transition-all cursor-pointer"
-                            title="Hide column"
-                          >
-                            <EyeOffIcon className="h-3 w-3" />
-                            <span>Hide</span>
-                          </button>
-                        )}
-                      </div>
-                    </div>
+                  <th className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-wider text-slate-400 select-none">
+                    <span>Star</span>
                   </th>
                 )}
               </tr>
