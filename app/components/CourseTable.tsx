@@ -729,7 +729,7 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
       </div>
 
       {/* Results count + Clear + Updated text */}
-      <div className="flex items-center justify-between pt-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2">
         <div className="flex items-center gap-4">
           {lastUpdated && (
             <div className="text-sm text-slate-400 flex flex-wrap items-center gap-1.5">
@@ -752,34 +752,34 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
           )}
         </div>
         
-        <div className="flex items-center gap-3">
+        <div className="flex items-center flex-wrap gap-3">
           {tableState.hiddenColumns.size > 0 && (
              <button
                onClick={tableState.resetColumnVisibility}
-               className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 cursor-pointer"
+               className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
              >
-               <EyeIcon className="h-4 w-4" />
-               Show all columns
+               <EyeIcon className="h-4 w-4 shrink-0" />
+               <span>Show all columns</span>
              </button>
           )}
 
           {tableState.sortConfigs.length > 0 && (
             <button
               onClick={tableState.clearSorts}
-              className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
+              className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
             >
-              <XIcon className="h-4 w-4" />
-              Clear sorts ({tableState.sortConfigs.length})
+              <XIcon className="h-4 w-4 shrink-0" />
+              <span>Clear sorts ({tableState.sortConfigs.length})</span>
             </button>
           )}
           
           {(hasActiveFilters || tableState.searchQuery) && (
             <button
               onClick={tableState.clearAllFilters}
-              className="text-sm text-red-400 hover:text-red-300 transition-colors flex items-center gap-1 cursor-pointer"
+              className="text-sm text-red-400 hover:text-red-300 transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
             >
-              <XIcon className="h-4 w-4" />
-              Clear all filters
+              <XIcon className="h-4 w-4 shrink-0" />
+              <span>Clear all filters</span>
             </button>
           )}
         </div>
