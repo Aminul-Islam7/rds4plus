@@ -220,11 +220,11 @@ export function HelpModal({ isOpen, onClose, onDontShowAgain }: HelpModalProps) 
         </div>
 
         {/* Footer with Modern Toggle Switch */}
-        <div className="px-5 sm:px-6 py-3.5 bg-slate-900 flex items-center justify-between gap-4 shrink-0">
+        <div className="px-5 sm:px-6 py-3 bg-slate-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0">
           <button
             type="button"
             onClick={() => setDontShowAgain((prev) => !prev)}
-            className="flex items-center gap-2.5 cursor-pointer select-none group text-left"
+            className="flex items-center gap-2.5 cursor-pointer select-none group text-left shrink-0"
           >
             <div
               className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors ${
@@ -238,7 +238,7 @@ export function HelpModal({ isOpen, onClose, onDontShowAgain }: HelpModalProps) 
               />
             </div>
             <span
-              className={`text-xs transition-colors ${
+              className={`text-xs whitespace-nowrap transition-colors ${
                 dontShowAgain ? "text-slate-200 font-medium" : "text-slate-400 group-hover:text-slate-300"
               }`}
             >
@@ -246,12 +246,12 @@ export function HelpModal({ isOpen, onClose, onDontShowAgain }: HelpModalProps) 
             </span>
           </button>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto shrink-0">
             <a
               href="https://www.linkedin.com/in/aminul-islam7/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-slate-500 hover:text-slate-300 transition-colors inline-flex items-center gap-1 group"
+              className="text-xs text-slate-500 hover:text-slate-300 transition-colors inline-flex items-center gap-1 group whitespace-nowrap"
               title="Aminul Islam on LinkedIn"
             >
               <span>Created by Aminul Islam</span>
@@ -262,7 +262,7 @@ export function HelpModal({ isOpen, onClose, onDontShowAgain }: HelpModalProps) 
 
             <button
               onClick={handleClose}
-              className="text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 px-4 py-2 rounded-xl transition-colors cursor-pointer shrink-0"
+              className="text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 px-4 py-2 rounded-xl transition-colors cursor-pointer shrink-0 whitespace-nowrap"
             >
               Got it, Let&apos;s Plan
             </button>
