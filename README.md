@@ -4,8 +4,6 @@
 
 **Live App**: [rds4plus.vercel.app](https://rds4plus.vercel.app)
 
----
-
 ## Overview
 
 RDS4+ is designed to help preplan course advising. It allows NSU students to save and rank preferred sections and faculties before their course registration slot opens.
@@ -13,8 +11,6 @@ RDS4+ is designed to help preplan course advising. It allows NSU students to sav
 [![RDS4+ Web Interface](./public/screenshot.png)](https://rds4plus.vercel.app)
 
 Built with Next.js 16 (Turbopack) and React 19, RDS4+ delivers immediate search and filtering across 3,000+ course sections with zero client-side lag, intelligent multi-term queries, dynamic priority ranking indicators, and seamless JSON configuration backup and migration.
-
----
 
 ## Table of Contents
 
@@ -25,8 +21,6 @@ Built with Next.js 16 (Turbopack) and React 19, RDS4+ delivers immediate search 
 - [Project Structure](#project-structure)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
-
----
 
 ## Features
 
@@ -74,8 +68,6 @@ Built with Next.js 16 (Turbopack) and React 19, RDS4+ delivers immediate search 
 * Save your entire setup—including filters, priorities, and starred sections—to a portable JSON file.
 * Load it back at any time or transfer it to another device before advising begins.
 
----
-
 ## Tech Stack
 
 * **Framework**: Next.js 16 (App Router + Turbopack)
@@ -84,8 +76,6 @@ Built with Next.js 16 (Turbopack) and React 19, RDS4+ delivers immediate search 
 * **Styling**: Tailwind CSS v4 (borderless dark interface)
 * **State & Persistence**: Browser `localStorage` with JSON backup/restore
 * **Deployment**: Vercel
-
----
 
 ## Getting Started
 
@@ -121,8 +111,6 @@ npm run build
 npm run start
 ```
 
----
-
 ## Project Structure
 
 ```text
@@ -148,21 +136,17 @@ rds4plus/
 │   └── courses.json             # Course schedule dataset
 ├── public/
 │   └── screenshot.png           # Interface preview image
+├── LICENSE                      # MIT License file
 ├── package.json
 └── tsconfig.json
 ```
 
----
-
 ## Acknowledgements
 
 * **[Maharun Afroz](https://github.com/maharun0/course-koi)**: Creator of [Course Koi?](https://course-koi.vercel.app/). RDS4+ was inspired by Course Koi?, built with a focus on faster load times, multi-term search parsing, and a simpler user interface.
-* **[Tahshan Jamil Shadhin](https://github.com/Shadhin-f
-)**: Creator of [RDS2 BUT FROM FUTURE](https://rds2-bff.vercel.app/), which sources and automatically updates the NSU course schedule dataset.
+* **[Tahshan Jamil Shadhin](https://github.com/Shadhin-f)**: Creator of [RDS2 BUT FROM FUTURE](https://rds2-bff.vercel.app/), which sources and automatically updates the NSU course schedule dataset.
 * Created and maintained by [Aminul Islam](https://github.com/Aminul-Islam7) ([LinkedIn](https://www.linkedin.com/in/aminul-islam7/)).
-
----
 
 ## License
 
-This project is open-source and free to use for all students. Distributed under the MIT License.
+This project is open-source and free to use for all students. Distributed under the [MIT License](LICENSE).
