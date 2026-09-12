@@ -143,7 +143,7 @@ export function HelpModal({ isOpen, onClose, onDontShowAgain }: HelpModalProps) 
                 Priority Levels (1 to 99)
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Rank backup sections for each course. Higher priorities glow with dynamic colors so you instantly decide plan B or C when a section fills up.
+                Rank backup sections for each course. Higher priorities glow with dynamic colors so you can instantly decide plan B or C when a favorite section is not available.
               </p>
             </div>
 
@@ -213,7 +213,7 @@ export function HelpModal({ isOpen, onClose, onDontShowAgain }: HelpModalProps) 
                 Backup & Restore
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Use <span className="text-white font-medium">Export Setup</span> in the header to save stars and priorities to a JSON file, to restore later or <span className="text-white font-medium">Import Setup</span> on another device.
+                Use <span className="text-white font-medium">Export</span> in the header to save filters, stars and priorities to a JSON file, to restore later or <span className="text-white font-medium">Import</span> on another device.
               </p>
             </div>
           </div>
