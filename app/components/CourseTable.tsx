@@ -769,7 +769,7 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
               ))}
             </div>
             {/* Single-day pills - second row */}
-            <div className="flex gap-1">
+            <div className="flex gap-1.5">
               {(["S", "M", "T", "W", "R", "A"] as const).map((day) => (
                 <button
                   key={day}
@@ -790,8 +790,8 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
 
       {/* Results count + Clear + Updated text */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2">
-        <div className="flex items-center gap-4">
-          {lastUpdated && (
+        <div className="flex items-center gap-4 min-h-[20px]">
+          {lastUpdated ? (
             <div className="text-sm text-slate-400 flex flex-wrap items-center gap-1.5">
               <span>Last updated:</span>
               <span className="text-slate-300 font-medium">{lastUpdated}</span>
@@ -808,6 +808,10 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
                 </a>
                 )
               </span>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 animate-pulse">
+              <div className="h-4 w-60 rounded bg-slate-800/80" />
             </div>
           )}
         </div>
@@ -931,38 +935,13 @@ export function CourseTable() {
     (tableState.isColumnVisible("priority") ? 1 : 0)
   ) || 1;
 
-  if (isLoading) {
-    return (
-      <div className="rounded-xl bg-slate-900/60 backdrop-blur-sm overflow-hidden">
-        <LoadingSkeleton />
-      </div>
-    );
-  }
-
-  if (error && !data) {
-    return (
-      <div className="rounded-xl bg-red-500/10 p-8 text-center">
-        <div className="text-red-400 text-lg font-medium mb-2">Failed to load courses</div>
-        <div className="text-red-300/70 text-sm">{error}</div>
-      </div>
-    );
-  }
-
-  if (!data || data.courses.length === 0) {
-    return (
-      <div className="rounded-xl bg-slate-900/60 p-8 text-center">
-        <div className="text-slate-400 text-lg">No courses available</div>
-      </div>
-    );
-  }
-
   return (
     <div className="space-y-4">
       {/* Search Bar */}
       <SearchBar
         value={tableState.searchQuery}
         onChange={tableState.setSearchQuery}
-        courses={data.courses}
+        courses={data?.courses || []}
         tableState={tableState}
       />
 
@@ -992,10 +971,10 @@ export function CourseTable() {
       {/* Filter Bar */}
       <FilterBar 
         tableState={tableState} 
-        totalCount={data.courses.length}
+        totalCount={data?.courses.length || 0}
         filteredCount={tableState.filteredCourses.length}
         displayedCount={displayedCourses.length}
-        lastUpdated={data.meta.lastUpdated}
+        lastUpdated={data?.meta.lastUpdated}
       />
 
       {/* Table */}
@@ -1042,7 +1021,68 @@ export function CourseTable() {
               </tr>
             </thead>
             <tbody>
-              {displayedCourses.length === 0 ? (
+              {isLoading ? (
+                [...Array(12)].map((_, i) => (
+                  <tr key={i} className="animate-pulse border-b border-slate-800/30">
+                    {tableState.isColumnVisible("index") && (
+                      <td className="px-4 py-3 text-center">
+                        <div className="h-4 w-6 mx-auto rounded bg-slate-800/60" />
+                      </td>
+                    )}
+                    {tableState.isColumnVisible("courseCode") && (
+                      <td className="px-4 py-3 text-center">
+                        <div className="h-5 w-20 mx-auto rounded bg-slate-800/60" />
+                      </td>
+                    )}
+                    {tableState.isColumnVisible("section") && (
+                      <td className="px-3 py-3 text-center">
+                        <div className="h-4 w-8 mx-auto rounded bg-slate-800/60" />
+                      </td>
+                    )}
+                    {tableState.isColumnVisible("faculty") && (
+                      <td className="px-4 py-3 text-center">
+                        <div className="h-5 w-16 mx-auto rounded bg-slate-800/60" />
+                      </td>
+                    )}
+                    {tableState.isColumnVisible("time") && (
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          <div className="h-4 w-8 rounded bg-slate-800/60" />
+                          <div className="h-4 w-32 rounded bg-slate-800/60" />
+                        </div>
+                      </td>
+                    )}
+                    {tableState.isColumnVisible("room") && (
+                      <td className="px-3 py-3 text-center">
+                        <div className="h-4 w-14 mx-auto rounded bg-slate-800/60" />
+                      </td>
+                    )}
+                    {tableState.isColumnVisible("priority") && (
+                      <td className="px-3 py-3 text-center">
+                        <div className="h-6 w-16 mx-auto rounded-lg bg-slate-800/60" />
+                      </td>
+                    )}
+                    {tableState.isColumnVisible("star") && (
+                      <td className="px-3 py-3 text-center">
+                        <div className="h-5 w-5 mx-auto rounded bg-slate-800/60" />
+                      </td>
+                    )}
+                  </tr>
+                ))
+              ) : error && !data ? (
+                <tr>
+                  <td colSpan={visibleColumnCount} className="px-4 py-12 text-center text-red-400">
+                    <div className="text-lg font-medium mb-2">Failed to load courses</div>
+                    <div className="text-sm text-red-300/70">{error}</div>
+                  </td>
+                </tr>
+              ) : !data || data.courses.length === 0 ? (
+                <tr>
+                  <td colSpan={visibleColumnCount} className="px-4 py-12 text-center text-slate-400">
+                    <div className="text-lg font-medium mb-2">No courses available</div>
+                  </td>
+                </tr>
+              ) : displayedCourses.length === 0 ? (
                 <tr>
                   <td colSpan={visibleColumnCount} className="px-4 py-12 text-center text-slate-400">
                     <div className="text-lg font-medium mb-2">No matching sections</div>
@@ -1065,7 +1105,7 @@ export function CourseTable() {
         </div>
         
         {/* Lazy loading indicator */}
-        {hasMore && (
+        {!isLoading && hasMore && (
           <div ref={loaderRef} className="flex items-center justify-center py-4 text-slate-400">
             <div className="flex items-center gap-2">
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-slate-600 border-t-cyan-400"></div>

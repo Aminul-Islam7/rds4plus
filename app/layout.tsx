@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { CourseProvider } from "./context/CourseContext";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
         <CourseProvider>
           {children}
         </CourseProvider>
+        <Analytics />
       </body>
     </html>
   );

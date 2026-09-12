@@ -140,7 +140,7 @@ export default function Home() {
             </div>
 
             {/* Center: Semester badge + stats — hides labels on mobile, shows numbers only */}
-            {data && (
+            {data ? (
               <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 overflow-hidden">
                 {/* Semester badge — hidden on xs */}
                 <div className="hidden sm:inline-flex items-center gap-1 rounded-full bg-cyan-500/20 px-2.5 py-1">
@@ -160,6 +160,11 @@ export default function Home() {
                   <span className="font-bold text-emerald-400">{uniqueFacultyCount}</span>
                   <span className="text-slate-500 hidden sm:inline">faculties</span>
                 </div>
+              </div>
+            ) : (
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 overflow-hidden animate-pulse">
+                <div className="hidden sm:inline-flex h-6 w-24 rounded-full bg-slate-800/80" />
+                <div className="h-6 w-36 sm:w-56 rounded-lg bg-slate-800/80" />
               </div>
             )}
 
