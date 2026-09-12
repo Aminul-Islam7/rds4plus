@@ -165,23 +165,26 @@ export default function Home() {
 
             {/* Right: Action buttons — icon-only on mobile, icon+label on sm+ */}
             <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
-              <button
-                onClick={handleSaveData}
-                className={btnClass}
-                title="Export your stars, priorities, and view settings"
-              >
-                <DownloadIcon className="h-3.5 w-3.5 shrink-0" />
-                <span className="hidden sm:inline">Export</span>
-              </button>
-
-              <button
-                onClick={handleImportData}
-                className={btnClass}
-                title="Import stars, priorities, and view settings from a file"
-              >
-                <UploadIcon className="h-3.5 w-3.5 shrink-0" />
-                <span className="hidden sm:inline">Import</span>
-              </button>
+              {/* Export + Import merged pill */}
+              <div className="flex items-center rounded-lg bg-slate-800 text-slate-300 overflow-hidden shrink-0">
+                <button
+                  onClick={handleSaveData}
+                  className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 text-xs font-medium hover:bg-slate-700 hover:text-white transition-all cursor-pointer"
+                  title="Export your stars, priorities, and view settings"
+                >
+                  <DownloadIcon className="h-3.5 w-3.5 shrink-0" />
+                  <span className="hidden sm:inline">Export</span>
+                </button>
+                <div className="w-px h-4 bg-slate-700/80 shrink-0" />
+                <button
+                  onClick={handleImportData}
+                  className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 text-xs font-medium hover:bg-slate-700 hover:text-white transition-all cursor-pointer"
+                  title="Import stars, priorities, and view settings from a file"
+                >
+                  <UploadIcon className="h-3.5 w-3.5 shrink-0" />
+                  <span className="hidden sm:inline">Import</span>
+                </button>
+              </div>
 
               <button
                 onClick={() => setShowHelpModal(true)}
@@ -222,7 +225,7 @@ export default function Home() {
           href="https://www.linkedin.com/in/aminul-islam7/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-[11px] text-slate-600 hover:text-slate-400 transition-colors group"
+          className="inline-flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-400 transition-colors group"
           title="Aminul Islam on LinkedIn"
         >
           <span>Created by Aminul Islam</span>

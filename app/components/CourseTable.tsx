@@ -920,6 +920,29 @@ export function CourseTable() {
         tableState={tableState}
       />
 
+      {/* Warning: search + active filters combined */}
+      {tableState.searchQuery.trim() &&
+        (tableState.activeCourseFilters.size > 0 ||
+          tableState.activeFacultyFilters.size > 0 ||
+          tableState.activeDayFilters.size > 0 ||
+          tableState.showStarredOnly) && (
+          <div className="flex items-center gap-2 rounded-lg bg-amber-500/10 border border-amber-500/20 px-3 py-2 text-xs text-amber-300">
+            <svg className="h-3.5 w-3.5 shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+            </svg>
+            <span>
+              Active filters are narrowing your search results.{" "}
+              <button
+                onClick={tableState.clearAllFilters}
+                className="font-semibold text-amber-200 hover:text-white underline underline-offset-2 cursor-pointer transition-colors"
+              >
+                Clear filters
+              </button>{" "}
+              to search across all sections.
+            </span>
+          </div>
+        )}
+
       {/* Filter Bar */}
       <FilterBar 
         tableState={tableState} 
