@@ -732,8 +732,22 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
       <div className="flex items-center justify-between pt-2">
         <div className="flex items-center gap-4">
           {lastUpdated && (
-            <div className="text-sm text-slate-400">
-              Updated on <span className="text-slate-300">{lastUpdated}</span>
+            <div className="text-sm text-slate-400 flex flex-wrap items-center gap-1.5">
+              <span>Last updated:</span>
+              <span className="text-slate-300 font-medium">{lastUpdated}</span>
+              <span className="text-slate-500">·</span>
+              <span>
+                (Data source:{" "}
+                <a
+                  href="https://rds2-bff.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-slate-200 underline decoration-slate-600 hover:decoration-slate-400 underline-offset-2 transition-colors cursor-pointer"
+                >
+                  RDS2 BUT FROM FUTURE
+                </a>
+                )
+              </span>
             </div>
           )}
         </div>
