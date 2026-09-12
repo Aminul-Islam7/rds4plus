@@ -262,7 +262,7 @@ export function HelpModal({ isOpen, onClose, onDontShowAgain }: HelpModalProps) 
 
             <button
               onClick={handleClose}
-              className="text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 px-4 py-2 rounded-xl transition-colors cursor-pointer shrink-0 whitespace-nowrap"
+              className="text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 px-4 py-2 rounded-lg transition-colors cursor-pointer shrink-0 whitespace-nowrap"
             >
               Got it, Let&apos;s Plan
             </button>

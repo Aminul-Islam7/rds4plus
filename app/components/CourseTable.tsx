@@ -162,7 +162,7 @@ function PrioritySelector({
   };
 
   return (
-    <div className={`flex items-center gap-1 rounded px-1.5 py-0.5 ${colorClass} transition-colors h-7`}>
+    <div className={`flex items-center gap-1 rounded-lg px-1.5 py-0.5 ${colorClass} transition-colors h-7`}>
       <button 
         onClick={handleDecrement}
         className="p-0.5 hover:text-white disabled:opacity-30 disabled:hover:text-current transition-colors cursor-pointer"
@@ -294,7 +294,7 @@ function SortableHeader({
     >
       <button
         onClick={() => tableState.toggleSort(sortKey)}
-        className={`group inline-flex items-center gap-1.5 cursor-pointer rounded px-1 py-0.5 transition-colors ${
+        className={`group inline-flex items-center gap-1.5 cursor-pointer rounded-lg px-1 py-0.5 transition-colors ${
           isSorted ? "text-cyan-400" : "text-slate-400 hover:text-slate-200"
         }`}
         title={`Sort by ${label}`}
@@ -351,7 +351,7 @@ function CourseRow({
             <span className="font-semibold text-cyan-400">{course.courseCode}</span>
             <button
               onClick={() => tableState.toggleSavedCourse(course.courseCode)}
-              className={`text-xs px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-all cursor-pointer ${
+              className={`text-xs px-1.5 py-0.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all cursor-pointer ${
                 isSavedCourse 
                   ? "bg-cyan-500/20 text-cyan-300" 
                   : "bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700"
@@ -379,7 +379,7 @@ function CourseRow({
             <span className="font-medium text-emerald-400">{course.faculty}</span>
             <button
               onClick={() => tableState.toggleSavedFaculty(course.faculty)}
-              className={`text-xs px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-all cursor-pointer ${
+              className={`text-xs px-1.5 py-0.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all cursor-pointer ${
                 isSavedFaculty 
                   ? "bg-emerald-500/20 text-emerald-300" 
                   : "bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700"
@@ -428,7 +428,7 @@ function CourseRow({
           <div className="flex justify-center">
             <button
               onClick={() => tableState.toggleStar(course.id)}
-              className={`p-1 rounded transition-all hover:scale-110 cursor-pointer ${
+              className={`p-1 rounded-lg transition-all hover:scale-110 cursor-pointer ${
                 isStarred ? "text-yellow-400" : "text-slate-600 hover:text-yellow-400/50"
               }`}
               title={isStarred ? "Remove star" : "Star this section"}
@@ -612,7 +612,7 @@ function SearchBar({
               onChange("");
               inputRef.current?.focus();
             }}
-            className="absolute right-3 p-1 text-slate-400 hover:text-white transition-colors cursor-pointer"
+            className="absolute right-3 p-1 rounded-lg text-slate-400 hover:text-white transition-colors cursor-pointer"
           >
             <XIcon className="h-4 w-4" />
           </button>
@@ -639,7 +639,7 @@ function SearchBar({
                       e.stopPropagation();
                       tableState.toggleSavedCourse(course);
                     }}
-                    className={`flex items-center gap-1.5 px-2 py-1 rounded text-xs transition-all cursor-pointer ${
+                    className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs transition-all cursor-pointer ${
                       isCourseInSaved(course)
                         ? "text-cyan-400 bg-cyan-500/20"
                         : "text-slate-400 hover:text-cyan-300 hover:bg-slate-600/50"
@@ -670,7 +670,7 @@ function SearchBar({
                       e.stopPropagation();
                       tableState.toggleSavedFaculty(faculty);
                     }}
-                    className={`flex items-center gap-1.5 px-2 py-1 rounded text-xs transition-all cursor-pointer ${
+                    className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs transition-all cursor-pointer ${
                       isFacultyInSaved(faculty)
                         ? "text-emerald-400 bg-emerald-500/20"
                         : "text-slate-400 hover:text-emerald-300 hover:bg-slate-600/50"
