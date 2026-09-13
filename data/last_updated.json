@@ -1,8 +1,8 @@
 {
-  "time": "12:53 PM",
-  "synced_at": "13 Sep 2026, 12:53 PM GMT+6",
+  "scraped_at": "Sep 13, 1:08 PM",
+  "scraped_iso": "2026-09-13T07:08:15.270Z",
+  "synced_at": "13 Sep 2026, 01:03 PM",
   "semester": "Fall 2026",
-  "scraped_at": "2026-09-13T06:56:37.836Z",
   "source": "rds4.northsouth.ac.bd",
-  "total_sections": 3206
+  "total_sections": 3223
 }

@@ -136,18 +136,30 @@ async function main() {
   writeFileSync(responsePath, JSON.stringify(courses, null, 2), "utf-8");
   console.log(`📝 Wrote ${responsePath} (${courses.length} entries)`);
 
-  // Write last_updated.json
+  // Write last_updated.json with exact scrape time in Asia/Dhaka timezone
+  const scrapeDate = new Date();
+  const scrapedTime = scrapeDate.toLocaleString("en-US", {
+    timeZone: "Asia/Dhaka",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+  const cleanSynced = (lastSynced || "").replace(/\s*GMT[+-]?\d*/gi, "").trim();
+
   const lastUpdated = {
-    time: formatSyncTime(lastSynced),
-    synced_at: lastSynced,
+    scraped_at: scrapedTime,
+    scraped_iso: scrapeDate.toISOString(),
+    synced_at: cleanSynced,
     semester: semester,
-    scraped_at: new Date().toISOString(),
     source: "rds4.northsouth.ac.bd",
     total_sections: courses.length,
   };
   const lastUpdatedPath = join(dataDir, "last_updated.json");
   writeFileSync(lastUpdatedPath, JSON.stringify(lastUpdated, null, 2), "utf-8");
-  console.log(`📝 Wrote ${lastUpdatedPath}`);
+  console.log(`📝 Wrote ${lastUpdatedPath} (scraped at: ${scrapedTime})`);
 
   console.log("\n🎉 Done!");
 }

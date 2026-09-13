@@ -52,32 +52,60 @@ const MONTH_MAP: Record<string, string> = {
 };
 
 /**
- * Format scraped date (e.g. "02:40 AM, 20th MAY") to style: "May 20, 2:40 AM"
+ * Format scraped date to style: "Sep 13, 12:53 PM" (always in Asia/Dhaka time, without GMT+6)
  */
 export function formatScrapedDate(scraped: string): string {
-  const clean = scraped.trim();
-  const match = clean.match(/^(\d{1,2}):(\d{2})\s*(AM|PM),\s*(\d{1,2})(?:st|nd|rd|th)?\s*([A-Za-z]+)$/i);
-  if (!match) return scraped;
+  let clean = scraped.trim();
+  // Strip timezone labels like "GMT+6", "GMT", "UTC"
+  clean = clean.replace(/\s*(GMT[+-]?\d*|BST|UTC)\s*/gi, " ").trim();
 
-  const [, hourStr, minuteStr, period, dayStr, monthStr] = match;
-  
-  const hour = parseInt(hourStr, 10).toString();
-  const minute = minuteStr;
-  const ampm = period.toUpperCase();
-  const day = parseInt(dayStr, 10).toString();
-  
-  const monthKey = monthStr.toLowerCase().substring(0, 3);
-  const month = MONTH_MAP[monthKey] || (monthStr.charAt(0).toUpperCase() + monthStr.slice(1).toLowerCase());
+  // Handle ISO string or valid date string (e.g. "2026-09-13T06:56:37.836Z")
+  if (/^\d{4}-\d{2}-\d{2}T/.test(clean)) {
+    const d = new Date(clean);
+    if (!isNaN(d.getTime())) {
+      return d.toLocaleString("en-US", {
+        timeZone: "Asia/Dhaka",
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      });
+    }
+  }
 
-  return `${month} ${day}, ${hour}:${minute} ${ampm}`;
+  // Handle "13 Sep 2026, 12:53 PM" or "13 Sep, 12:53 PM"
+  const dmyMatch = clean.match(/^(\d{1,2})\s+([A-Za-z]+)(?:\s+\d{4})?,\s*(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (dmyMatch) {
+    const [, dayStr, monthStr, hourStr, minuteStr, period] = dmyMatch;
+    const hour = parseInt(hourStr, 10).toString();
+    const day = parseInt(dayStr, 10).toString();
+    const monthKey = monthStr.toLowerCase().substring(0, 3);
+    const month = MONTH_MAP[monthKey] || (monthStr.charAt(0).toUpperCase() + monthStr.slice(1).toLowerCase());
+    return `${month} ${day}, ${hour}:${minuteStr} ${period.toUpperCase()}`;
+  }
+
+  // Handle legacy "02:40 AM, 20th MAY"
+  const legacyMatch = clean.match(/^(\d{1,2}):(\d{2})\s*(AM|PM),\s*(\d{1,2})(?:st|nd|rd|th)?\s*([A-Za-z]+)$/i);
+  if (legacyMatch) {
+    const [, hourStr, minuteStr, period, dayStr, monthStr] = legacyMatch;
+    const hour = parseInt(hourStr, 10).toString();
+    const day = parseInt(dayStr, 10).toString();
+    const monthKey = monthStr.toLowerCase().substring(0, 3);
+    const month = MONTH_MAP[monthKey] || (monthStr.charAt(0).toUpperCase() + monthStr.slice(1).toLowerCase());
+    return `${month} ${day}, ${hour}:${minuteStr} ${period.toUpperCase()}`;
+  }
+
+  return clean;
 }
 
 /**
- * Format current date in "Jan 12, 2:43 AM" style
+ * Format current date in "Jan 12, 2:43 AM" style in Asia/Dhaka timezone
  */
 export function formatCurrentDate(): string {
   const date = new Date();
   return date.toLocaleString("en-US", {
+    timeZone: "Asia/Dhaka",
     month: "short",
     day: "numeric",
     hour: "numeric",

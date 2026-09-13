@@ -2,8 +2,8 @@ name: Update Course Data
 
 on:
   schedule:
-    # Run every 30 minutes
-    - cron: '*/30 * * * *'
+    # Run every 15 minutes
+    - cron: '*/15 * * * *'
   workflow_dispatch: # Allow manual trigger from GitHub Actions UI
 
 permissions:

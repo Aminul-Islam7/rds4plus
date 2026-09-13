@@ -804,18 +804,7 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
               <span>Last updated:</span>
               <span className="text-slate-300 font-medium">{lastUpdated}</span>
               <span className="text-slate-500">·</span>
-              <span>
-                (Data source:{" "}
-                <a
-                  href="https://rds2-bff.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-slate-200 underline decoration-slate-600 hover:decoration-slate-400 underline-offset-2 transition-colors cursor-pointer"
-                >
-                  RDS2 BUT FROM FUTURE
-                </a>
-                )
-              </span>
+              <span className="text-slate-400">Updates from RDS4 every ~15 mins</span>
             </div>
           ) : (
             <div className="flex items-center gap-2 animate-pulse">

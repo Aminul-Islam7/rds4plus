@@ -26,9 +26,7 @@ async function loadFallbackData(): Promise<CourseData> {
     const luPath = path.join(process.cwd(), "data", "last_updated.json");
     const luRaw = await fs.readFile(luPath, "utf-8");
     const lu = JSON.parse(luRaw);
-    if (lu?.synced_at) {
-      updateTime = lu.synced_at;
-    }
+    updateTime = lu?.scraped_at || lu?.scraped_iso || lu?.synced_at;
   } catch {
     // no last_updated.json, that's fine
   }
@@ -153,7 +151,15 @@ async function fetchLiveData(): Promise<CourseData> {
   }
 
   const semesterHint = getSemesterHintFromName(semester);
-  return parseBffJson(courses, lastSynced || undefined, semesterHint);
+  const scrapedTime = new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Dhaka",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
+  return parseBffJson(courses, scrapedTime, semesterHint);
 }
 
 // ─── Main loader with TTL cache + fallback ────────────────────────────────────
