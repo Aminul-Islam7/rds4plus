@@ -35,27 +35,19 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     setMounted(true);
   }, []);
 
-  // Avoid hydration mismatch before client mount
-  if (!mounted) {
-    return (
-      <button
-        type="button"
-        className={`flex items-center justify-center h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors ${className}`}
-        aria-label="Toggle theme"
-      >
-        <span className="h-4 w-4" />
-      </button>
-    );
-  }
-
-  const isDark = resolvedTheme === "dark";
+  // During SSR/initial hydration, assume dark (default) or detect client root class
+  const isDark = mounted 
+    ? resolvedTheme === "dark" 
+    : typeof document !== "undefined" 
+    ? document.documentElement.classList.contains("dark") 
+    : true;
 
   return (
     <button
       id="theme-toggle"
       type="button"
       onClick={toggleTheme}
-      className={`relative flex items-center justify-center h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 dark:hover:text-white transition-all duration-200 active:scale-90 cursor-pointer ${className}`}
+      className={`relative flex items-center justify-center h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 dark:hover:text-white transition-all duration-200 active:scale-90 cursor-pointer shrink-0 ${className}`}
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >

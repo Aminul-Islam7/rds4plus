@@ -122,7 +122,7 @@ export default function Home() {
 
   // Shared button class for header action buttons
   const btnClass =
-    "flex items-center justify-center gap-1.5 px-2 sm:px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 dark:hover:text-white transition-all cursor-pointer shrink-0";
+    "flex items-center justify-center gap-1.5 h-7 sm:h-8 px-2 sm:px-3 text-xs font-medium rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 dark:hover:text-white transition-all cursor-pointer shrink-0";
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
@@ -146,14 +146,14 @@ export default function Home() {
             {data ? (
               <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 overflow-hidden">
                 {/* Semester badge — hidden on xs */}
-                <div className="hidden sm:inline-flex items-center gap-1 rounded-lg bg-cyan-500/15 dark:bg-cyan-500/20 px-2.5 py-1">
+                <div className="hidden sm:inline-flex items-center gap-1.5 h-7 sm:h-8 rounded-lg bg-cyan-500/15 dark:bg-cyan-500/20 px-2.5 shrink-0">
                   <svg className="h-3 w-3 text-cyan-600 dark:text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   <span className="text-cyan-700 dark:text-cyan-300 font-medium text-xs whitespace-nowrap">{data.meta.semester}</span>
                 </div>
                 {/* Stats pill */}
-                <div className="flex items-center gap-1.5 sm:gap-2 rounded-lg bg-slate-100 dark:bg-slate-800/80 px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs whitespace-nowrap">
+                <div className="flex items-center gap-1.5 sm:gap-2 h-7 sm:h-8 rounded-lg bg-slate-100 dark:bg-slate-800/80 px-2 sm:px-2.5 text-[10px] sm:text-xs whitespace-nowrap shrink-0">
                   <span className="font-bold text-cyan-600 dark:text-cyan-400">{data.meta.uniqueCourses}</span>
                   <span className="text-slate-500 hidden sm:inline">courses</span>
                   <div className="h-2.5 w-px bg-slate-300 dark:bg-slate-700/60" />
@@ -166,27 +166,27 @@ export default function Home() {
               </div>
             ) : (
               <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 overflow-hidden animate-pulse">
-                <div className="hidden sm:inline-flex h-6 w-24 rounded-lg bg-slate-200 dark:bg-slate-800/80" />
-                <div className="h-6 w-36 sm:w-56 rounded-lg bg-slate-200 dark:bg-slate-800/80" />
+                <div className="hidden sm:inline-flex h-7 sm:h-8 w-24 rounded-lg bg-slate-200 dark:bg-slate-800/80 shrink-0" />
+                <div className="h-7 sm:h-8 w-36 sm:w-56 rounded-lg bg-slate-200 dark:bg-slate-800/80 shrink-0" />
               </div>
             )}
 
             {/* Right: Action buttons — icon-only on mobile, icon+label on sm+ */}
             <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
               {/* Export + Import merged pill */}
-              <div className="flex items-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 overflow-hidden shrink-0">
+              <div className="flex items-center h-7 sm:h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 overflow-hidden shrink-0">
                 <button
                   onClick={handleSaveData}
-                  className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 text-xs font-medium hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-700 dark:hover:text-white transition-all cursor-pointer"
+                  className="flex items-center h-full gap-1.5 px-2 sm:px-3 text-xs font-medium hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-700 dark:hover:text-white transition-all cursor-pointer"
                   title="Export your stars, priorities, and view settings"
                 >
                   <DownloadIcon className="h-3.5 w-3.5 shrink-0" />
                   <span className="hidden sm:inline">Export</span>
                 </button>
-                <div className="w-px h-4 bg-slate-200 dark:bg-slate-700/80 shrink-0" />
+                <div className="w-px h-3.5 sm:h-4 bg-slate-200 dark:bg-slate-700/80 shrink-0" />
                 <button
                   onClick={handleImportData}
-                  className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 text-xs font-medium hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-700 dark:hover:text-white transition-all cursor-pointer"
+                  className="flex items-center h-full gap-1.5 px-2 sm:px-3 text-xs font-medium hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-700 dark:hover:text-white transition-all cursor-pointer"
                   title="Import stars, priorities, and view settings from a file"
                 >
                   <UploadIcon className="h-3.5 w-3.5 shrink-0" />
