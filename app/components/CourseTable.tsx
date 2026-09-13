@@ -801,10 +801,10 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
         <div className="flex items-center gap-4 min-h-[20px]">
           {lastUpdated ? (
             <div className="text-sm text-slate-400 flex flex-wrap items-center gap-1.5">
-              <span>Last updated:</span>
+              <span>Last synced with RDS4:</span>
               <span className="text-slate-300 font-medium">{lastUpdated}</span>
               <span className="text-slate-500">·</span>
-              <span className="text-slate-400">Updates from RDS4 every ~15 mins</span>
+              <span className="text-slate-400">Updates every ~20 mins</span>
             </div>
           ) : (
             <div className="flex items-center gap-2 animate-pulse">
