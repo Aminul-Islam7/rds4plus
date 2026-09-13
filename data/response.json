@@ -16193,17 +16193,6 @@
   },
   {
     "Course": "ECO104",
-    "Section": "9",
-    "Faculty": "JVHn",
-    "Time": "RA 09:40 AM - 11:10 AM",
-    "Room": "NAC403",
-    "Seats": "35",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "ECO104",
     "Section": "10",
     "Faculty": "GHA",
     "Time": "MW 01:00 PM - 02:30 PM",
@@ -16528,6 +16517,17 @@
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NAC401",
     "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "ECO204",
+    "Section": "3",
+    "Faculty": "JVHN",
+    "Time": "RA 09:40 AM - 11:10 AM",
+    "Room": "NAC403",
+    "Seats": "40",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -20883,6 +20883,17 @@
     "Faculty": "TBA",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "NAC620",
+    "Seats": "40",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "ENG103",
+    "Section": "77",
+    "Faculty": "TBA",
+    "Time": "ST 02:40 PM - 04:10 PM",
+    "Room": "NAC307",
     "Seats": "40",
     "Semester": "",
     "Prediction": "",
