@@ -2,6 +2,7 @@
 
 import { CourseTable } from "./components/CourseTable";
 import { HelpModal } from "./components/HelpModal";
+import { OnlineVisitors } from "./components/OnlineVisitors";
 import { useCourses } from "./context/CourseContext";
 import { useMemo, useRef, useState, useEffect } from "react";
 
@@ -131,12 +132,15 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-3 sm:px-4 py-2.5 sm:py-3">
           <div className="flex items-center justify-between gap-2">
 
-            {/* Left: Text logo */}
-            <div className="flex items-center gap-1.5 shrink-0">
-              <h1 className="text-base sm:text-xl font-bold text-white leading-none">
-                RDS4<span className="text-cyan-400">+</span>
-              </h1>
-              <span className="text-[10px] sm:text-xs text-slate-500 leading-none hidden xs:block">NSU Advising Planner</span>
+            {/* Left: Text logo + Online visitor pill */}
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              <div className="flex items-center gap-1.5">
+                <h1 className="text-base sm:text-xl font-bold text-white leading-none">
+                  RDS4<span className="text-cyan-400">+</span>
+                </h1>
+                <span className="text-[10px] sm:text-xs text-slate-500 leading-none hidden sm:block">NSU Advising Planner</span>
+              </div>
+              <OnlineVisitors />
             </div>
 
             {/* Center: Semester badge + stats — hides labels on mobile, shows numbers only */}
