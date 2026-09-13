@@ -694,7 +694,7 @@ function SearchBar({
 
       {/* Suggestions dropdown */}
       {showSuggestions && hasSuggestions && (
-        <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white/90 dark:bg-slate-800/85 backdrop-blur-md rounded-xl shadow-2xl overflow-hidden border border-slate-200/60 dark:border-slate-700/60">
+        <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white/75 dark:bg-slate-900/75 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden border border-slate-200/50 dark:border-slate-800/60">
           {courseSuggestions.length > 0 && (
             <div className="p-2">
               <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-2 py-1">
@@ -704,7 +704,7 @@ function SearchBar({
                 <div
                   key={course}
                   onClick={() => applySuggestion(course)}
-                  className="w-full text-left px-3 py-2 text-sm text-cyan-700 dark:text-cyan-400 hover:bg-slate-100/80 dark:hover:bg-slate-700/60 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
+                  className="w-full text-left px-3 py-1.5 text-sm text-cyan-700 dark:text-cyan-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors flex items-center gap-2.5 cursor-pointer group"
                 >
                   <span className="font-medium">{course}</span>
                   <button
@@ -712,22 +712,22 @@ function SearchBar({
                       e.stopPropagation();
                       tableState.toggleSavedCourse(course);
                     }}
-                    className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs transition-all cursor-pointer ${
+                    className={`flex items-center gap-1 px-2 py-0.5 rounded-md text-xs transition-all cursor-pointer ${
                       isCourseInSaved(course)
-                        ? "text-cyan-800 bg-cyan-100 dark:text-cyan-400 dark:bg-cyan-500/20"
-                        : "text-slate-500 hover:text-cyan-700 hover:bg-slate-200/80 dark:text-slate-400 dark:hover:text-cyan-300 dark:hover:bg-slate-600/50"
+                        ? "text-cyan-800 bg-cyan-100/90 dark:text-cyan-400 dark:bg-cyan-500/20"
+                        : "text-slate-500 hover:text-cyan-700 hover:bg-slate-200/80 dark:text-slate-400 dark:hover:text-cyan-300 dark:hover:bg-slate-700/60"
                     }`}
                     title="Save course for filtering"
                   >
                     <PlusIcon className="h-3 w-3" />
-                    {isCourseInSaved(course) ? "Saved" : "Save Course"}
+                    <span>{isCourseInSaved(course) ? "Saved" : "Save Course"}</span>
                   </button>
                 </div>
               ))}
             </div>
           )}
           {facultySuggestions.length > 0 && (
-            <div className="p-2 bg-slate-50/80 dark:bg-slate-900/45 border-t border-slate-100/80 dark:border-slate-700/50">
+            <div className="p-2 bg-slate-50/50 dark:bg-slate-950/35 border-t border-slate-200/40 dark:border-slate-800/50">
               <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-2 py-1">
                 Faculty
               </div>
@@ -735,7 +735,7 @@ function SearchBar({
                 <div
                   key={faculty}
                   onClick={() => applySuggestion(faculty)}
-                  className="w-full text-left px-3 py-2 text-sm text-emerald-700 dark:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
+                  className="w-full text-left px-3 py-1.5 text-sm text-emerald-700 dark:text-emerald-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors flex items-center gap-2.5 cursor-pointer group"
                 >
                   <span className="font-medium">{faculty}</span>
                   <button
@@ -743,15 +743,15 @@ function SearchBar({
                       e.stopPropagation();
                       tableState.toggleSavedFaculty(faculty);
                     }}
-                    className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs transition-all cursor-pointer ${
+                    className={`flex items-center gap-1 px-2 py-0.5 rounded-md text-xs transition-all cursor-pointer ${
                       isFacultyInSaved(faculty)
-                        ? "text-emerald-800 bg-emerald-100 dark:text-emerald-400 dark:bg-emerald-500/20"
-                        : "text-slate-500 hover:text-emerald-700 hover:bg-slate-200/80 dark:text-slate-400 dark:hover:text-emerald-300 dark:hover:bg-slate-600/50"
+                        ? "text-emerald-800 bg-emerald-100/90 dark:text-emerald-400 dark:bg-emerald-500/20"
+                        : "text-slate-500 hover:text-emerald-700 hover:bg-slate-200/80 dark:text-slate-400 dark:hover:text-emerald-300 dark:hover:bg-slate-700/60"
                     }`}
                     title="Save faculty for filtering"
                   >
                     <PlusIcon className="h-3 w-3" />
-                    {isFacultyInSaved(faculty) ? "Saved" : "Save Faculty"}
+                    <span>{isFacultyInSaved(faculty) ? "Saved" : "Save Faculty"}</span>
                   </button>
                 </div>
               ))}
