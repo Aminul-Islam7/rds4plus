@@ -12688,7 +12688,7 @@
     "Faculty": "KMM",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "SAC316",
-    "Seats": "35",
+    "Seats": "30",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12842,7 +12842,7 @@
     "Faculty": "KMM",
     "Time": "R 08:00 AM - 11:10 AM",
     "Room": "SAC507",
-    "Seats": "35",
+    "Seats": "30",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -13755,7 +13755,7 @@
     "Faculty": "TnR",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "SAC311",
-    "Seats": "35",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -13766,7 +13766,7 @@
     "Faculty": "MAQM",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC310",
-    "Seats": "35",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -13887,7 +13887,7 @@
     "Faculty": "TNR",
     "Time": "W 08:00 AM - 11:10 AM",
     "Room": "SAC801",
-    "Seats": "35",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -14261,7 +14261,7 @@
     "Faculty": "Rtk",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "SAC511",
-    "Seats": "35",
+    "Seats": "30",
     "Semester": "",
     "Prediction": "",
     "Records": ""
