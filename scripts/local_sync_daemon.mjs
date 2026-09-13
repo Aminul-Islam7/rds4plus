@@ -157,6 +157,8 @@ async function syncCycle() {
   writeFileSync(responsePath, newCoursesJson, "utf-8");
   writeFileSync(lastUpdatedPath, JSON.stringify(lastUpdatedData, null, 2), "utf-8");
 
+  // Push to Git
+  try {
     log("📝 Staging updated data...");
     runGit("git add data/response.json data/last_updated.json");
 
