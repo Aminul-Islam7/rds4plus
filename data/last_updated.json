@@ -1,8 +1,8 @@
 {
-  "scraped_at": "Sep 14, 5:15 AM",
-  "scraped_iso": "2026-09-13T23:15:24.376Z",
-  "synced_at": "14 Sep 2026, 05:13 AM",
+  "scraped_at": "Sep 14, 5:25 AM",
+  "scraped_iso": "2026-09-13T23:25:30.959Z",
+  "synced_at": "14 Sep 2026, 05:23 AM",
   "semester": "Fall 2026",
-  "source": "rds4.northsouth.ac.bd",
+  "source": "local-pc-daemon",
   "total_sections": 3343
 }
