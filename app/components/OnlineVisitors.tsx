@@ -91,7 +91,7 @@ export function OnlineVisitors() {
 
   return (
     <div
-      className="inline-flex items-center gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#0b1410] border border-emerald-500/50 shadow-[0_0_10px_rgba(16,185,129,0.22)] select-none shrink-0 transition-all duration-300"
+      className="inline-flex items-center gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#0b1410] border border-emerald-500/60 select-none shrink-0"
       title="Online visitors right now"
     >
       <EyeIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
