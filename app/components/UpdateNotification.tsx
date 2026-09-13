@@ -122,7 +122,7 @@ export function UpdateNotification() {
       role="alert"
       className="fixed bottom-4 right-4 left-4 sm:left-auto sm:max-w-sm z-50 transition-all duration-300 transform translate-y-0 opacity-100"
     >
-      <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl shadow-2xl p-4 text-slate-800 dark:text-slate-100 flex items-start gap-3 select-none">
+      <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl shadow-2xl dark:shadow-[0_20px_50px_rgba(0,0,0,0.95),0_4px_20px_rgba(0,0,0,0.85)] p-4 text-slate-800 dark:text-slate-100 flex items-start gap-3 select-none">
         {/* Contrasting icon container - no borders */}
         <div className="bg-cyan-50 dark:bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 p-2.5 rounded-xl shrink-0 flex items-center justify-center">
           <svg className="h-5 w-5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

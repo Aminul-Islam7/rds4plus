@@ -588,8 +588,10 @@ function SearchBar({
   // Global keyboard shortcuts: '/' and 'Ctrl+K' / 'Cmd+K' to focus search box
   useEffect(() => {
     function handleGlobalKeyDown(e: KeyboardEvent) {
-      // Ignore if any modal is open
-      if (document.querySelector(".fixed.inset-0.z-50")) return;
+      if (e.key === "Escape") {
+        setShowSuggestions(false);
+        return;
+      }
 
       const isCtrlOrCmdK = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k";
       const isSlash = e.key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey;
@@ -655,6 +657,11 @@ function SearchBar({
             onChange(e.target.value);
             setShowSuggestions(true);
           }}
+          onKeyDown={(e) => {
+            if (e.key === "Escape") {
+              setShowSuggestions(false);
+            }
+          }}
           onFocus={() => {
             setIsFocused(true);
             setShowSuggestions(true);
@@ -687,7 +694,7 @@ function SearchBar({
 
       {/* Suggestions dropdown */}
       {showSuggestions && hasSuggestions && (
-        <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 rounded-xl shadow-2xl overflow-hidden border border-slate-200/50 dark:border-slate-700/60">
+        <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white/90 dark:bg-slate-800/85 backdrop-blur-md rounded-xl shadow-2xl overflow-hidden border border-slate-200/60 dark:border-slate-700/60">
           {courseSuggestions.length > 0 && (
             <div className="p-2">
               <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-2 py-1">
@@ -697,7 +704,7 @@ function SearchBar({
                 <div
                   key={course}
                   onClick={() => applySuggestion(course)}
-                  className="w-full text-left px-3 py-2 text-sm text-cyan-700 dark:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
+                  className="w-full text-left px-3 py-2 text-sm text-cyan-700 dark:text-cyan-400 hover:bg-slate-100/80 dark:hover:bg-slate-700/60 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
                 >
                   <span className="font-medium">{course}</span>
                   <button
@@ -720,7 +727,7 @@ function SearchBar({
             </div>
           )}
           {facultySuggestions.length > 0 && (
-            <div className="p-2 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-700/50">
+            <div className="p-2 bg-slate-50/80 dark:bg-slate-900/45 border-t border-slate-100/80 dark:border-slate-700/50">
               <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-2 py-1">
                 Faculty
               </div>
@@ -1038,13 +1045,22 @@ export function CourseTable() {
         tableState={tableState}
       />
 
-      {/* Warning: search + active filters combined */}
+      {/* Filter Bar */}
+      <FilterBar 
+        tableState={tableState} 
+        totalCount={data?.courses.length || 0}
+        filteredCount={tableState.filteredCourses.length}
+        displayedCount={displayedCourses.length}
+        lastUpdated={data?.meta.lastUpdated}
+      />
+
+      {/* Warning: search + active filters combined (borderless, above table) */}
       {tableState.searchQuery.trim() &&
         (tableState.activeCourseFilters.size > 0 ||
           tableState.activeFacultyFilters.size > 0 ||
           tableState.activeDayFilters.size > 0 ||
           tableState.showStarredOnly) && (
-          <div className="flex items-center gap-2 rounded-lg bg-amber-500/10 border border-amber-500/30 px-3 py-2 text-xs text-amber-800 dark:text-amber-300">
+          <div className="flex items-center gap-2 rounded-lg bg-amber-500/15 dark:bg-amber-500/20 px-3 py-2 text-xs text-amber-800 dark:text-amber-300">
             <svg className="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
             </svg>
@@ -1060,15 +1076,6 @@ export function CourseTable() {
             </span>
           </div>
         )}
-
-      {/* Filter Bar */}
-      <FilterBar 
-        tableState={tableState} 
-        totalCount={data?.courses.length || 0}
-        filteredCount={tableState.filteredCourses.length}
-        displayedCount={displayedCourses.length}
-        lastUpdated={data?.meta.lastUpdated}
-      />
 
       {/* Table */}
       <div 
