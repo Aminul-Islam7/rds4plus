@@ -801,7 +801,18 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
         <div className="flex items-center gap-4 min-h-[20px]">
           {lastUpdated ? (
             <div className="text-sm text-slate-400 flex flex-wrap items-center gap-1.5">
-              <span>Last synced with RDS4:</span>
+              <span>
+                Last synced with{" "}
+                <a
+                  href="https://rds4.northsouth.ac.bd/offered_courses"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-slate-300 transition-colors"
+                >
+                  RDS4
+                </a>
+                :
+              </span>
               <span className="text-slate-300 font-medium">{lastUpdated}</span>
               <span className="text-slate-500">·</span>
               <span className="text-slate-400">Updates every ~20 mins</span>
