@@ -4050,7 +4050,7 @@
   {
     "Course": "BIO103",
     "Section": "46",
-    "Faculty": "TBA",
+    "Faculty": "FMJ",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "NAC602",
     "Seats": "40",
@@ -4072,7 +4072,7 @@
   {
     "Course": "BIO103",
     "Section": "48",
-    "Faculty": "Mar5",
+    "Faculty": "TBA",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "NAC619",
     "Seats": "39",
@@ -4094,7 +4094,7 @@
   {
     "Course": "BIO103",
     "Section": "50",
-    "Faculty": "MBMD",
+    "Faculty": "TBA",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC602",
     "Seats": "1",
@@ -4138,7 +4138,7 @@
   {
     "Course": "BIO103",
     "Section": "54",
-    "Faculty": "NAS",
+    "Faculty": "NuS",
     "Time": "MW 06:00 PM - 07:30 PM",
     "Room": "SAC209",
     "Seats": "40",
@@ -15031,7 +15031,7 @@
     "Faculty": "Shaifur",
     "Time": "S 07:00 PM - 10:10 PM",
     "Room": "SAC511",
-    "Seats": "35",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
