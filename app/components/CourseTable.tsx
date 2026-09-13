@@ -82,13 +82,13 @@ function SortDualIcon({ direction, className }: { direction: "asc" | "desc" | nu
         strokeLinecap="round"
         strokeLinejoin="round"
         d="M8 9l4-4 4 4"
-        className={direction === "asc" ? "stroke-cyan-400 stroke-[2.5]" : "stroke-slate-500 opacity-60"}
+        className={direction === "asc" ? "stroke-cyan-600 dark:stroke-cyan-400 stroke-[2.5]" : "stroke-slate-400 dark:stroke-slate-500 opacity-60"}
       />
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         d="M16 15l-4 4-4-4"
-        className={direction === "desc" ? "stroke-cyan-400 stroke-[2.5]" : "stroke-slate-500 opacity-60"}
+        className={direction === "desc" ? "stroke-cyan-600 dark:stroke-cyan-400 stroke-[2.5]" : "stroke-slate-400 dark:stroke-slate-500 opacity-60"}
       />
     </svg>
   );
@@ -146,20 +146,20 @@ function PrioritySelector({
   // Calculate relative color
   const getColorClass = () => {
     // Prevent division by zero
-    if (maxVisible === minVisible) return "text-slate-400 bg-slate-800/80";
+    if (maxVisible === minVisible) return "text-slate-600 bg-slate-200 dark:text-slate-400 dark:bg-slate-800/80";
     
     // Normalize value between 0 and 1 relative to visible range
     const normalized = (value - minVisible) / (maxVisible - minVisible);
     
     // Bucket into 5 distinct color levels
-    if (normalized < 0.2) return "text-red-400 bg-red-500/20";
-    if (normalized < 0.4) return "text-orange-400 bg-orange-500/20";
-    if (normalized < 0.6) return "text-yellow-400 bg-yellow-500/20";
-    if (normalized < 0.8) return "text-teal-400 bg-teal-500/20";
-    return "text-cyan-400 bg-cyan-500/20";
+    if (normalized < 0.2) return "text-red-600 bg-red-100 dark:text-red-400 dark:bg-red-500/20";
+    if (normalized < 0.4) return "text-orange-600 bg-orange-100 dark:text-orange-400 dark:bg-orange-500/20";
+    if (normalized < 0.6) return "text-amber-700 bg-amber-100 dark:text-yellow-400 dark:bg-yellow-500/20";
+    if (normalized < 0.8) return "text-teal-700 bg-teal-100 dark:text-teal-400 dark:bg-teal-500/20";
+    return "text-cyan-700 bg-cyan-100 dark:text-cyan-400 dark:bg-cyan-500/20";
   };
 
-  const colorClass = value === 0 ? "text-slate-400 bg-slate-800/80" : getColorClass();
+  const colorClass = value === 0 ? "text-slate-600 bg-slate-200 dark:text-slate-400 dark:bg-slate-800/80" : getColorClass();
 
   const handleDecrement = () => {
     if (value > -9) onChange(value - 1);
@@ -173,7 +173,7 @@ function PrioritySelector({
     <div className={`flex items-center gap-1 rounded-lg px-1.5 py-0.5 ${colorClass} transition-colors h-7`}>
       <button 
         onClick={handleDecrement}
-        className="p-0.5 hover:text-white disabled:opacity-30 disabled:hover:text-current transition-colors cursor-pointer"
+        className="p-0.5 hover:text-slate-900 dark:hover:text-white disabled:opacity-30 disabled:hover:text-current transition-colors cursor-pointer"
         disabled={value <= -9}
       >
         <MinusIcon className="h-3 w-3" />
@@ -183,7 +183,7 @@ function PrioritySelector({
       </div>
       <button 
         onClick={handleIncrement}
-        className="p-0.5 hover:text-white disabled:opacity-30 disabled:hover:text-current transition-colors cursor-pointer"
+        className="p-0.5 hover:text-slate-900 dark:hover:text-white disabled:opacity-30 disabled:hover:text-current transition-colors cursor-pointer"
         disabled={value >= 99}
       >
         <PlusIcon className="h-3 w-3" />
@@ -229,18 +229,18 @@ function ColumnsDropdown({ tableState }: { tableState: ReturnType<typeof useTabl
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer select-none ${
           isOpen
-            ? "bg-slate-700 text-white shadow-lg"
-            : "bg-slate-800/90 hover:bg-slate-700 text-slate-200"
+            ? "bg-slate-200 text-slate-900 dark:bg-slate-700 dark:text-white shadow-md"
+            : "bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800/90 dark:hover:bg-slate-700 dark:text-slate-200"
         }`}
         title="Select visible columns"
       >
-        <FilterIcon className="h-3.5 w-3.5 text-slate-300 shrink-0" />
+        <FilterIcon className="h-3.5 w-3.5 text-slate-500 dark:text-slate-300 shrink-0" />
         <span>Columns</span>
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-1.5 w-48 rounded-xl bg-slate-900/95 backdrop-blur-md shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-100">
-          <div className="px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-slate-400 select-none">
+        <div className="absolute right-0 mt-1.5 w-48 rounded-xl bg-white dark:bg-slate-900/95 backdrop-blur-md shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-100 border border-slate-200/50 dark:border-transparent">
+          <div className="px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 select-none">
             Visible Columns
           </div>
           <div className="flex flex-col gap-1 mt-1">
@@ -256,15 +256,15 @@ function ColumnsDropdown({ tableState }: { tableState: ReturnType<typeof useTabl
                   onClick={() => tableState.toggleColumnVisibility(col.key)}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer select-none text-left disabled:opacity-50 disabled:cursor-not-allowed ${
                     isVisible
-                      ? "bg-slate-800 text-slate-100 hover:bg-slate-750"
-                      : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-200"
+                      ? "bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-750"
+                      : "text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-slate-200"
                   }`}
                 >
                   <span>{col.label}</span>
                   {isVisible ? (
-                    <EyeIcon className="h-4 w-4 text-cyan-400 shrink-0" />
+                    <EyeIcon className="h-4 w-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
                   ) : (
-                    <EyeOffIcon className="h-4 w-4 text-slate-500 shrink-0" />
+                    <EyeOffIcon className="h-4 w-4 text-slate-400 dark:text-slate-500 shrink-0" />
                   )}
                 </button>
               );
@@ -304,7 +304,9 @@ function SortableHeader({
       <button
         onClick={() => tableState.toggleSort(sortKey)}
         className={`group inline-flex items-center gap-1.5 cursor-pointer rounded-lg px-1 py-0.5 transition-colors ${
-          isSorted ? "text-cyan-400" : "text-slate-400 hover:text-slate-200"
+          isSorted
+            ? "text-cyan-600 dark:text-cyan-400"
+            : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
         }`}
         title={`Sort by ${label}`}
       >
@@ -312,7 +314,7 @@ function SortableHeader({
         <div className="flex items-center gap-0.5">
           <SortDualIcon direction={sortDirection} />
           {sortIndex > 0 && tableState.sortConfigs.length > 1 && (
-            <span className="text-[10px] text-cyan-300 font-bold ml-0.5">{sortIndex}</span>
+            <span className="text-[10px] text-cyan-600 dark:text-cyan-300 font-bold ml-0.5">{sortIndex}</span>
           )}
         </div>
       </button>
@@ -345,10 +347,10 @@ function CourseRow({
   );
 
   return (
-    <tr className={`transition-all hover:bg-slate-800/60 group ${isStarred ? "bg-yellow-500/5" : ""}`}>
+    <tr className={`transition-all hover:bg-slate-100/80 dark:hover:bg-slate-800/60 group ${isStarred ? "bg-amber-500/10 dark:bg-yellow-500/5" : ""}`}>
       {/* Index - leftmost, less prominent */}
       {tableState.isColumnVisible("index") && (
-        <td className="px-4 py-2 text-slate-600 text-center font-mono text-xs">
+        <td className="px-4 py-2 text-slate-400 dark:text-slate-600 text-center font-mono text-xs">
           {course.index}
         </td>
       )}
@@ -357,13 +359,13 @@ function CourseRow({
       {tableState.isColumnVisible("courseCode") && (
         <td className="px-4 py-2 text-center">
           <div className="flex items-center justify-center gap-2">
-            <span className="font-semibold text-cyan-400">{course.courseCode}</span>
+            <span className="font-semibold text-cyan-700 dark:text-cyan-400">{course.courseCode}</span>
             <button
               onClick={() => tableState.toggleSavedCourse(course.courseCode)}
               className={`text-xs px-1.5 py-0.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all cursor-pointer ${
                 isSavedCourse 
-                  ? "bg-cyan-500/20 text-cyan-300" 
-                  : "bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700"
+                  ? "bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-300" 
+                  : "bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-700"
               }`}
             >
               {isSavedCourse ? "Saved" : "Save"}
@@ -375,7 +377,7 @@ function CourseRow({
       {/* Section */}
       {tableState.isColumnVisible("section") && (
         <td className="px-4 py-2 text-center">
-          <span className="text-white font-medium text-sm">
+          <span className="text-slate-900 dark:text-white font-medium text-sm">
             {course.section}
           </span>
         </td>
@@ -385,13 +387,13 @@ function CourseRow({
       {tableState.isColumnVisible("faculty") && (
         <td className="px-4 py-2 text-center">
           <div className="flex items-center justify-center gap-2">
-            <span className="font-medium text-emerald-400">{course.faculty}</span>
+            <span className="font-medium text-emerald-700 dark:text-emerald-400">{course.faculty}</span>
             <button
               onClick={() => tableState.toggleSavedFaculty(course.faculty)}
               className={`text-xs px-1.5 py-0.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all cursor-pointer ${
                 isSavedFaculty 
-                  ? "bg-emerald-500/20 text-emerald-300" 
-                  : "bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700"
+                  ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300" 
+                  : "bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-700"
               }`}
             >
               {isSavedFaculty ? "Saved" : "Save"}
@@ -404,22 +406,22 @@ function CourseRow({
       {tableState.isColumnVisible("time") && (
         <td className="px-4 py-2">
           <div className="flex items-center gap-3">
-            <span className="w-8 text-sm">{timeDisplay.days}</span>
-            <span className="text-sm text-slate-300">{timeDisplay.timing}</span>
+            <span className="w-8 text-sm text-slate-900 dark:text-slate-100 font-medium">{timeDisplay.days}</span>
+            <span className="text-sm text-slate-700 dark:text-slate-300">{timeDisplay.timing}</span>
           </div>
         </td>
       )}
 
       {/* Room */}
       {tableState.isColumnVisible("room") && (
-        <td className="px-4 py-2 text-slate-300 text-center text-sm">
+        <td className="px-4 py-2 text-slate-700 dark:text-slate-300 text-center text-sm">
           {course.room}
         </td>
       )}
 
       {/* Seats */}
       {tableState.isColumnVisible("seats") && (
-        <td className="px-4 py-2 text-slate-300 text-center font-mono text-sm">
+        <td className="px-4 py-2 text-slate-700 dark:text-slate-300 text-center font-mono text-sm">
           {course.seats}
         </td>
       )}
@@ -445,7 +447,7 @@ function CourseRow({
             <button
               onClick={() => tableState.toggleStar(course.id)}
               className={`p-1 rounded-lg transition-all hover:scale-110 cursor-pointer ${
-                isStarred ? "text-yellow-400" : "text-slate-600 hover:text-yellow-400/50"
+                isStarred ? "text-amber-500 dark:text-yellow-400" : "text-slate-300 hover:text-amber-500/60 dark:text-slate-600 dark:hover:text-yellow-400/50"
               }`}
               title={isStarred ? "Remove star" : "Star this section"}
             >
@@ -476,20 +478,20 @@ function FilterPill({
 }) {
   const colors = {
     cyan: {
-      active: "bg-cyan-500/25 text-cyan-300",
-      inactive: "bg-slate-800 text-cyan-400/80 hover:bg-slate-700 hover:text-cyan-300",
+      active: "bg-cyan-100 text-cyan-800 dark:bg-cyan-500/25 dark:text-cyan-300",
+      inactive: "bg-slate-100 text-cyan-700 hover:bg-slate-200 hover:text-cyan-800 dark:bg-slate-800 dark:text-cyan-400/80 dark:hover:bg-slate-700 dark:hover:text-cyan-300",
     },
     emerald: {
-      active: "bg-emerald-500/25 text-emerald-300",
-      inactive: "bg-slate-800 text-emerald-400/80 hover:bg-slate-700 hover:text-emerald-300",
+      active: "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/25 dark:text-emerald-300",
+      inactive: "bg-slate-100 text-emerald-700 hover:bg-slate-200 hover:text-emerald-800 dark:bg-slate-800 dark:text-emerald-400/80 dark:hover:bg-slate-700 dark:hover:text-emerald-300",
     },
     amber: {
-      active: "bg-amber-500/25 text-amber-300",
-      inactive: "bg-slate-800 text-slate-300 hover:text-amber-300 hover:bg-slate-700",
+      active: "bg-amber-100 text-amber-800 dark:bg-amber-500/25 dark:text-amber-300",
+      inactive: "bg-slate-100 text-slate-700 hover:text-amber-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:text-amber-300 dark:hover:bg-slate-700",
     },
     violet: {
-      active: "bg-violet-500/25 text-violet-300",
-      inactive: "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-violet-300",
+      active: "bg-violet-100 text-violet-800 dark:bg-violet-500/25 dark:text-violet-300",
+      inactive: "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-violet-800 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-violet-300",
     },
   };
 
@@ -508,8 +510,8 @@ function FilterPill({
           onClick={onRemove}
           className={`px-1.5 h-full flex items-center justify-center text-sm rounded-r-lg transition-all cursor-pointer ${
              isActive 
-               ? "bg-slate-800/80 text-white/50 hover:text-red-400 hover:bg-slate-700" 
-               : "bg-slate-800/80 text-slate-400 hover:text-red-400 hover:bg-slate-700"
+               ? "bg-slate-200/80 text-slate-600 hover:text-red-600 hover:bg-slate-300 dark:bg-slate-800/80 dark:text-white/50 dark:hover:text-red-400 dark:hover:bg-slate-700" 
+               : "bg-slate-200/80 text-slate-500 hover:text-red-600 hover:bg-slate-300 dark:bg-slate-800/80 dark:text-slate-400 dark:hover:text-red-400 dark:hover:bg-slate-700"
           } ${isActive ? colors[color].active.split(' ')[0] : colors[color].inactive.split(' ')[0]}`}
           title="Remove from saved"
         >
@@ -599,10 +601,10 @@ function SearchBar({
   return (
     <div ref={containerRef} className="relative flex-1">
       <div
-        className={`relative flex items-center rounded-xl bg-slate-800/70 transition-all ${
+        className={`relative flex items-center rounded-xl bg-slate-100 dark:bg-slate-800/70 transition-all ${
           isFocused
-            ? "bg-slate-800 ring-2 ring-cyan-500/30"
-            : "hover:bg-slate-800/90"
+            ? "bg-white dark:bg-slate-800 ring-2 ring-cyan-500/40 shadow-sm"
+            : "hover:bg-slate-200/70 dark:hover:bg-slate-800/90"
         }`}
       >
         <SearchIcon className="absolute left-4 h-5 w-5 text-slate-400" />
@@ -620,7 +622,7 @@ function SearchBar({
             setShowSuggestions(true);
           }}
           onBlur={() => setIsFocused(false)}
-          className="w-full bg-transparent py-3 pl-12 pr-10 text-white placeholder-slate-500 outline-none"
+          className="w-full bg-transparent py-3 pl-12 pr-10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 outline-none"
         />
         {value && (
           <button
@@ -628,7 +630,7 @@ function SearchBar({
               onChange("");
               inputRef.current?.focus();
             }}
-            className="absolute right-3 p-1 rounded-lg text-slate-400 hover:text-white transition-colors cursor-pointer"
+            className="absolute right-3 p-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors cursor-pointer"
           >
             <XIcon className="h-4 w-4" />
           </button>
@@ -637,19 +639,19 @@ function SearchBar({
 
       {/* Suggestions dropdown */}
       {showSuggestions && hasSuggestions && (
-        <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-slate-800 rounded-xl shadow-2xl overflow-hidden">
+        <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 rounded-xl shadow-2xl overflow-hidden border border-slate-200/50 dark:border-transparent">
           {courseSuggestions.length > 0 && (
             <div className="p-2">
-              <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 py-1">
+              <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-2 py-1">
                 Courses
               </div>
               {courseSuggestions.map((course) => (
                 <div
                   key={course}
                   onClick={() => applySuggestion(course)}
-                  className="w-full text-left px-3 py-2 text-sm text-cyan-400 hover:bg-slate-700/60 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
+                  className="w-full text-left px-3 py-2 text-sm text-cyan-700 dark:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
                 >
-                  <span>{course}</span>
+                  <span className="font-medium">{course}</span>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
@@ -657,8 +659,8 @@ function SearchBar({
                     }}
                     className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs transition-all cursor-pointer ${
                       isCourseInSaved(course)
-                        ? "text-cyan-400 bg-cyan-500/20"
-                        : "text-slate-400 hover:text-cyan-300 hover:bg-slate-600/50"
+                        ? "text-cyan-800 bg-cyan-100 dark:text-cyan-400 dark:bg-cyan-500/20"
+                        : "text-slate-500 hover:text-cyan-700 hover:bg-slate-200/80 dark:text-slate-400 dark:hover:text-cyan-300 dark:hover:bg-slate-600/50"
                     }`}
                     title="Save course for filtering"
                   >
@@ -670,17 +672,17 @@ function SearchBar({
             </div>
           )}
           {facultySuggestions.length > 0 && (
-            <div className="p-2 bg-slate-850">
-              <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 py-1">
+            <div className="p-2 bg-slate-50 dark:bg-slate-850 border-t border-slate-100 dark:border-transparent">
+              <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-2 py-1">
                 Faculty
               </div>
               {facultySuggestions.map((faculty) => (
                 <div
                   key={faculty}
                   onClick={() => applySuggestion(faculty)}
-                  className="w-full text-left px-3 py-2 text-sm text-emerald-400 hover:bg-slate-700/60 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
+                  className="w-full text-left px-3 py-2 text-sm text-emerald-700 dark:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-lg transition-colors flex items-center justify-between cursor-pointer group"
                 >
-                  <span>{faculty}</span>
+                  <span className="font-medium">{faculty}</span>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
@@ -688,8 +690,8 @@ function SearchBar({
                     }}
                     className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs transition-all cursor-pointer ${
                       isFacultyInSaved(faculty)
-                        ? "text-emerald-400 bg-emerald-500/20"
-                        : "text-slate-400 hover:text-emerald-300 hover:bg-slate-600/50"
+                        ? "text-emerald-800 bg-emerald-100 dark:text-emerald-400 dark:bg-emerald-500/20"
+                        : "text-slate-500 hover:text-emerald-700 hover:bg-slate-200/80 dark:text-slate-400 dark:hover:text-emerald-300 dark:hover:bg-slate-600/50"
                     }`}
                     title="Save faculty for filtering"
                   >
@@ -777,8 +779,8 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
                   onClick={() => tableState.toggleDayFilter(day)}
                   className={`px-4.5 py-1.5 h-8 text-sm font-medium rounded-lg transition-all cursor-pointer ${
                     tableState.activeDayFilters.has(day)
-                      ? "bg-violet-500/25 text-violet-300"
-                      : "bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-violet-300"
+                      ? "bg-violet-100 text-violet-800 dark:bg-violet-500/25 dark:text-violet-300"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-violet-800 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-violet-300"
                   }`}
                 >
                   {day}
@@ -793,8 +795,8 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
                   onClick={() => tableState.toggleDayFilter(day)}
                   className={`px-2 py-1.5 h-8 text-sm font-medium rounded-lg transition-all cursor-pointer ${
                     tableState.activeDayFilters.has(day)
-                      ? "bg-violet-500/25 text-violet-300"
-                      : "bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-violet-300"
+                      ? "bg-violet-100 text-violet-800 dark:bg-violet-500/25 dark:text-violet-300"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-violet-800 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-violet-300"
                   }`}
                 >
                   {day}
@@ -809,16 +811,16 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2">
         <div className="flex items-center gap-4 min-h-[20px]">
           {lastUpdated ? (
-            <div className="text-sm text-slate-400 flex flex-wrap items-center gap-2">
+            <div className="text-sm text-slate-500 dark:text-slate-400 flex flex-wrap items-center gap-2">
               <button
                 type="button"
                 onClick={() => refresh()}
                 disabled={isRefreshing}
-                className="inline-flex items-center justify-center h-6 w-6 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all active:scale-95 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                className="inline-flex items-center justify-center h-6 w-6 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 dark:hover:text-white transition-all active:scale-95 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
                 title={isRefreshing ? "Refreshing course data..." : "Refresh data without reloading page"}
                 aria-label="Refresh course data"
               >
-                <RefreshIcon className={`h-3.5 w-3.5 ${isRefreshing ? "animate-spin text-cyan-400" : ""}`} />
+                <RefreshIcon className={`h-3.5 w-3.5 ${isRefreshing ? "animate-spin text-cyan-600 dark:text-cyan-400" : ""}`} />
               </button>
               <div className="flex flex-wrap items-center gap-1.5">
                 <span>
@@ -827,20 +829,20 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
                     href="https://rds4.northsouth.ac.bd/offered_courses"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-2 hover:text-slate-300 transition-colors"
+                    className="underline underline-offset-2 hover:text-slate-800 dark:hover:text-slate-300 transition-colors"
                   >
                     RDS4
                   </a>
                   :
                 </span>
-                <span className="text-slate-300 font-medium">{lastUpdated}</span>
-                <span className="text-slate-500">·</span>
-                <span className="text-slate-400">Updates every ~15 mins</span>
+                <span className="text-slate-800 dark:text-slate-300 font-medium">{lastUpdated}</span>
+                <span className="text-slate-400 dark:text-slate-500">·</span>
+                <span className="text-slate-500 dark:text-slate-400">Updates every ~15 mins</span>
               </div>
             </div>
           ) : (
             <div className="flex items-center gap-2 animate-pulse">
-              <div className="h-4 w-60 rounded bg-slate-800/80" />
+              <div className="h-4 w-60 rounded bg-slate-200 dark:bg-slate-800/80" />
             </div>
           )}
         </div>
@@ -849,7 +851,7 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
           {tableState.sortConfigs.length > 0 && (
             <button
               onClick={tableState.clearSorts}
-              className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
+              className="text-sm text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
             >
               <XIcon className="h-4 w-4 shrink-0" />
               <span>Clear sorts ({tableState.sortConfigs.length})</span>
@@ -859,7 +861,7 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
           {(hasActiveFilters || tableState.searchQuery) && (
             <button
               onClick={tableState.clearAllFilters}
-              className="text-sm text-red-400 hover:text-red-300 transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
+              className="text-sm text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
             >
               <XIcon className="h-4 w-4 shrink-0" />
               <span>Clear all filters</span>
@@ -878,13 +880,13 @@ function LoadingSkeleton() {
     <div className="space-y-4 p-8">
       {[...Array(10)].map((_, i) => (
         <div key={i} className="animate-pulse flex items-center gap-4">
-          <div className="h-8 w-32 rounded bg-slate-700/50"></div>
-          <div className="h-8 w-16 rounded bg-slate-700/50"></div>
-          <div className="h-8 w-32 rounded bg-slate-700/50"></div>
-          <div className="h-8 flex-1 rounded bg-slate-700/50"></div>
-          <div className="h-8 w-24 rounded bg-slate-700/50"></div>
-          <div className="h-8 w-8 rounded bg-slate-700/50"></div>
-          <div className="h-8 w-8 rounded bg-slate-700/50"></div>
+          <div className="h-8 w-32 rounded bg-slate-200 dark:bg-slate-700/50"></div>
+          <div className="h-8 w-16 rounded bg-slate-200 dark:bg-slate-700/50"></div>
+          <div className="h-8 w-32 rounded bg-slate-200 dark:bg-slate-700/50"></div>
+          <div className="h-8 flex-1 rounded bg-slate-200 dark:bg-slate-700/50"></div>
+          <div className="h-8 w-24 rounded bg-slate-200 dark:bg-slate-700/50"></div>
+          <div className="h-8 w-8 rounded bg-slate-200 dark:bg-slate-700/50"></div>
+          <div className="h-8 w-8 rounded bg-slate-200 dark:bg-slate-700/50"></div>
         </div>
       ))}
     </div>
@@ -940,12 +942,6 @@ export function CourseTable() {
   const hasMore = displayCount < tableState.filteredCourses.length;
   
   const visiblePriorities = useMemo(() => {
-    // Only consider visible rows for the relative coloring (or should it be all filtered rows?)
-    // Request: "if the current value is lower than the other sections currently visible (based on active filters/search)"
-    // This implies we should look at 'filteredCourses' (all matches) or 'displayedCourses' (in view). 
-    // Usually 'currently visible' in a table context with lazy loading can mean either. 
-    // Using filteredCourses makes the color stable as you scroll. Using displayedCourses changes color as you scroll.
-    // Stable coloring is better UX.
     return tableState.filteredCourses.map(c => tableState.getPriority(c.id));
   }, [tableState.filteredCourses, tableState.getPriority]);
 
@@ -981,15 +977,15 @@ export function CourseTable() {
           tableState.activeFacultyFilters.size > 0 ||
           tableState.activeDayFilters.size > 0 ||
           tableState.showStarredOnly) && (
-          <div className="flex items-center gap-2 rounded-lg bg-amber-500/10 border border-amber-500/20 px-3 py-2 text-xs text-amber-300">
-            <svg className="h-3.5 w-3.5 shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <div className="flex items-center gap-2 rounded-lg bg-amber-500/10 border border-amber-500/30 px-3 py-2 text-xs text-amber-800 dark:text-amber-300">
+            <svg className="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
             </svg>
             <span>
               Active filters are narrowing your search results.{" "}
               <button
                 onClick={tableState.clearAllFilters}
-                className="font-semibold text-amber-200 hover:text-white underline underline-offset-2 cursor-pointer transition-colors"
+                className="font-semibold text-amber-900 dark:text-amber-200 hover:underline underline-offset-2 cursor-pointer transition-colors"
               >
                 Clear filters
               </button>{" "}
@@ -1010,13 +1006,13 @@ export function CourseTable() {
       {/* Table */}
       <div 
         ref={tableContainerRef}
-        className="rounded-xl bg-slate-900/60 backdrop-blur-sm overflow-hidden"
+        className="rounded-xl bg-white dark:bg-slate-900/60 shadow-xs dark:shadow-none border border-slate-200/60 dark:border-transparent backdrop-blur-sm overflow-hidden"
       >
         <div className="overflow-x-auto">
           <table className="w-full min-w-[800px]">
              {/* No colgroup used here to let the browser auto-layout based on content, avoiding offsets */}
             <thead>
-              <tr className="bg-slate-800/80">
+              <tr className="bg-slate-100/90 dark:bg-slate-800/80">
                 {/* Index - Leftmost */}
                 {tableState.isColumnVisible("index") && (
                   <SortableHeader label="#" sortKey="index" tableState={tableState} align="center" />
@@ -1047,7 +1043,7 @@ export function CourseTable() {
 
                 {/* Star - Rightmost */}
                 {tableState.isColumnVisible("star") && (
-                  <th className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-wider text-slate-400 select-none">
+                  <th className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 select-none">
                     <span>Star</span>
                   </th>
                 )}
@@ -1056,73 +1052,73 @@ export function CourseTable() {
             <tbody>
               {isLoading ? (
                 [...Array(12)].map((_, i) => (
-                  <tr key={i} className="animate-pulse border-b border-slate-800/30">
+                  <tr key={i} className="animate-pulse border-b border-slate-100 dark:border-slate-800/30">
                     {tableState.isColumnVisible("index") && (
                       <td className="px-4 py-3 text-center">
-                        <div className="h-4 w-6 mx-auto rounded bg-slate-800/60" />
+                        <div className="h-4 w-6 mx-auto rounded bg-slate-200/70 dark:bg-slate-800/60" />
                       </td>
                     )}
                     {tableState.isColumnVisible("courseCode") && (
                       <td className="px-4 py-3 text-center">
-                        <div className="h-5 w-20 mx-auto rounded bg-slate-800/60" />
+                        <div className="h-5 w-20 mx-auto rounded bg-slate-200/70 dark:bg-slate-800/60" />
                       </td>
                     )}
                     {tableState.isColumnVisible("section") && (
                       <td className="px-3 py-3 text-center">
-                        <div className="h-4 w-8 mx-auto rounded bg-slate-800/60" />
+                        <div className="h-4 w-8 mx-auto rounded bg-slate-200/70 dark:bg-slate-800/60" />
                       </td>
                     )}
                     {tableState.isColumnVisible("faculty") && (
                       <td className="px-4 py-3 text-center">
-                        <div className="h-5 w-16 mx-auto rounded bg-slate-800/60" />
+                        <div className="h-5 w-16 mx-auto rounded bg-slate-200/70 dark:bg-slate-800/60" />
                       </td>
                     )}
                     {tableState.isColumnVisible("time") && (
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-3">
-                          <div className="h-4 w-8 rounded bg-slate-800/60" />
-                          <div className="h-4 w-32 rounded bg-slate-800/60" />
+                          <div className="h-4 w-8 rounded bg-slate-200/70 dark:bg-slate-800/60" />
+                          <div className="h-4 w-32 rounded bg-slate-200/70 dark:bg-slate-800/60" />
                         </div>
                       </td>
                     )}
                     {tableState.isColumnVisible("room") && (
                       <td className="px-3 py-3 text-center">
-                        <div className="h-4 w-14 mx-auto rounded bg-slate-800/60" />
+                        <div className="h-4 w-14 mx-auto rounded bg-slate-200/70 dark:bg-slate-800/60" />
                       </td>
                     )}
                     {tableState.isColumnVisible("seats") && (
                       <td className="px-3 py-3 text-center">
-                        <div className="h-4 w-10 mx-auto rounded bg-slate-800/60" />
+                        <div className="h-4 w-10 mx-auto rounded bg-slate-200/70 dark:bg-slate-800/60" />
                       </td>
                     )}
                     {tableState.isColumnVisible("priority") && (
                       <td className="px-3 py-3 text-center">
-                        <div className="h-6 w-16 mx-auto rounded-lg bg-slate-800/60" />
+                        <div className="h-6 w-16 mx-auto rounded-lg bg-slate-200/70 dark:bg-slate-800/60" />
                       </td>
                     )}
                     {tableState.isColumnVisible("star") && (
                       <td className="px-3 py-3 text-center">
-                        <div className="h-5 w-5 mx-auto rounded bg-slate-800/60" />
+                        <div className="h-5 w-5 mx-auto rounded bg-slate-200/70 dark:bg-slate-800/60" />
                       </td>
                     )}
                   </tr>
                 ))
               ) : error && !data ? (
                 <tr>
-                  <td colSpan={visibleColumnCount} className="px-4 py-12 text-center text-red-400">
+                  <td colSpan={visibleColumnCount} className="px-4 py-12 text-center text-red-500 dark:text-red-400">
                     <div className="text-lg font-medium mb-2">Failed to load courses</div>
-                    <div className="text-sm text-red-300/70">{error}</div>
+                    <div className="text-sm text-red-600/70 dark:text-red-300/70">{error}</div>
                   </td>
                 </tr>
               ) : !data || data.courses.length === 0 ? (
                 <tr>
-                  <td colSpan={visibleColumnCount} className="px-4 py-12 text-center text-slate-400">
+                  <td colSpan={visibleColumnCount} className="px-4 py-12 text-center text-slate-500 dark:text-slate-400">
                     <div className="text-lg font-medium mb-2">No courses available</div>
                   </td>
                 </tr>
               ) : displayedCourses.length === 0 ? (
                 <tr>
-                  <td colSpan={visibleColumnCount} className="px-4 py-12 text-center text-slate-400">
+                  <td colSpan={visibleColumnCount} className="px-4 py-12 text-center text-slate-500 dark:text-slate-400">
                     <div className="text-lg font-medium mb-2">No matching sections</div>
                     <div className="text-sm">Try adjusting your search or filters</div>
                   </td>
@@ -1144,9 +1140,9 @@ export function CourseTable() {
         
         {/* Lazy loading indicator */}
         {!isLoading && hasMore && (
-          <div ref={loaderRef} className="flex items-center justify-center py-4 text-slate-400">
+          <div ref={loaderRef} className="flex items-center justify-center py-4 text-slate-500 dark:text-slate-400">
             <div className="flex items-center gap-2">
-              <div className="h-4 w-4 animate-spin rounded-full border-2 border-slate-600 border-t-cyan-400"></div>
+              <div className="h-4 w-4 animate-spin rounded-full border-2 border-slate-300 dark:border-slate-600 border-t-cyan-500 dark:border-t-cyan-400"></div>
               <span className="text-sm">Loading more...</span>
             </div>
           </div>

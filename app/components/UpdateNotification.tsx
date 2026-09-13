@@ -122,9 +122,9 @@ export function UpdateNotification() {
       role="alert"
       className="fixed bottom-4 right-4 left-4 sm:left-auto sm:max-w-sm z-50 transition-all duration-300 transform translate-y-0 opacity-100"
     >
-      <div className="bg-slate-900/95 backdrop-blur-md rounded-2xl shadow-2xl p-4 text-slate-100 flex items-start gap-3 select-none">
+      <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl shadow-2xl p-4 text-slate-800 dark:text-slate-100 flex items-start gap-3 select-none">
         {/* Contrasting icon container - no borders */}
-        <div className="bg-cyan-500/15 text-cyan-400 p-2.5 rounded-xl shrink-0 flex items-center justify-center">
+        <div className="bg-cyan-50 dark:bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 p-2.5 rounded-xl shrink-0 flex items-center justify-center">
           <svg className="h-5 w-5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path
               strokeLinecap="round"
@@ -137,15 +137,15 @@ export function UpdateNotification() {
         {/* Text and Actions */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-2">
-            <h4 className="text-sm font-semibold text-white leading-tight">
+            <h4 className="text-sm font-semibold text-slate-900 dark:text-white leading-tight">
               RDS4 Data Updated
             </h4>
-            <span className="text-[10px] font-medium text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full shrink-0">
+            <span className="text-[10px] font-medium text-cyan-700 bg-cyan-100 dark:text-cyan-400 dark:bg-cyan-500/10 px-2 py-0.5 rounded-full shrink-0">
               New Data
             </span>
           </div>
 
-          <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+          <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
             Course changes were detected on RDS4. Would you like to update the table now?
           </p>
 
@@ -155,7 +155,7 @@ export function UpdateNotification() {
               type="button"
               onClick={handleRefresh}
               disabled={isRefreshing}
-              className="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-semibold transition-all active:scale-95 cursor-pointer disabled:opacity-50"
+              className="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-600 dark:hover:bg-cyan-400 text-white dark:text-slate-950 text-xs font-semibold transition-all active:scale-95 cursor-pointer disabled:opacity-50"
             >
               {isRefreshing ? "Updating..." : "Refresh table"}
             </button>
@@ -163,7 +163,7 @@ export function UpdateNotification() {
             <button
               type="button"
               onClick={handleDismiss}
-              className="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-750 text-slate-400 hover:text-slate-200 text-xs font-medium transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-750 dark:text-slate-400 dark:hover:text-slate-200 text-xs font-medium transition-all active:scale-95 cursor-pointer"
             >
               Dismiss
             </button>

@@ -85,11 +85,11 @@ export function OnlineVisitors() {
 
   return (
     <div
-      className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-900/80 border border-emerald-500/25 select-none shrink-0"
+      className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-900/80 border border-emerald-500/30 dark:border-emerald-500/25 select-none shrink-0"
       title="Online visitors right now"
     >
-      <EyeIcon className="h-3.5 w-3.5 text-emerald-400/70 shrink-0" />
-      <span className="text-slate-300 font-medium text-xs leading-none tabular-nums min-w-[1ch] text-center">
+      <EyeIcon className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400/70 shrink-0" />
+      <span className="text-slate-700 dark:text-slate-300 font-medium text-xs leading-none tabular-nums min-w-[1ch] text-center">
         {count !== null ? count : "..."}
       </span>
     </div>
