@@ -9,8 +9,12 @@ interface CourseContextValue {
   data: CourseData | null;
   /** Whether data is loading */
   isLoading: boolean;
+  /** Whether manual or background refresh is happening */
+  isRefreshing: boolean;
   /** Error message if any */
   error: string | null;
+  /** Refresh course data from server */
+  refresh: () => Promise<void>;
 }
 
 const CourseContext = createContext<CourseContextValue | null>(null);

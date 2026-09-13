@@ -123,6 +123,14 @@ function EyeOffIcon({ className }: { className?: string }) {
   );
 }
 
+function RefreshIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+    </svg>
+  );
+}
+
 // Priority selector component with -/+ buttons and relative coloring
 function PrioritySelector({
   value,
@@ -706,6 +714,7 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
   displayedCount: number;
   lastUpdated?: string;
 }) {
+  const { refresh, isRefreshing } = useCourses();
   const hasActiveFilters =
     tableState.activeCourseFilters.size > 0 ||
     tableState.activeFacultyFilters.size > 0 ||
@@ -815,7 +824,17 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
               </span>
               <span className="text-slate-300 font-medium">{lastUpdated}</span>
               <span className="text-slate-500">·</span>
-              <span className="text-slate-400">Updates every ~20 mins</span>
+              <span className="text-slate-400">Updates every ~15 mins</span>
+              <button
+                type="button"
+                onClick={() => refresh()}
+                disabled={isRefreshing}
+                className="inline-flex items-center justify-center p-1 rounded-md text-slate-400 hover:text-cyan-300 hover:bg-slate-800 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                title={isRefreshing ? "Refreshing course data..." : "Refresh data without reloading page"}
+                aria-label="Refresh course data"
+              >
+                <RefreshIcon className={`h-3.5 w-3.5 ${isRefreshing ? "animate-spin text-cyan-400" : ""}`} />
+              </button>
             </div>
           ) : (
             <div className="flex items-center gap-2 animate-pulse">
