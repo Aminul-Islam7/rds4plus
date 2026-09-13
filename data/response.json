@@ -10400,7 +10400,7 @@
     "Faculty": "TBA",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NTR203",
-    "Seats": "30",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10444,7 +10444,7 @@
     "Faculty": "TBA",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "NAC214",
-    "Seats": "35",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10741,7 +10741,7 @@
     "Faculty": "MEH",
     "Time": "W 08:00 AM - 11:00 AM",
     "Room": "SAC409",
-    "Seats": "10",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10752,7 +10752,7 @@
     "Faculty": "MEH",
     "Time": "W 08:00 AM - 11:00 AM",
     "Room": "SAC409_V",
-    "Seats": "10",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
