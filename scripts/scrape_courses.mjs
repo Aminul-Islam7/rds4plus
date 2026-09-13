@@ -197,19 +197,20 @@ function parseCoursesFromHTML(html) {
   return { courses, semester, lastSynced };
 }
 
+// ─── Exported function for use by local daemon or other scripts ─────────────
+export async function fetchRDS4Courses() {
+  let result = await tryDirectFetch();
+  if (!result || !result.courses || result.courses.length === 0) {
+    result = await scrapeWithPlaywright();
+  }
+  return result;
+}
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
   console.log("🔄 Fetching courses from RDS4...");
 
-  // Try direct fetch first (fastest, works locally)
-  let result = await tryDirectFetch();
-
-  // If blocked by Cloudflare (403), use Playwright (bypasses challenge)
-  if (!result || result.courses.length === 0) {
-    result = await scrapeWithPlaywright();
-  }
-
-  const { courses, semester, lastSynced } = result;
+  const { courses, semester, lastSynced } = await fetchRDS4Courses();
 
   console.log(
     `✅ Parsed ${courses.length} course sections (semester: ${semester})`
@@ -256,7 +257,9 @@ async function main() {
   console.log("\n🎉 Done!");
 }
 
-main().catch((err) => {
-  console.error("❌ Scrape failed:", err.message);
-  process.exit(1);
-});
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  main().catch((err) => {
+    console.error("❌ Scrape failed:", err.message);
+    process.exit(1);
+  });
+}

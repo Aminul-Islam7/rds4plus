@@ -7,31 +7,64 @@ import path from "path";
 // ─── Config ───────────────────────────────────────────────────────────────────
 const RDS4_URL = "https://rds4.northsouth.ac.bd/offered_courses";
 
-/** Server-side in-memory TTL cache (5 minutes) */
-const CACHE_TTL_MS = 5 * 60 * 1000;
+/** Server-side in-memory TTL cache (1 minute so scraper updates appear quickly) */
+const CACHE_TTL_MS = 60 * 1000;
 
 // ─── Cache State ──────────────────────────────────────────────────────────────
 let cachedData: CourseData | null = null;
 let cacheTimestamp = 0;
 
-// ─── Fallback: local JSON (kept fresh by GitHub Actions scraper) ──────────────
+// ─── Fallback: remote GitHub or bundled JSON (kept fresh by local daemon & Actions) ──
 async function loadFallbackData(): Promise<CourseData> {
-  const filePath = path.join(process.cwd(), "data", "response.json");
-  const raw = await fs.readFile(filePath, "utf-8");
-  const json = JSON.parse(raw);
+  let localData: any = null;
+  let localLu: any = null;
 
-  // Try to read last_updated.json for timestamp
-  let updateTime: string | undefined;
   try {
+    const filePath = path.join(process.cwd(), "data", "response.json");
+    const raw = await fs.readFile(filePath, "utf-8");
+    localData = JSON.parse(raw);
+
     const luPath = path.join(process.cwd(), "data", "last_updated.json");
     const luRaw = await fs.readFile(luPath, "utf-8");
-    const lu = JSON.parse(luRaw);
-    updateTime = lu?.scraped_at || lu?.scraped_iso || lu?.synced_at;
+    localLu = JSON.parse(luRaw);
   } catch {
-    // no last_updated.json, that's fine
+    // Bundled files missing or error reading
   }
 
-  return parseBffJson(json, updateTime, "263");
+  // Check GitHub raw for newer scrape (important on Vercel between deployments)
+  try {
+    const ghLuRes = await fetch(
+      "https://raw.githubusercontent.com/Aminul-Islam7/rds4plus/main/data/last_updated.json",
+      { cache: "no-store", signal: AbortSignal.timeout(3000) }
+    );
+    if (ghLuRes.ok) {
+      const ghLu = await ghLuRes.json();
+      const ghIso = new Date(ghLu.scraped_iso || 0).getTime();
+      const localIso = new Date(localLu?.scraped_iso || 0).getTime();
+
+      // If GitHub has a newer scrape than bundled local file
+      if (ghIso > localIso || !localData) {
+        const ghDataRes = await fetch(
+          "https://raw.githubusercontent.com/Aminul-Islam7/rds4plus/main/data/response.json",
+          { cache: "no-store", signal: AbortSignal.timeout(5000) }
+        );
+        if (ghDataRes.ok) {
+          const ghData = await ghDataRes.json();
+          const updateTime = ghLu?.scraped_at || ghLu?.scraped_iso || ghLu?.synced_at;
+          return parseBffJson(ghData, updateTime, "263");
+        }
+      }
+    }
+  } catch {
+    // GitHub fetch failed or timed out, fall through to bundled data
+  }
+
+  if (localData) {
+    const updateTime = localLu?.scraped_at || localLu?.scraped_iso || localLu?.synced_at;
+    return parseBffJson(localData, updateTime, "263");
+  }
+
+  throw new Error("No course data available locally or from GitHub");
 }
 
 // ─── Parse courses from RDS4 HTML ─────────────────────────────────────────────
@@ -188,11 +221,11 @@ async function getCourseData(): Promise<{ data: CourseData; source: string }> {
       return { data: cachedData, source: "stale-cache" };
     }
 
-    // Last resort: bundled local file (kept fresh by GitHub Actions)
+    // Last resort: bundled or GitHub raw data
     try {
       const fallback = await loadFallbackData();
-      // Don't update cacheTimestamp so next request retries live
       cachedData = fallback;
+      cacheTimestamp = now;
       return { data: fallback, source: "fallback" };
     } catch (fallbackErr) {
       throw new Error(
