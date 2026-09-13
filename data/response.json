@@ -2101,6 +2101,17 @@
     "Records": ""
   },
   {
+    "Course": "BBT203",
+    "Section": "3",
+    "Faculty": "TBA",
+    "Time": "ST 11:20 AM - 12:50 PM",
+    "Room": "NAC1079",
+    "Seats": "40",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "BBT221",
     "Section": "1",
     "Faculty": "HML",
@@ -3558,7 +3569,7 @@
     "Faculty": "TBA",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC407",
-    "Seats": "40",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3822,7 +3833,7 @@
     "Faculty": "TBA",
     "Time": "ST 06:00 PM - 07:30 PM",
     "Room": "NTR204",
-    "Seats": "30",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -4042,7 +4053,7 @@
     "Faculty": "TBA",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NAC602",
-    "Seats": "40",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -29903,6 +29914,17 @@
     "Faculty": "MTO",
     "Time": "MW 09:40 AM - 11:10 AM",
     "Room": "SAC407",
+    "Seats": "40",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "MIC412",
+    "Section": "2",
+    "Faculty": "MTO",
+    "Time": "MW 11:20 AM - 12:50 PM",
+    "Room": "NAC1079",
     "Seats": "40",
     "Semester": "",
     "Prediction": "",
