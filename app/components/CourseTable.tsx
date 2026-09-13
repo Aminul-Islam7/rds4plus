@@ -892,8 +892,6 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
                   :
                 </span>
                 <span className="text-slate-800 dark:text-slate-300 font-medium">{lastUpdated}</span>
-                <span className="text-slate-400 dark:text-slate-500">·</span>
-                <span className="text-slate-500 dark:text-slate-400">Updates every ~30 mins</span>
               </div>
             </div>
           ) : (

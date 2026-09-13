@@ -18,7 +18,7 @@ import { fetchRDS4Courses } from "./scrape_courses.mjs";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const PROJECT_ROOT = join(__dirname, "..");
-const INTERVAL_MS = 30 * 60 * 1000; // 30 minutes
+const INTERVAL_MS = 5 * 60 * 1000; // 5 minutes
 
 // Ensure logs directory exists
 const LOG_DIR = join(PROJECT_ROOT, "logs");
@@ -128,7 +128,7 @@ async function syncCycle() {
     !remoteMeta;
 
   if (!shouldUpdate) {
-    log(`✅ Server course data is already up-to-date (no changes in courses or sections). (Next check in 30 mins)`);
+    log(`✅ Server course data is already up-to-date (no changes in courses or sections). (Next check in 5 mins)`);
     return;
   }
 
@@ -190,7 +190,7 @@ async function syncCycle() {
 }
 
 log("==================================================");
-log("🚀 RDS4+ Local Sync Daemon started (30 min interval)");
+log("🚀 RDS4+ Local Sync Daemon started (5 min interval)");
 log("==================================================");
 
 // Run first cycle immediately
