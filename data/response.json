@@ -4691,7 +4691,7 @@
     "Faculty": "TBA",
     "Time": "T 11:20 AM - 02:20 PM",
     "Room": "SAC412_V",
-    "Seats": "20",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -15054,6 +15054,17 @@
     "Time": "F 09:00 AM - 12:00 PM",
     "Room": "SAC511",
     "Seats": "32",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "DEV503",
+    "Section": "1",
+    "Faculty": "ISN",
+    "Time": "A 09:40 AM - 12:50 PM",
+    "Room": "NAC1078",
+    "Seats": "35",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -29386,7 +29397,7 @@
     "Faculty": "TBA",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "SAC403",
-    "Seats": "40",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -29892,7 +29903,7 @@
     "Faculty": "TBA",
     "Time": "R 02:40 PM - 05:40 PM",
     "Room": "SAC412",
-    "Seats": "20",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -29903,7 +29914,7 @@
     "Faculty": "TBA",
     "Time": "R 02:40 PM - 05:40 PM",
     "Room": "SAC412_V",
-    "Seats": "20",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
