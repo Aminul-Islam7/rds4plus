@@ -18,7 +18,7 @@ import { fetchRDS4Courses } from "./scrape_courses.mjs";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const PROJECT_ROOT = join(__dirname, "..");
-const INTERVAL_MS = 5 * 60 * 1000; // 5 minutes
+const INTERVAL_MS = 30 * 60 * 1000; // 30 minutes
 
 // Ensure logs directory exists
 const LOG_DIR = join(PROJECT_ROOT, "logs");
@@ -112,27 +112,27 @@ async function syncCycle() {
   const newCoursesJson = JSON.stringify(courses, null, 2);
   const coursesChangedLocally = existingLocalCourses.trim() !== newCoursesJson.trim();
 
-  // Compare with remote: did sections count change or did RDS4 synced_at change?
+  // Compare with remote: did sections count change?
   const remoteSections = remoteMeta?.total_sections ?? 0;
   const remoteSyncedAt = remoteMeta?.synced_at ?? "";
 
-  const hasNewSyncTime = cleanSynced && remoteSyncedAt && cleanSynced !== remoteSyncedAt;
   const hasSectionCountChange = remoteSections > 0 && courses.length !== remoteSections;
 
   log(`📊 Scraped: ${courses.length} sections | Last Synced: "${cleanSynced}" | Remote: "${remoteSyncedAt}" (${remoteSections} sections)`);
 
+  // ONLY trigger commit & push if actual course data or section count changed
+  // (Do NOT trigger git commits if course data is identical, even if RDS4 bumped synced_at timestamp)
   const shouldUpdate =
     coursesChangedLocally ||
-    hasNewSyncTime ||
     hasSectionCountChange ||
     !remoteMeta;
 
   if (!shouldUpdate) {
-    log(`✅ Server data is already up-to-date. (Next check in 5 mins)`);
+    log(`✅ Server course data is already up-to-date (no changes in courses or sections). (Next check in 30 mins)`);
     return;
   }
 
-  log("🔄 Course data or sync time is updated! Saving and pushing to server...");
+  log("🔄 Course data changes detected! Saving and pushing to server...");
 
   // Write files
   const scrapeDate = new Date();
@@ -176,7 +176,7 @@ async function syncCycle() {
       return;
     }
 
-    runGit('git commit -m "chore(data): sync latest RDS4 course data [skip ci]"');
+    runGit('git commit -m "chore(data): sync latest RDS4 course data [skip ci] [vercel skip]"');
     log("🚀 Pushing to GitHub main...");
     runGit("git push origin main");
     log(`🎉 Successfully updated server with ${courses.length} courses! (Scraped at ${scrapedTime})`);
@@ -190,7 +190,7 @@ async function syncCycle() {
 }
 
 log("==================================================");
-log("🚀 RDS4+ Local Sync Daemon started (5 min interval)");
+log("🚀 RDS4+ Local Sync Daemon started (30 min interval)");
 log("==================================================");
 
 // Run first cycle immediately

@@ -2,8 +2,8 @@ name: Update Course Data
 
 on:
   schedule:
-    # Run every 15 minutes
-    - cron: '*/15 * * * *'
+    # Run every 30 minutes
+    - cron: '*/30 * * * *'
   workflow_dispatch: # Allow manual trigger from GitHub Actions UI
 
 permissions:
@@ -38,6 +38,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes in course data"
           else
-            git commit -m "chore(data): update course data from RDS4 [skip ci]"
+            git commit -m "chore(data): update course data from RDS4 [skip ci] [vercel skip]"
             git push
           fi
