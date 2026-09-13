@@ -132,6 +132,7 @@ export function parseCoursesFromHtml(html: string): CourseData {
     const faculty = cells[3].trim();
     const timeRaw = cells[4].trim();
     const room = cells[5].trim();
+    const seats = cells.length >= 7 ? cells[6].trim() : "";
 
     if (!courseCode) continue;
     
@@ -145,6 +146,7 @@ export function parseCoursesFromHtml(html: string): CourseData {
       faculty,
       time: parseTimeSlot(timeRaw),
       room,
+      seats,
     });
   }
 

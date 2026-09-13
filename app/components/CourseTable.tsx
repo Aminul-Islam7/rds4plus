@@ -188,7 +188,8 @@ function PrioritySelector({
 const AVAILABLE_COLUMNS: { key: ColumnKey; label: string }[] = [
   { key: "courseCode", label: "Course" },
   { key: "faculty", label: "Faculty" },
-  { key: "room", label: "Seats" },
+  { key: "room", label: "Room" },
+  { key: "seats", label: "Seats" },
   { key: "section", label: "Section" },
   { key: "time", label: "Schedule" },
   { key: "priority", label: "Priority" },
@@ -403,8 +404,15 @@ function CourseRow({
 
       {/* Room */}
       {tableState.isColumnVisible("room") && (
-        <td className="px-4 py-2 text-slate-300 text-center font-mono text-sm">
+        <td className="px-4 py-2 text-slate-300 text-center text-sm">
           {course.room}
+        </td>
+      )}
+
+      {/* Seats */}
+      {tableState.isColumnVisible("seats") && (
+        <td className="px-4 py-2 text-slate-300 text-center font-mono text-sm">
+          {course.seats}
         </td>
       )}
 
@@ -930,6 +938,7 @@ export function CourseTable() {
     (tableState.isColumnVisible("faculty") ? 1 : 0) +
     (tableState.isColumnVisible("time") ? 1 : 0) +
     (tableState.isColumnVisible("room") ? 1 : 0) +
+    (tableState.isColumnVisible("seats") ? 1 : 0) +
     (tableState.isColumnVisible("index") ? 1 : 0) +
     (tableState.isColumnVisible("star") ? 1 : 0) +
     (tableState.isColumnVisible("priority") ? 1 : 0)
@@ -1005,7 +1014,10 @@ export function CourseTable() {
                   <SortableHeader label="Schedule" sortKey="time" tableState={tableState} align="left" />
                 )}
                 {tableState.isColumnVisible("room") && (
-                  <SortableHeader label="Seats" sortKey="room" tableState={tableState} />
+                  <SortableHeader label="Room" sortKey="room" tableState={tableState} />
+                )}
+                {tableState.isColumnVisible("seats") && (
+                  <SortableHeader label="Seats" sortKey="seats" tableState={tableState} />
                 )}
                 
                 {tableState.isColumnVisible("priority") && (
@@ -1055,6 +1067,11 @@ export function CourseTable() {
                     {tableState.isColumnVisible("room") && (
                       <td className="px-3 py-3 text-center">
                         <div className="h-4 w-14 mx-auto rounded bg-slate-800/60" />
+                      </td>
+                    )}
+                    {tableState.isColumnVisible("seats") && (
+                      <td className="px-3 py-3 text-center">
+                        <div className="h-4 w-10 mx-auto rounded bg-slate-800/60" />
                       </td>
                     )}
                     {tableState.isColumnVisible("priority") && (

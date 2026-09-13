@@ -14,8 +14,10 @@ export interface Course {
   faculty: string;
   /** Time slot info */
   time: TimeSlot;
-  /** Room/location */
+  /** Room/location (e.g. "NAC202") */
   room: string;
+  /** Available seats count */
+  seats: string;
 }
 
 /**

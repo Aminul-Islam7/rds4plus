@@ -5,8 +5,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 // ─── Config ───────────────────────────────────────────────────────────────────
-const BFF_URL =
-  "https://rds2-bff.vercel.app/api/courses?semester=263_v1.csv";
+const RDS4_URL = "https://rds4.northsouth.ac.bd/offered_courses";
 
 /** Server-side in-memory TTL cache (5 minutes) */
 const CACHE_TTL_MS = 5 * 60 * 1000;
@@ -15,80 +14,146 @@ const CACHE_TTL_MS = 5 * 60 * 1000;
 let cachedData: CourseData | null = null;
 let cacheTimestamp = 0;
 
-function getSemesterHint(url: string): string {
-  const match = url.match(/semester=(\d{2}[123])/);
-  return match ? match[1] : "263";
-}
-
-// ─── Fallback: local CSV (which is actually JSON from BFF) ────────────────────
+// ─── Fallback: local JSON (kept fresh by GitHub Actions scraper) ──────────────
 async function loadFallbackData(): Promise<CourseData> {
   const filePath = path.join(process.cwd(), "data", "response.json");
   const raw = await fs.readFile(filePath, "utf-8");
   const json = JSON.parse(raw);
-  return parseBffJson(json, undefined, getSemesterHint(BFF_URL));
+
+  // Try to read last_updated.json for timestamp
+  let updateTime: string | undefined;
+  try {
+    const luPath = path.join(process.cwd(), "data", "last_updated.json");
+    const luRaw = await fs.readFile(luPath, "utf-8");
+    const lu = JSON.parse(luRaw);
+    if (lu?.synced_at) {
+      updateTime = lu.synced_at;
+    }
+  } catch {
+    // no last_updated.json, that's fine
+  }
+
+  return parseBffJson(json, updateTime, "263");
 }
 
-// ─── Fetch update time from last_updated.json ─────────────────────────────────
-async function fetchUpdateTime(): Promise<string> {
-  try {
-    const res = await fetch("https://rds2-bff.vercel.app/last_updated.json", {
-      cache: "no-store",
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
-        Accept: "application/json",
-      },
-    });
-    if (res.ok) {
-      const data = await res.json();
-      if (data?.time) {
-        return data.time.trim();
+// ─── Parse courses from RDS4 HTML ─────────────────────────────────────────────
+interface RDS4ParseResult {
+  courses: Array<{
+    Course: string;
+    Section: string;
+    Faculty: string;
+    Time: string;
+    Room: string;
+    Seats: string;
+    Semester: string;
+    Prediction: string;
+    Records: string;
+  }>;
+  lastSynced: string;
+  semester: string;
+}
+
+function parseRDS4HTML(html: string): RDS4ParseResult {
+  const courses: RDS4ParseResult["courses"] = [];
+
+  // Extract semester from page title
+  const semesterMatch = html.match(
+    /Offered Course List\s*(?:&mdash;|—)\s*(.+?)<\/h1>/i
+  );
+  const semester = semesterMatch ? semesterMatch[1].trim() : "";
+
+  // Extract "Last Synced" timestamp
+  const syncMatch = html.match(/Last Synced:\s*(.+?)(?:\s*<|$)/im);
+  const lastSynced = syncMatch ? syncMatch[1].trim() : "";
+
+  // Find <tbody> content
+  const tbodyMatch = html.match(/<tbody>([\s\S]*?)<\/tbody>/i);
+  if (!tbodyMatch) {
+    throw new Error("Could not find <tbody> in RDS4 HTML");
+  }
+
+  const tbody = tbodyMatch[1];
+  const rowRegex = /<tr>([\s\S]*?)<\/tr>/gi;
+  let rowMatch;
+
+  while ((rowMatch = rowRegex.exec(tbody)) !== null) {
+    const rowHTML = rowMatch[1];
+    const tdRegex = /<td[^>]*>([\s\S]*?)<\/td>/gi;
+    const cells: string[] = [];
+    let tdMatch;
+
+    while ((tdMatch = tdRegex.exec(rowHTML)) !== null) {
+      cells.push(tdMatch[1].trim());
+    }
+
+    // 7 columns: #, Course, Section, Faculty, Time, Room, Seats
+    if (cells.length >= 7) {
+      const course = cells[1].trim();
+      const section = cells[2].trim();
+      const faculty = cells[3].trim();
+      const time = cells[4].replace(/\s+/g, " ").trim();
+      const room = cells[5].replace(/\s+/g, " ").trim();
+      const seats = cells[6].replace(/\s+/g, " ").trim();
+
+      if (course) {
+        courses.push({
+          Course: course,
+          Section: section,
+          Faculty: faculty,
+          Time: time,
+          Room: room,
+          Seats: seats,
+          Semester: "",
+          Prediction: "",
+          Records: "",
+        });
       }
     }
-  } catch (err) {
-    console.warn("Failed to fetch update time from last_updated.json:", err);
   }
 
-  // Fallback: scrape from landing page
-  try {
-    const res = await fetch("https://rds2-bff.vercel.app/", {
-      cache: "no-store",
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
-        Accept: "*/*",
-      },
-    });
-    if (!res.ok) return "";
-    const html = await res.text();
-    const match = html.match(/<span>UPDATED:\s*([^<]+)<\/span>/i);
-    return match ? match[1].trim() : "";
-  } catch {
-    return "";
-  }
+  return { courses, lastSynced, semester };
 }
 
-// ─── Live fetch from BFF ──────────────────────────────────────────────────────
-async function fetchLiveData(): Promise<CourseData> {
-  const [coursesRes, updateTime] = await Promise.all([
-    fetch(BFF_URL, {
-      cache: "no-store",
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
-        Accept: "*/*",
-        Referer: "https://rds2-bff.vercel.app/",
-      },
-    }),
-    fetchUpdateTime(),
-  ]);
+// ─── Extract semester code from semester string ───────────────────────────────
+function getSemesterHintFromName(name: string): string {
+  // "Fall 2026" → "263", "Summer 2026" → "262", "Spring 2026" → "261"
+  const match = name.match(/(Spring|Summer|Fall)\s+(\d{4})/i);
+  if (!match) return "263";
 
-  if (!coursesRes.ok) {
-    throw new Error(`BFF responded ${coursesRes.status} ${coursesRes.statusText}`);
+  const yearCode = match[2].slice(2); // "2026" → "26"
+  const termMap: Record<string, string> = {
+    spring: "1",
+    summer: "2",
+    fall: "3",
+  };
+  const termCode = termMap[match[1].toLowerCase()] || "3";
+  return `${yearCode}${termCode}`;
+}
+
+// ─── Live fetch from RDS4 ─────────────────────────────────────────────────────
+async function fetchLiveData(): Promise<CourseData> {
+  const res = await fetch(RDS4_URL, {
+    cache: "no-store",
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      Accept: "text/html",
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error(`RDS4 responded ${res.status} ${res.statusText}`);
   }
 
-  const json = await coursesRes.json();
-  return parseBffJson(json, updateTime || undefined, getSemesterHint(BFF_URL));
+  const html = await res.text();
+  const { courses, lastSynced, semester } = parseRDS4HTML(html);
+
+  if (courses.length === 0) {
+    throw new Error("RDS4 returned empty course list");
+  }
+
+  const semesterHint = getSemesterHintFromName(semester);
+  return parseBffJson(courses, lastSynced || undefined, semesterHint);
 }
 
 // ─── Main loader with TTL cache + fallback ────────────────────────────────────
@@ -100,7 +165,7 @@ async function getCourseData(): Promise<{ data: CourseData; source: string }> {
     return { data: cachedData, source: "cache" };
   }
 
-  // Try live fetch
+  // Try live fetch from RDS4
   try {
     const live = await fetchLiveData();
     cachedData = live;
@@ -108,7 +173,7 @@ async function getCourseData(): Promise<{ data: CourseData; source: string }> {
     return { data: live, source: "live" };
   } catch (liveErr) {
     console.warn(
-      "[courses] Live fetch failed, trying fallback:",
+      "[courses] Live RDS4 fetch failed, trying fallback:",
       liveErr instanceof Error ? liveErr.message : liveErr
     );
 
@@ -117,7 +182,7 @@ async function getCourseData(): Promise<{ data: CourseData; source: string }> {
       return { data: cachedData, source: "stale-cache" };
     }
 
-    // Last resort: bundled local file
+    // Last resort: bundled local file (kept fresh by GitHub Actions)
     try {
       const fallback = await loadFallbackData();
       // Don't update cacheTimestamp so next request retries live

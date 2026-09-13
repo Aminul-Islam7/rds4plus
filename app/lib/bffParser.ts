@@ -1,13 +1,14 @@
 import { Course, TimeSlot, CourseData, DataMeta } from "../types/course";
 import { parseTimeSlot } from "./parser";
 
-/** Shape returned by rds2-bff API */
+/** Shape returned by RDS4 scraper / legacy BFF API */
 interface BffCourseRow {
   Course: string;
   Section: string;
   Faculty: string;
   Time: string;
   Room: string;
+  Seats?: string;
   Semester?: string;
   Prediction?: string;
   Records?: string;
@@ -102,6 +103,7 @@ export function parseBffJson(json: BffCourseRow[], lastUpdated?: string, semeste
     const faculty = row.Faculty?.trim() ?? "";
     const timeRaw = row.Time?.trim() ?? "";
     const room = row.Room?.trim() ?? "";
+    const seats = row.Seats?.trim() ?? "";
 
     courseSet.add(courseCode);
 
@@ -113,6 +115,7 @@ export function parseBffJson(json: BffCourseRow[], lastUpdated?: string, semeste
       faculty,
       time: parseTimeSlot(timeRaw),
       room,
+      seats,
     });
   }
 

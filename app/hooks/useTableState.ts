@@ -20,7 +20,7 @@ export type DayFilter = (typeof DAY_FILTERS)[number];
 export type SortDirection = "asc" | "desc";
 
 // Column keys
-export type ColumnKey = "index" | "courseCode" | "section" | "faculty" | "time" | "room" | "star" | "priority";
+export type ColumnKey = "index" | "courseCode" | "section" | "faculty" | "time" | "room" | "seats" | "star" | "priority";
 
 // Sort configuration for a column
 export interface SortConfig {
@@ -434,6 +434,7 @@ export function useTableState(courses: Course[]): TableState {
         course.faculty,
         course.time.raw,
         course.room,
+        course.seats,
         course.index.toString(),
       ]
         .join(" ")
