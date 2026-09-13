@@ -5,6 +5,7 @@ import { useCourses } from "../context/CourseContext";
 import { Course } from "../types/course";
 import { formatTimeDisplay } from "../lib/parser";
 import { useTableState, DAY_FILTERS, DayFilter, ColumnKey } from "../hooks/useTableState";
+import { ExportImportButtons } from "./ExportImportButtons";
 
 // Icons as components
 function StarIcon({ filled, className }: { filled: boolean; className?: string }) {
@@ -227,7 +228,7 @@ function ColumnsDropdown({ tableState }: { tableState: ReturnType<typeof useTabl
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer select-none ${
+        className={`flex items-center gap-1.5 px-3 h-8 rounded-lg text-xs font-medium transition-all cursor-pointer select-none ${
           isOpen
             ? "bg-slate-200 text-slate-900 dark:bg-slate-700 dark:text-white shadow-md"
             : "bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800/90 dark:hover:bg-slate-700 dark:text-slate-200"
@@ -868,6 +869,7 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
             </button>
           )}
 
+          <ExportImportButtons />
           <ColumnsDropdown tableState={tableState} />
         </div>
       </div>

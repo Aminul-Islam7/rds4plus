@@ -4,12 +4,13 @@ import { useState, useCallback, useMemo, useEffect } from "react";
 import { Course } from "../types/course";
 
 // Storage keys
-const STORAGE_KEYS = {
+export const STORAGE_KEYS = {
   STARRED: "rds4plus_starred_sections",
   PRIORITIES: "rds4plus_priorities",
   SAVED_COURSES: "rds4plus_saved_courses",
   SAVED_FACULTIES: "rds4plus_saved_faculties",
   HIDDEN_COLUMNS: "rds4plus_hidden_columns",
+  HIDE_HELP: "rds4plus_hide_help",
 };
 
 // Day filter options

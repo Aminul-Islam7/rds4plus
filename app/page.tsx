@@ -6,33 +6,8 @@ import { OnlineVisitors } from "./components/OnlineVisitors";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { UpdateNotification } from "./components/UpdateNotification";
 import { useCourses } from "./context/CourseContext";
-import { useMemo, useRef, useState, useEffect } from "react";
-
-// Storage keys (must match useTableState.ts)
-const STORAGE_KEYS = {
-  STARRED_SECTIONS: "rds4plus_starred_sections",
-  PRIORITIES: "rds4plus_priorities",
-  SAVED_COURSES: "rds4plus_saved_courses",
-  SAVED_FACULTIES: "rds4plus_saved_faculties",
-  HIDDEN_COLUMNS: "rds4plus_hidden_columns",
-  HIDE_HELP: "rds4plus_hide_help",
-};
-
-function DownloadIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-    </svg>
-  );
-}
-
-function UploadIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-    </svg>
-  );
-}
+import { useMemo, useState, useEffect } from "react";
+import { STORAGE_KEYS } from "./hooks/useTableState";
 
 function QuestionMarkCircleIcon({ className }: { className?: string }) {
   return (
@@ -52,7 +27,6 @@ function GithubIcon({ className }: { className?: string }) {
 
 export default function Home() {
   const { data } = useCourses();
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const [showHelpModal, setShowHelpModal] = useState(false);
 
   // Auto show help modal on first visit
@@ -79,121 +53,58 @@ export default function Home() {
     return seen.size;
   }, [data?.courses]);
 
-  // Export localStorage data
-  const handleSaveData = () => {
-    const exportData: Record<string, string | null> = {};
-    Object.values(STORAGE_KEYS).forEach((key) => {
-      exportData[key] = localStorage.getItem(key);
-    });
-    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `rds4plus_data_${new Date().toISOString().split("T")[0]}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  };
-
-  // Import localStorage data
-  const handleImportData = () => fileInputRef.current?.click();
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      try {
-        const importData = JSON.parse(event.target?.result as string);
-        Object.entries(importData).forEach(([key, value]) => {
-          if (value !== null && Object.values(STORAGE_KEYS).includes(key)) {
-            localStorage.setItem(key, value as string);
-          }
-        });
-        window.location.reload();
-      } catch {
-        alert("Failed to import data. Please check the file format.");
-      }
-    };
-    reader.readAsText(file);
-    e.target.value = "";
-  };
-
   // Shared button class for header action buttons
   const btnClass =
     "flex items-center justify-center gap-1.5 h-7 sm:h-8 px-2 sm:px-3 text-xs font-medium rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 dark:hover:text-white transition-all cursor-pointer shrink-0";
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
-      {/* Hidden file input for import */}
-      <input ref={fileInputRef} type="file" accept=".json" onChange={handleFileChange} className="hidden" />
-
-      {/* Header — single row, never wraps */}
+      {/* Header — single row, balanced with 3-column grid layout */}
       <header className="sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/50 shadow-xs dark:shadow-none transition-colors duration-200">
         <div className="mx-auto max-w-7xl px-3 sm:px-4 py-2.5 sm:py-3">
-          <div className="flex items-center justify-between gap-2">
+          <div className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[1fr_auto_1fr] items-center gap-2">
 
             {/* Left: Text logo + Online visitor pill */}
-            <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            <div className="flex items-center gap-2 sm:gap-2.5 justify-start shrink-0">
               <h1 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white leading-none">
                 RDS4<span className="text-cyan-400">+</span>
               </h1>
               <OnlineVisitors />
             </div>
 
-            {/* Center: Semester badge + stats — hides labels on mobile, shows numbers only */}
-            {data ? (
-              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 overflow-hidden">
-                {/* Semester badge — hidden on xs */}
-                <div className="hidden sm:inline-flex items-center gap-1.5 h-7 sm:h-8 rounded-lg bg-cyan-500/15 dark:bg-cyan-500/20 px-2.5 shrink-0">
-                  <svg className="h-3 w-3 text-cyan-600 dark:text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-cyan-700 dark:text-cyan-300 font-medium text-xs whitespace-nowrap">{data.meta.semester}</span>
+            {/* Center: Semester badge + stats — guaranteed mathematically centered on sm+ */}
+            <div className="flex items-center justify-center min-w-0">
+              {data ? (
+                <div className="flex items-center gap-1.5 sm:gap-2 overflow-hidden">
+                  {/* Semester badge — hidden on xs */}
+                  <div className="hidden sm:inline-flex items-center gap-1.5 h-7 sm:h-8 rounded-lg bg-cyan-500/15 dark:bg-cyan-500/20 px-2.5 shrink-0">
+                    <svg className="h-3 w-3 text-cyan-600 dark:text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span className="text-cyan-700 dark:text-cyan-300 font-medium text-xs whitespace-nowrap">{data.meta.semester}</span>
+                  </div>
+                  {/* Stats pill */}
+                  <div className="flex items-center gap-1.5 sm:gap-2 h-7 sm:h-8 rounded-lg bg-slate-100 dark:bg-slate-800/80 px-2 sm:px-2.5 text-[10px] sm:text-xs whitespace-nowrap shrink-0">
+                    <span className="font-bold text-cyan-600 dark:text-cyan-400">{data.meta.uniqueCourses}</span>
+                    <span className="text-slate-500 hidden sm:inline">courses</span>
+                    <div className="h-2.5 w-px bg-slate-300 dark:bg-slate-700/60" />
+                    <span className="font-bold text-violet-600 dark:text-violet-400">{data.meta.totalSections}</span>
+                    <span className="text-slate-500 hidden sm:inline">sections</span>
+                    <div className="h-2.5 w-px bg-slate-300 dark:bg-slate-700/60" />
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">{uniqueFacultyCount}</span>
+                    <span className="text-slate-500 hidden sm:inline">faculties</span>
+                  </div>
                 </div>
-                {/* Stats pill */}
-                <div className="flex items-center gap-1.5 sm:gap-2 h-7 sm:h-8 rounded-lg bg-slate-100 dark:bg-slate-800/80 px-2 sm:px-2.5 text-[10px] sm:text-xs whitespace-nowrap shrink-0">
-                  <span className="font-bold text-cyan-600 dark:text-cyan-400">{data.meta.uniqueCourses}</span>
-                  <span className="text-slate-500 hidden sm:inline">courses</span>
-                  <div className="h-2.5 w-px bg-slate-300 dark:bg-slate-700/60" />
-                  <span className="font-bold text-violet-600 dark:text-violet-400">{data.meta.totalSections}</span>
-                  <span className="text-slate-500 hidden sm:inline">sections</span>
-                  <div className="h-2.5 w-px bg-slate-300 dark:bg-slate-700/60" />
-                  <span className="font-bold text-emerald-600 dark:text-emerald-400">{uniqueFacultyCount}</span>
-                  <span className="text-slate-500 hidden sm:inline">faculties</span>
+              ) : (
+                <div className="flex items-center gap-1.5 sm:gap-2 overflow-hidden animate-pulse">
+                  <div className="hidden sm:inline-flex h-7 sm:h-8 w-24 rounded-lg bg-slate-200 dark:bg-slate-800/80 shrink-0" />
+                  <div className="h-7 sm:h-8 w-36 sm:w-56 rounded-lg bg-slate-200 dark:bg-slate-800/80 shrink-0" />
                 </div>
-              </div>
-            ) : (
-              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 overflow-hidden animate-pulse">
-                <div className="hidden sm:inline-flex h-7 sm:h-8 w-24 rounded-lg bg-slate-200 dark:bg-slate-800/80 shrink-0" />
-                <div className="h-7 sm:h-8 w-36 sm:w-56 rounded-lg bg-slate-200 dark:bg-slate-800/80 shrink-0" />
-              </div>
-            )}
+              )}
+            </div>
 
-            {/* Right: Action buttons — icon-only on mobile, icon+label on sm+ */}
-            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
-              {/* Export + Import merged pill */}
-              <div className="flex items-center h-7 sm:h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 overflow-hidden shrink-0">
-                <button
-                  onClick={handleSaveData}
-                  className="flex items-center h-full gap-1.5 px-2 sm:px-3 text-xs font-medium hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-700 dark:hover:text-white transition-all cursor-pointer"
-                  title="Export your stars, priorities, and view settings"
-                >
-                  <DownloadIcon className="h-3.5 w-3.5 shrink-0" />
-                  <span className="hidden sm:inline">Export</span>
-                </button>
-                <div className="w-px h-3.5 sm:h-4 bg-slate-200 dark:bg-slate-700/80 shrink-0" />
-                <button
-                  onClick={handleImportData}
-                  className="flex items-center h-full gap-1.5 px-2 sm:px-3 text-xs font-medium hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-700 dark:hover:text-white transition-all cursor-pointer"
-                  title="Import stars, priorities, and view settings from a file"
-                >
-                  <UploadIcon className="h-3.5 w-3.5 shrink-0" />
-                  <span className="hidden sm:inline">Import</span>
-                </button>
-              </div>
-
+            {/* Right: Action buttons */}
+            <div className="flex items-center gap-1 sm:gap-1.5 justify-end shrink-0">
               <button
                 onClick={() => setShowHelpModal(true)}
                 className={btnClass}
