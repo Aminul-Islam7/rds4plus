@@ -12941,7 +12941,7 @@
     "Faculty": "MUO",
     "Time": "M 01:00 PM - 02:30 PM",
     "Room": "LIB605",
-    "Seats": "19",
+    "Seats": "21",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17363,7 +17363,7 @@
     "Faculty": "Rtk",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "SAC511",
-    "Seats": "34",
+    "Seats": "35",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17550,7 +17550,7 @@
     "Faculty": "RtK",
     "Time": "T 08:00 AM - 11:10 AM",
     "Room": "SAC504",
-    "Seats": "34",
+    "Seats": "35",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18265,7 +18265,7 @@
     "Faculty": "FKr",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "SAC502",
-    "Seats": "34",
+    "Seats": "35",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18969,7 +18969,7 @@
     "Faculty": "FKr",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "SAC306",
-    "Seats": "33",
+    "Seats": "35",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -19173,6 +19173,17 @@
     "Records": ""
   },
   {
+    "Course": "EMB500",
+    "Section": "3",
+    "Faculty": "SRUA",
+    "Time": "A 12:15 PM - 02:45 PM",
+    "Room": "NAC1077",
+    "Seats": "0",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "EMB501",
     "Section": "1",
     "Faculty": "AbSA",
@@ -19305,6 +19316,17 @@
     "Records": ""
   },
   {
+    "Course": "EMPG510",
+    "Section": "1",
+    "Faculty": "RZU",
+    "Time": "A 03:15 PM - 05:45 PM",
+    "Room": "NAC1079",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "EMPG515",
     "Section": "1",
     "Faculty": "MFM",
@@ -19343,6 +19365,28 @@
     "Faculty": "DVC",
     "Time": "F 09:00 AM - 12:30 PM",
     "Room": "NAC1079",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "EMPG555",
+    "Section": "1",
+    "Faculty": "MGH",
+    "Time": "W 06:00 PM - 08:30 PM",
+    "Room": "NAC1079",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "EMPG570",
+    "Section": "1",
+    "Faculty": "SKT",
+    "Time": "A 03:15 PM - 05:45 PM",
+    "Room": "NAC1077",
     "Seats": "35",
     "Semester": "",
     "Prediction": "",
@@ -24007,7 +24051,7 @@
     "Faculty": "FKR",
     "Time": "M 11:20 AM - 02:30 PM",
     "Room": "LIB607",
-    "Seats": "34",
+    "Seats": "35",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -27373,7 +27417,7 @@
     "Faculty": "PNG",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC211",
-    "Seats": "29",
+    "Seats": "30",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -35766,7 +35810,7 @@
     "Faculty": "MSRz",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "NAC304",
-    "Seats": "8",
+    "Seats": "9",
     "Semester": "",
     "Prediction": "",
     "Records": ""
