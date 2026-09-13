@@ -809,32 +809,34 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2">
         <div className="flex items-center gap-4 min-h-[20px]">
           {lastUpdated ? (
-            <div className="text-sm text-slate-400 flex flex-wrap items-center gap-1.5">
-              <span>
-                Last synced with{" "}
-                <a
-                  href="https://rds4.northsouth.ac.bd/offered_courses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-2 hover:text-slate-300 transition-colors"
-                >
-                  RDS4
-                </a>
-                :
-              </span>
-              <span className="text-slate-300 font-medium">{lastUpdated}</span>
-              <span className="text-slate-500">·</span>
-              <span className="text-slate-400">Updates every ~15 mins</span>
+            <div className="text-sm text-slate-400 flex flex-wrap items-center gap-2">
               <button
                 type="button"
                 onClick={() => refresh()}
                 disabled={isRefreshing}
-                className="inline-flex items-center justify-center p-1 rounded-md text-slate-400 hover:text-cyan-300 hover:bg-slate-800 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center justify-center h-6 w-6 rounded-md bg-slate-800 hover:bg-slate-700 border border-slate-700/80 hover:border-slate-600 text-slate-300 hover:text-cyan-300 shadow-xs transition-all active:scale-95 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
                 title={isRefreshing ? "Refreshing course data..." : "Refresh data without reloading page"}
                 aria-label="Refresh course data"
               >
                 <RefreshIcon className={`h-3.5 w-3.5 ${isRefreshing ? "animate-spin text-cyan-400" : ""}`} />
               </button>
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span>
+                  Last synced with{" "}
+                  <a
+                    href="https://rds4.northsouth.ac.bd/offered_courses"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-slate-300 transition-colors"
+                  >
+                    RDS4
+                  </a>
+                  :
+                </span>
+                <span className="text-slate-300 font-medium">{lastUpdated}</span>
+                <span className="text-slate-500">·</span>
+                <span className="text-slate-400">Updates every ~15 mins</span>
+              </div>
             </div>
           ) : (
             <div className="flex items-center gap-2 animate-pulse">
