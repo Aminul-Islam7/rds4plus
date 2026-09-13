@@ -814,7 +814,7 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
                 type="button"
                 onClick={() => refresh()}
                 disabled={isRefreshing}
-                className="inline-flex items-center justify-center h-6 w-6 rounded-md bg-slate-800 hover:bg-slate-700 border border-slate-700/80 hover:border-slate-600 text-slate-300 hover:text-cyan-300 shadow-xs transition-all active:scale-95 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                className="inline-flex items-center justify-center h-6 w-6 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all active:scale-95 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
                 title={isRefreshing ? "Refreshing course data..." : "Refresh data without reloading page"}
                 aria-label="Refresh course data"
               >
