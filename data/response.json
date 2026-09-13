@@ -2233,6 +2233,17 @@
     "Records": ""
   },
   {
+    "Course": "BBT230",
+    "Section": "5",
+    "Faculty": "OAH",
+    "Time": "ST 02:40 PM - 04:10 PM",
+    "Room": "LIB601",
+    "Seats": "40",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "BBT312",
     "Section": "1",
     "Faculty": "MSH3",
@@ -2938,6 +2949,17 @@
   },
   {
     "Course": "BBT416",
+    "Section": "2",
+    "Faculty": "OAH",
+    "Time": "MW 11:20 AM - 12:50 PM",
+    "Room": "LIB601",
+    "Seats": "40",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "BBT416",
     "Section": "3",
     "Faculty": "OAH",
     "Time": "MW 02:40 PM - 04:10 PM",
@@ -3404,7 +3426,7 @@
     "Faculty": "SKK",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "SAC405",
-    "Seats": "32",
+    "Seats": "31",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3800,7 +3822,7 @@
     "Faculty": "BUN",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "NAC206",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -19497,7 +19519,7 @@
     "Faculty": "HSh",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "NAC601",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -19695,7 +19717,7 @@
     "Faculty": "TBA",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "NAC208",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -26196,7 +26218,7 @@
     "Faculty": "AMKN",
     "Time": "RA 06:00 PM - 07:30 PM",
     "Room": "SAC203",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -26229,7 +26251,7 @@
     "Faculty": "MHSN",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "SAC211",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -31597,7 +31619,7 @@
     "Faculty": "SNL",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "SAC201",
-    "Seats": "11",
+    "Seats": "12",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -31949,7 +31971,7 @@
     "Faculty": "SNL",
     "Time": "W 11:20 AM - 12:50 PM",
     "Room": "SAC411",
-    "Seats": "4",
+    "Seats": "5",
     "Semester": "",
     "Prediction": "",
     "Records": ""
