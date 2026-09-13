@@ -91,6 +91,11 @@ async function fetchHTML() {
           return text;
         }
       }
+    } catch (err) {
+      console.warn(`⚠️ Proxy error: ${err.message}`);
+    }
+  }
+
   // 4. Try Playwright headless Chromium (bypasses Cloudflare bot challenges)
   try {
     console.log("🌐 Trying Playwright headless Chromium...");
