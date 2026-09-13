@@ -2103,7 +2103,7 @@
   {
     "Course": "BBT203",
     "Section": "3",
-    "Faculty": "TBA",
+    "Faculty": "Mqn",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "NAC1079",
     "Seats": "40",
@@ -3646,7 +3646,7 @@
     "Faculty": "TBA",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "SAC407",
-    "Seats": "40",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -4196,7 +4196,7 @@
     "Faculty": "TBA",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "SAC801A",
-    "Seats": "35",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -4207,7 +4207,7 @@
     "Faculty": "TBA",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "NAC619",
-    "Seats": "40",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -13205,6 +13205,17 @@
     "Faculty": "SSI",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "SAC210",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE323",
+    "Section": "8",
+    "Faculty": "RSY",
+    "Time": "RA 02:40 PM - 04:10 PM",
+    "Room": "LIB607",
     "Seats": "35",
     "Semester": "",
     "Prediction": "",
@@ -27252,6 +27263,17 @@
     "Faculty": "AMK",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "NAC508",
+    "Seats": "30",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "MAT125",
+    "Section": "25",
+    "Faculty": "OMG",
+    "Time": "RA 08:00 AM - 09:30 AM",
+    "Room": "SAC313",
     "Seats": "30",
     "Semester": "",
     "Prediction": "",
