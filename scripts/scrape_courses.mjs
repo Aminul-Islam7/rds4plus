@@ -91,9 +91,32 @@ async function fetchHTML() {
           return text;
         }
       }
-    } catch (err) {
-      console.warn(`⚠️ Proxy error: ${err.message}`);
+  // 4. Try Playwright headless Chromium (bypasses Cloudflare bot challenges)
+  try {
+    console.log("🌐 Trying Playwright headless Chromium...");
+    const { chromium } = await import("playwright");
+    const browser = await chromium.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+    });
+    try {
+      const context = await browser.newContext({
+        userAgent: browserHeaders["User-Agent"],
+        locale: "en-US",
+      });
+      const page = await context.newPage();
+      await page.goto(RDS4_URL, { waitUntil: "domcontentloaded", timeout: 45000 });
+      await page.waitForSelector("tbody tr", { timeout: 30000 });
+      const html = await page.content();
+      if (html.includes("<tbody>") && html.includes("Offered Course List")) {
+        console.log("✅ Playwright succeeded in retrieving RDS4 page");
+        return html;
+      }
+    } finally {
+      await browser.close();
     }
+  } catch (err) {
+    console.warn(`⚠️ Playwright error: ${err.message}`);
   }
 
   throw new Error("All fetch methods failed to retrieve valid RDS4 HTML");
