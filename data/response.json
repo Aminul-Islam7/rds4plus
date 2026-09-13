@@ -7843,6 +7843,17 @@
     "Records": ""
   },
   {
+    "Course": "CE6000A",
+    "Section": "2",
+    "Faculty": "Jbr",
+    "Time": "TBA",
+    "Room": "TBA",
+    "Seats": "45",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "CE6000B",
     "Section": "1",
     "Faculty": "Sji",
@@ -13388,6 +13399,17 @@
   },
   {
     "Course": "CSE331/EEE332/EEE453/ETE332",
+    "Section": "6",
+    "Faculty": "ACQ",
+    "Time": "RA 04:20 PM - 05:50 PM",
+    "Room": "SAC502",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE331/EEE332/EEE453/ETE332",
     "Section": "9",
     "Faculty": "SMMA",
     "Time": "RA 02:40 PM - 04:10 PM",
@@ -18733,6 +18755,17 @@
     "Records": ""
   },
   {
+    "Course": "EEE362",
+    "Section": "3",
+    "Faculty": "MFY",
+    "Time": "MW 06:00 PM - 07:30 PM",
+    "Room": "SAC304",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "EEE362L",
     "Section": "1",
     "Faculty": "AJH",
@@ -18748,6 +18781,17 @@
     "Section": "2",
     "Faculty": "AJH",
     "Time": "T 08:00 AM - 11:10 AM",
+    "Room": "SAC501",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "EEE362L",
+    "Section": "3",
+    "Faculty": "MFY",
+    "Time": "S 11:20 AM - 02:30 PM",
     "Room": "SAC501",
     "Seats": "35",
     "Semester": "",
@@ -19002,6 +19046,17 @@
     "Faculty": "MDRN",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "SAC308",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "EEE465",
+    "Section": "1",
+    "Faculty": "MDRN",
+    "Time": "RA 02:40 PM - 04:10 PM",
+    "Room": "SAC502",
     "Seats": "35",
     "Semester": "",
     "Prediction": "",
