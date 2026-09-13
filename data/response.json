@@ -9223,7 +9223,7 @@
     "Faculty": "Nzu",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "0",
+    "Seats": "20",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9278,7 +9278,7 @@
     "Faculty": "Mfq",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "0",
+    "Seats": "10",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9333,7 +9333,7 @@
     "Faculty": "Sji",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "5",
+    "Seats": "10",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9355,7 +9355,7 @@
     "Faculty": "Nzu",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "0",
+    "Seats": "18",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9421,7 +9421,7 @@
     "Faculty": "Mfq",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "0",
+    "Seats": "5",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9509,7 +9509,7 @@
     "Faculty": "Jbr",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "0",
+    "Seats": "11",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9520,7 +9520,7 @@
     "Faculty": "Nzu",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "0",
+    "Seats": "14",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9685,7 +9685,7 @@
     "Faculty": "Nzu",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "0",
+    "Seats": "14",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -20946,7 +20946,7 @@
   {
     "Course": "ENG103",
     "Section": "73",
-    "Faculty": "TBA",
+    "Faculty": "SuT",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "NAC202",
     "Seats": "30",
@@ -20979,7 +20979,7 @@
   {
     "Course": "ENG103",
     "Section": "76",
-    "Faculty": "TBA",
+    "Faculty": "RNS",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "NAC620",
     "Seats": "40",
@@ -21320,7 +21320,7 @@
   {
     "Course": "ENG105",
     "Section": "30",
-    "Faculty": "TBA",
+    "Faculty": "KHU",
     "Time": "MW 01:00 PM - 02:30 PM",
     "Room": "NAC202",
     "Seats": "30",
@@ -21573,7 +21573,7 @@
   {
     "Course": "ENG111",
     "Section": "23",
-    "Faculty": "TBA",
+    "Faculty": "MCY",
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "NAC202",
     "Seats": "30",
