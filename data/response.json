@@ -19736,7 +19736,7 @@
   {
     "Course": "ENG102",
     "Section": "6",
-    "Faculty": "TBA",
+    "Faculty": "Ssy",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "NAC409",
     "Seats": "0",
@@ -19989,7 +19989,7 @@
   {
     "Course": "ENG102",
     "Section": "29",
-    "Faculty": "TBA",
+    "Faculty": "FTN",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "NAC203",
     "Seats": "0",
@@ -20088,7 +20088,7 @@
   {
     "Course": "ENG102",
     "Section": "38",
-    "Faculty": "TBA",
+    "Faculty": "DBs",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "NAC208",
     "Seats": "1",
@@ -20297,7 +20297,7 @@
   {
     "Course": "ENG103",
     "Section": "2",
-    "Faculty": "Ssy",
+    "Faculty": "TBA",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "NAC990",
     "Seats": "37",
@@ -20726,7 +20726,7 @@
   {
     "Course": "ENG103",
     "Section": "41",
-    "Faculty": "DBs",
+    "Faculty": "TBA",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "NAC503",
     "Seats": "36",
@@ -21111,7 +21111,7 @@
   {
     "Course": "ENG103",
     "Section": "77",
-    "Faculty": "TBA",
+    "Faculty": "SAKB",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "NAC307",
     "Seats": "40",
@@ -26725,6 +26725,17 @@
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC216",
     "Seats": "0",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "MAT116",
+    "Section": "13",
+    "Faculty": "AMKn",
+    "Time": "RA 04:20 PM - 05:50 PM",
+    "Room": "NAC512",
+    "Seats": "40",
     "Semester": "",
     "Prediction": "",
     "Records": ""
