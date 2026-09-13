@@ -1,11 +1,6 @@
-#!/usr/bin/env node
 /**
- * scrape_courses.mjs
- * ------------------
- * Scrapes offered courses from https://rds4.northsouth.ac.bd/offered_courses
- * and writes BFF-compatible JSON to data/response.json + data/last_updated.json.
- *
- * Zero external dependencies — uses Node built-in fetch + regex HTML parsing.
+ * Standalone scraper for RDS4 Offered Courses.
+ * Bypasses Cloudflare bot challenges using Playwright headless Chromium.
  *
  * Usage:  node scripts/scrape_courses.mjs
  */
@@ -20,10 +15,8 @@ const PROJECT_ROOT = join(__dirname, "..");
 
 const RDS4_URL = "https://rds4.northsouth.ac.bd/offered_courses";
 
-import { execSync } from "child_process";
-
-// ─── Fetch HTML ───────────────────────────────────────────────────────────────
-async function fetchHTML() {
+// ─── Direct HTTP Fetch Fallback ───────────────────────────────────────────────
+async function tryDirectFetch() {
   const browserHeaders = {
     "User-Agent":
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
@@ -41,135 +34,134 @@ async function fetchHTML() {
     "Upgrade-Insecure-Requests": "1",
   };
 
-  // 1. Try direct fetch with realistic browser headers
   try {
     const res = await fetch(RDS4_URL, { headers: browserHeaders });
     if (res.ok) {
-      const text = await res.text();
-      if (text.includes("<tbody>") && text.includes("Offered Course List")) {
-        return text;
+      const html = await res.text();
+      if (html.includes("<tbody>") && html.includes("Offered Course List")) {
+        console.log("✅ Direct HTTP fetch succeeded");
+        return parseCoursesFromHTML(html);
       }
     }
-    console.warn(`⚠️ Direct fetch responded ${res.status} ${res.statusText}`);
+    console.warn(`⚠️ Direct fetch got ${res.status} ${res.statusText}`);
   } catch (err) {
     console.warn(`⚠️ Direct fetch error: ${err.message}`);
   }
-
-  // 2. Try curl with --compressed and browser headers
-  try {
-    console.log("🔄 Trying curl fallback...");
-    const stdout = execSync(
-      `curl -s -L --compressed --max-time 20 -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.9" "${RDS4_URL}"`,
-      { maxBuffer: 15 * 1024 * 1024 }
-    ).toString("utf-8");
-
-    if (stdout.includes("<tbody>") && stdout.includes("Offered Course List")) {
-      console.log("✅ curl fallback succeeded");
-      return stdout;
-    }
-    console.log(`⚠️ curl response length: ${stdout.length}. Preview:`, stdout.slice(0, 300).replace(/\s+/g, ' '));
-  } catch (err) {
-    console.log(`⚠️ curl error: ${err.message}`);
-  }
-
-  // 3. Try Playwright headless Chromium (bypasses Cloudflare bot challenges)
-  try {
-    console.log("🌐 Trying Playwright headless Chromium...");
-    const { chromium } = await import("playwright");
-    const browser = await chromium.launch({
-      headless: true,
-      args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
-        "--disable-blink-features=AutomationControlled",
-      ],
-    });
-    try {
-      const context = await browser.newContext({
-        userAgent:
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
-        viewport: { width: 1920, height: 1080 },
-      });
-      await context.addInitScript(() => {
-        Object.defineProperty(navigator, "webdriver", { get: () => undefined });
-      });
-      const page = await context.newPage();
-      console.log("🌐 Navigating to RDS4 via Playwright...");
-      const navRes = await page.goto(RDS4_URL, {
-        waitUntil: "domcontentloaded",
-        timeout: 45000,
-      });
-      console.log(`🌐 Playwright HTTP status: ${navRes ? navRes.status() : "none"}`);
-      console.log(`🌐 Playwright page title: ${await page.title()}`);
-
-      // If Cloudflare challenge, wait up to 15s for it to solve
-      let hasTable = false;
-      for (let i = 0; i < 15; i++) {
-        const title = await page.title();
-        if (!title.includes("Just a moment") && !title.includes("Cloudflare")) {
-          const content = await page.content();
-          if (content.includes("<tbody>")) {
-            hasTable = true;
-            break;
-          }
-        }
-        console.log(`⏳ Waiting for Cloudflare challenge (title: "${await page.title()}")...`);
-        await page.waitForTimeout(1000);
-      }
-
-      // Fetch raw HTML within validated session
-      const html = await page.evaluate(async () => {
-        const res = await fetch(window.location.href);
-        return res.text();
-      });
-
-      if (html.includes("<tbody>") && html.includes("Offered Course List")) {
-        console.log(`✅ Playwright retrieved full raw HTML (${(html.length / 1024).toFixed(0)} KB)`);
-        return html;
-      }
-      console.log(`⚠️ Playwright HTML length: ${html.length}. Preview:`, html.slice(0, 300).replace(/\s+/g, ' '));
-    } finally {
-      await browser.close();
-    }
-  } catch (err) {
-    console.log("❌ Playwright error:", err.message);
-    if (err.stack) console.log(err.stack);
-  }
-
-  throw new Error("All fetch methods failed to retrieve valid RDS4 HTML");
+  return null;
 }
 
-// ─── Parse HTML table rows ────────────────────────────────────────────────────
+// ─── Playwright Headless Scraper ──────────────────────────────────────────────
+async function scrapeWithPlaywright() {
+  console.log("🌐 Launching Playwright Chromium...");
+  const { chromium } = await import("playwright");
+  const browser = await chromium.launch({
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-blink-features=AutomationControlled",
+    ],
+  });
+
+  try {
+    const context = await browser.newContext({
+      userAgent:
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+      viewport: { width: 1920, height: 1080 },
+      locale: "en-US",
+    });
+
+    await context.addInitScript(() => {
+      Object.defineProperty(navigator, "webdriver", { get: () => undefined });
+    });
+
+    const page = await context.newPage();
+    console.log("🌐 Navigating to RDS4...");
+    await page.goto(RDS4_URL, {
+      waitUntil: "domcontentloaded",
+      timeout: 60000,
+    });
+
+    console.log(`🌐 Waiting for course table (current title: "${await page.title()}")...`);
+    await page.waitForSelector("tbody tr", { timeout: 30000 });
+
+    // Extract pre-parsed rows directly from the page's DataTables instance
+    const pageData = await page.evaluate(() => {
+      const tables =
+        typeof jQuery !== "undefined" && jQuery.fn.dataTable
+          ? jQuery.fn.dataTable.tables(true)
+          : [];
+      if (!tables.length) return null;
+
+      const dt = jQuery(tables[0]).DataTable();
+      const rawRows = dt.rows().data().toArray();
+
+      const bodyText = document.body.innerText || "";
+      const sm = bodyText.match(
+        /Offered Course List\s*(?:&mdash;|—)\s*([^\n\r]+)/i
+      );
+      const syncM = bodyText.match(/Last Synced:\s*([^\n\r]+)/i);
+
+      return {
+        rawRows,
+        semester: sm ? sm[1].trim() : "",
+        lastSynced: syncM ? syncM[1].trim() : "",
+      };
+    });
+
+    if (pageData && pageData.rawRows && pageData.rawRows.length > 0) {
+      console.log(`✅ Extracted ${pageData.rawRows.length} rows from DataTable API`);
+      const courses = pageData.rawRows.map((row) => ({
+        Course: String(row[1] || "").trim(),
+        Section: String(row[2] || "").trim(),
+        Faculty: String(row[3] || "").trim(),
+        Time: String(row[4] || "").replace(/\s+/g, " ").trim(),
+        Room: String(row[5] || "").replace(/\s+/g, " ").trim(),
+        Seats: String(row[6] || "").replace(/\s+/g, " ").trim(),
+        Semester: "",
+        Prediction: "",
+        Records: "",
+      }));
+
+      return {
+        courses,
+        semester: pageData.semester || "Fall 2026",
+        lastSynced: pageData.lastSynced || "",
+      };
+    }
+
+    // Fallback: parse raw HTML from DOM if DataTable wasn't initialized
+    const html = await page.content();
+    return parseCoursesFromHTML(html);
+  } finally {
+    await browser.close();
+  }
+}
+
+// ─── Parse HTML table rows (regex fallback) ───────────────────────────────────
 function parseCoursesFromHTML(html) {
   const courses = [];
 
-  // Extract semester from page title: "Offered Course List — Fall 2026"
   const semesterMatch = html.match(
     /Offered Course List\s*(?:&mdash;|—)\s*(.+?)<\/h1>/i
   );
   const semester = semesterMatch ? semesterMatch[1].trim() : "";
 
-  // Extract "Last Synced" timestamp
   const syncMatch = html.match(/Last Synced:\s*(.+?)(?:\s*<|$)/im);
   const lastSynced = syncMatch ? syncMatch[1].trim() : "";
 
-  // Find <tbody> content
   const tbodyMatch = html.match(/<tbody>([\s\S]*?)<\/tbody>/i);
   if (!tbodyMatch) {
     throw new Error("Could not find <tbody> in HTML");
   }
 
   const tbody = tbodyMatch[1];
-
-  // Match each <tr>...</tr>
   const rowRegex = /<tr>([\s\S]*?)<\/tr>/gi;
   let rowMatch;
 
   while ((rowMatch = rowRegex.exec(tbody)) !== null) {
     const rowHTML = rowMatch[1];
-
-    // Extract all <td> values
     const tdRegex = /<td[^>]*>([\s\S]*?)<\/td>/gi;
     const cells = [];
     let tdMatch;
@@ -178,7 +170,6 @@ function parseCoursesFromHTML(html) {
       cells.push(tdMatch[1].trim());
     }
 
-    // Expect 7 columns: #, Course, Section, Faculty, Time, Room, Seats
     if (cells.length >= 7) {
       const course = cells[1].trim();
       const section = cells[2].trim();
@@ -206,21 +197,20 @@ function parseCoursesFromHTML(html) {
   return { courses, semester, lastSynced };
 }
 
-// ─── Format sync time for last_updated.json ───────────────────────────────────
-function formatSyncTime(lastSynced) {
-  // Input: "13 Sep 2026, 12:43 PM GMT+6"
-  // Extract just the time part: "12:43 PM"
-  const timeMatch = lastSynced.match(/(\d{1,2}:\d{2}\s*[AP]M)/i);
-  return timeMatch ? timeMatch[1].trim() : "";
-}
-
 // ─── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
   console.log("🔄 Fetching courses from RDS4...");
-  const html = await fetchHTML();
-  console.log(`📦 Downloaded ${(html.length / 1024).toFixed(0)} KB of HTML`);
 
-  const { courses, semester, lastSynced } = parseCoursesFromHTML(html);
+  // Try direct fetch first (fastest, works locally)
+  let result = await tryDirectFetch();
+
+  // If blocked by Cloudflare (403), use Playwright (bypasses challenge)
+  if (!result || result.courses.length === 0) {
+    result = await scrapeWithPlaywright();
+  }
+
+  const { courses, semester, lastSynced } = result;
+
   console.log(
     `✅ Parsed ${courses.length} course sections (semester: ${semester})`
   );
@@ -230,7 +220,6 @@ async function main() {
     throw new Error("No courses parsed — aborting to prevent data loss");
   }
 
-  // Ensure data/ directory exists
   const dataDir = join(PROJECT_ROOT, "data");
   mkdirSync(dataDir, { recursive: true });
 

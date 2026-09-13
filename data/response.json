@@ -3393,7 +3393,7 @@
     "Faculty": "SKK",
     "Time": "MW 09:40 AM - 11:10 AM",
     "Room": "SAC405",
-    "Seats": "27",
+    "Seats": "26",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -11364,10 +11364,32 @@
   },
   {
     "Course": "CSE115",
+    "Section": "16",
+    "Faculty": "OISD",
+    "Time": "ST 01:00 PM - 02:30 PM",
+    "Room": "LIB611",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE115",
     "Section": "17",
     "Faculty": "RSy",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "SAC207",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE115",
+    "Section": "18",
+    "Faculty": "MHIS",
+    "Time": "ST 11:20 AM - 12:50 PM",
+    "Room": "LIB611",
     "Seats": "35",
     "Semester": "",
     "Prediction": "",
@@ -11562,10 +11584,32 @@
   },
   {
     "Course": "CSE115L",
+    "Section": "16",
+    "Faculty": "OISD",
+    "Time": "ST 04:20 PM - 05:50 PM",
+    "Room": "LIB611",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE115L",
     "Section": "17",
     "Faculty": "RSy",
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "LIB602",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE115L",
+    "Section": "18",
+    "Faculty": "MHIS",
+    "Time": "ST 08:00 AM - 09:30 AM",
+    "Room": "LIB611",
     "Seats": "35",
     "Semester": "",
     "Prediction": "",
@@ -19585,7 +19629,7 @@
     "Faculty": "TRn",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "NAC302",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -31476,7 +31520,7 @@
     "Faculty": "AIR",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "SAC201",
-    "Seats": "26",
+    "Seats": "25",
     "Semester": "",
     "Prediction": "",
     "Records": ""
