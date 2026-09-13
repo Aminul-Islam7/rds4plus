@@ -163,7 +163,7 @@ export function UpdateNotification() {
             <button
               type="button"
               onClick={handleDismiss}
-              className="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-750 dark:text-slate-400 dark:hover:text-slate-200 text-xs font-medium transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-slate-200 text-xs font-medium transition-all active:scale-95 cursor-pointer"
             >
               Dismiss
             </button>
