@@ -640,7 +640,7 @@ function SearchBar({
 
       {/* Suggestions dropdown */}
       {showSuggestions && hasSuggestions && (
-        <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 rounded-xl shadow-2xl overflow-hidden border border-slate-200/50 dark:border-transparent">
+        <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 rounded-xl shadow-2xl overflow-hidden border border-slate-200/50 dark:border-slate-700/60">
           {courseSuggestions.length > 0 && (
             <div className="p-2">
               <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-2 py-1">
@@ -673,7 +673,7 @@ function SearchBar({
             </div>
           )}
           {facultySuggestions.length > 0 && (
-            <div className="p-2 bg-slate-50 dark:bg-slate-850 border-t border-slate-100 dark:border-transparent">
+            <div className="p-2 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-700/50">
               <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-2 py-1">
                 Faculty
               </div>
