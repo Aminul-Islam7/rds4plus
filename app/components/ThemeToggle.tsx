@@ -42,12 +42,56 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     ? document.documentElement.classList.contains("dark") 
     : true;
 
+  const handleToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const doc = typeof document !== "undefined" ? (document as any) : null;
+
+    if (
+      !doc?.startViewTransition ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      toggleTheme();
+      return;
+    }
+
+    const button = event.currentTarget;
+    const rect = button.getBoundingClientRect();
+    const x = event.clientX || rect.left + rect.width / 2;
+    const y = event.clientY || rect.top + rect.height / 2;
+
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = doc.startViewTransition(() => {
+      toggleTheme();
+    });
+
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ];
+
+      doc.documentElement.animate(
+        {
+          clipPath: clipPath,
+        },
+        {
+          duration: 450,
+          easing: "ease-out",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    });
+  };
+
   return (
     <button
       id="theme-toggle"
       type="button"
-      onClick={toggleTheme}
-      className={`relative flex items-center justify-center h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 dark:hover:text-white transition-all duration-200 active:scale-90 cursor-pointer shrink-0 ${className}`}
+      onClick={handleToggle}
+      className={`relative flex items-center justify-center h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 dark:hover:text-white active:scale-90 cursor-pointer shrink-0 ${className}`}
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >

@@ -218,7 +218,7 @@ export function HelpModal({ isOpen, onClose, onDontShowAgain }: HelpModalProps) 
                 Backup & Restore
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Use <span className="text-slate-900 dark:text-white font-medium">Export</span> in the header to save filters, stars and priorities to a JSON file, to restore later or <span className="text-slate-900 dark:text-white font-medium">Import</span> on another device.
+                Use <span className="text-slate-900 dark:text-white font-medium">Export</span> button to save filters, stars and priorities to a JSON file, to restore later or <span className="text-slate-900 dark:text-white font-medium">Import</span> on another device.
               </p>
             </div>
           </div>
