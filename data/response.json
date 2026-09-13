@@ -764,7 +764,7 @@
     "Faculty": "PNG",
     "Time": "R 07:00 PM - 10:10 PM",
     "Room": "SAC315",
-    "Seats": "30",
+    "Seats": "29",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12232,6 +12232,17 @@
     "Records": ""
   },
   {
+    "Course": "CSE215",
+    "Section": "14",
+    "Faculty": "MAY",
+    "Time": "ST 09:40 AM - 11:10 AM",
+    "Room": "LIB607",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "CSE215L",
     "Section": "1",
     "Faculty": "RRn",
@@ -12347,6 +12358,17 @@
     "Faculty": "MFT",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "LIB603",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE215L",
+    "Section": "14",
+    "Faculty": "MAY",
+    "Time": "ST 01:00 PM - 02:30 PM",
+    "Room": "LIB609",
     "Seats": "35",
     "Semester": "",
     "Prediction": "",
