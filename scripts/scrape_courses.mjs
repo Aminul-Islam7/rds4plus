@@ -20,21 +20,83 @@ const PROJECT_ROOT = join(__dirname, "..");
 
 const RDS4_URL = "https://rds4.northsouth.ac.bd/offered_courses";
 
+import { execSync } from "child_process";
+
 // ─── Fetch HTML ───────────────────────────────────────────────────────────────
 async function fetchHTML() {
-  const res = await fetch(RDS4_URL, {
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
-      Accept: "text/html",
-    },
-  });
+  const browserHeaders = {
+    "User-Agent":
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+    Accept:
+      "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Sec-Ch-Ua":
+      '"Not(A:Brand";v="99", "Google Chrome";v="133", "Chromium";v="133"',
+    "Sec-Ch-Ua-Mobile": "?0",
+    "Sec-Ch-Ua-Platform": '"Windows"',
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none",
+    "Sec-Fetch-User": "?1",
+    "Upgrade-Insecure-Requests": "1",
+  };
 
-  if (!res.ok) {
-    throw new Error(`RDS4 responded ${res.status} ${res.statusText}`);
+  // 1. Try direct fetch with realistic browser headers
+  try {
+    const res = await fetch(RDS4_URL, { headers: browserHeaders });
+    if (res.ok) {
+      const text = await res.text();
+      if (text.includes("<tbody>") && text.includes("Offered Course List")) {
+        return text;
+      }
+    }
+    console.warn(`⚠️ Direct fetch responded ${res.status} ${res.statusText}`);
+  } catch (err) {
+    console.warn(`⚠️ Direct fetch error: ${err.message}`);
   }
 
-  return res.text();
+  // 2. Try curl with --compressed and browser headers
+  try {
+    console.log("🔄 Trying curl fallback...");
+    const stdout = execSync(
+      `curl -s -L --compressed --max-time 20 -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.9" "${RDS4_URL}"`,
+      { maxBuffer: 15 * 1024 * 1024 }
+    ).toString("utf-8");
+
+    if (stdout.includes("<tbody>") && stdout.includes("Offered Course List")) {
+      console.log("✅ curl fallback succeeded");
+      return stdout;
+    }
+    console.warn(`⚠️ curl response length: ${stdout.length}, did not contain table`);
+  } catch (err) {
+    console.warn(`⚠️ curl error: ${err.message}`);
+  }
+
+  // 3. Try web proxies (to bypass Cloudflare datacenter IP blocking)
+  const proxies = [
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(RDS4_URL)}`,
+    `https://corsproxy.io/?url=${encodeURIComponent(RDS4_URL)}`,
+  ];
+
+  for (const proxyUrl of proxies) {
+    try {
+      console.log(`🔄 Trying proxy fallback: ${new URL(proxyUrl).hostname}...`);
+      const res = await fetch(proxyUrl, {
+        headers: { "User-Agent": browserHeaders["User-Agent"] },
+      });
+      if (res.ok) {
+        const text = await res.text();
+        if (text.includes("<tbody>") && text.includes("Offered Course List")) {
+          console.log(`✅ Proxy fallback succeeded via ${new URL(proxyUrl).hostname}`);
+          return text;
+        }
+      }
+    } catch (err) {
+      console.warn(`⚠️ Proxy error: ${err.message}`);
+    }
+  }
+
+  throw new Error("All fetch methods failed to retrieve valid RDS4 HTML");
 }
 
 // ─── Parse HTML table rows ────────────────────────────────────────────────────
