@@ -67,53 +67,58 @@ async function fetchHTML() {
       console.log("✅ curl fallback succeeded");
       return stdout;
     }
-    console.warn(`⚠️ curl response length: ${stdout.length}, did not contain table`);
+    console.log(`⚠️ curl response length: ${stdout.length}. Preview:`, stdout.slice(0, 300).replace(/\s+/g, ' '));
   } catch (err) {
-    console.warn(`⚠️ curl error: ${err.message}`);
+    console.log(`⚠️ curl error: ${err.message}`);
   }
 
-  // 3. Try web proxies (to bypass Cloudflare datacenter IP blocking)
-  const proxies = [
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(RDS4_URL)}`,
-    `https://corsproxy.io/?url=${encodeURIComponent(RDS4_URL)}`,
-  ];
-
-  for (const proxyUrl of proxies) {
-    try {
-      console.log(`🔄 Trying proxy fallback: ${new URL(proxyUrl).hostname}...`);
-      const res = await fetch(proxyUrl, {
-        headers: { "User-Agent": browserHeaders["User-Agent"] },
-      });
-      if (res.ok) {
-        const text = await res.text();
-        if (text.includes("<tbody>") && text.includes("Offered Course List")) {
-          console.log(`✅ Proxy fallback succeeded via ${new URL(proxyUrl).hostname}`);
-          return text;
-        }
-      }
-    } catch (err) {
-      console.warn(`⚠️ Proxy error: ${err.message}`);
-    }
-  }
-
-  // 4. Try Playwright headless Chromium (bypasses Cloudflare bot challenges)
+  // 3. Try Playwright headless Chromium (bypasses Cloudflare bot challenges)
   try {
     console.log("🌐 Trying Playwright headless Chromium...");
     const { chromium } = await import("playwright");
     const browser = await chromium.launch({
       headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-blink-features=AutomationControlled",
+      ],
     });
     try {
       const context = await browser.newContext({
-        userAgent: browserHeaders["User-Agent"],
-        locale: "en-US",
+        userAgent:
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+        viewport: { width: 1920, height: 1080 },
+      });
+      await context.addInitScript(() => {
+        Object.defineProperty(navigator, "webdriver", { get: () => undefined });
       });
       const page = await context.newPage();
-      await page.goto(RDS4_URL, { waitUntil: "domcontentloaded", timeout: 60000 });
-      await page.waitForSelector("tbody", { timeout: 30000 });
+      console.log("🌐 Navigating to RDS4 via Playwright...");
+      const navRes = await page.goto(RDS4_URL, {
+        waitUntil: "domcontentloaded",
+        timeout: 45000,
+      });
+      console.log(`🌐 Playwright HTTP status: ${navRes ? navRes.status() : "none"}`);
+      console.log(`🌐 Playwright page title: ${await page.title()}`);
 
-      // Fetch raw HTML within validated session (preserves Cloudflare clearance cookies and avoids DataTables pagination pruning)
+      // If Cloudflare challenge, wait up to 15s for it to solve
+      let hasTable = false;
+      for (let i = 0; i < 15; i++) {
+        const title = await page.title();
+        if (!title.includes("Just a moment") && !title.includes("Cloudflare")) {
+          const content = await page.content();
+          if (content.includes("<tbody>")) {
+            hasTable = true;
+            break;
+          }
+        }
+        console.log(`⏳ Waiting for Cloudflare challenge (title: "${await page.title()}")...`);
+        await page.waitForTimeout(1000);
+      }
+
+      // Fetch raw HTML within validated session
       const html = await page.evaluate(async () => {
         const res = await fetch(window.location.href);
         return res.text();
@@ -123,11 +128,13 @@ async function fetchHTML() {
         console.log(`✅ Playwright retrieved full raw HTML (${(html.length / 1024).toFixed(0)} KB)`);
         return html;
       }
+      console.log(`⚠️ Playwright HTML length: ${html.length}. Preview:`, html.slice(0, 300).replace(/\s+/g, ' '));
     } finally {
       await browser.close();
     }
   } catch (err) {
-    console.warn(`⚠️ Playwright error: ${err.message}`);
+    console.log("❌ Playwright error:", err.message);
+    if (err.stack) console.log(err.stack);
   }
 
   throw new Error("All fetch methods failed to retrieve valid RDS4 HTML");
