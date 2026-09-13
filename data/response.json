@@ -970,7 +970,7 @@
   {
     "Course": "ANT103",
     "Section": "1",
-    "Faculty": "TAE",
+    "Faculty": "MTE",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "NAC202",
     "Seats": "0",
@@ -3987,7 +3987,7 @@
     "Faculty": "BUN",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "NAC206",
-    "Seats": "1",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -15136,6 +15136,17 @@
     "Records": ""
   },
   {
+    "Course": "DEV573",
+    "Section": "1",
+    "Faculty": "NrA",
+    "Time": "A 03:00 PM - 06:10 PM",
+    "Room": "NAC510",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "DEV577",
     "Section": "1",
     "Faculty": "ASRN",
@@ -15714,6 +15725,17 @@
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "NAC413",
     "Seats": "33",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "ECO101",
+    "Section": "17",
+    "Faculty": "SFY",
+    "Time": "RA 04:20 PM - 05:50 PM",
+    "Room": "NAC512A",
+    "Seats": "35",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -16725,6 +16747,17 @@
     "Faculty": "TPA",
     "Time": "F 03:00 PM - 06:30 PM",
     "Room": "NAC402",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "ECO504",
+    "Section": "1",
+    "Faculty": "AKP",
+    "Time": "A 03:00 PM - 06:10 PM",
+    "Room": "NAC509",
     "Seats": "35",
     "Semester": "",
     "Prediction": "",
@@ -31949,7 +31982,7 @@
     "Faculty": "SNL",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "SAC201",
-    "Seats": "12",
+    "Seats": "13",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -32543,7 +32576,7 @@
     "Faculty": "ZZS",
     "Time": "W 11:20 AM - 12:50 PM",
     "Room": "SAC411_V",
-    "Seats": "10",
+    "Seats": "11",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -35840,7 +35873,7 @@
   {
     "Course": "SOC101",
     "Section": "24",
-    "Faculty": "MTE",
+    "Faculty": "RJS",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NAC517",
     "Seats": "69",
