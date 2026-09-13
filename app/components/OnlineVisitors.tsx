@@ -13,15 +13,15 @@ function EyeIcon({ className }: { className?: string }) {
       {/* Outer eye contour */}
       <path
         d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z"
-        stroke="#10b981"
-        strokeWidth="2.2"
+        stroke="currentColor"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       {/* Pupil */}
-      <circle cx="12" cy="12" r="3.4" fill="#10b981" />
+      <circle cx="12" cy="12" r="3.2" fill="currentColor" />
       {/* Catchlight highlight dot */}
-      <circle cx="13.2" cy="10.8" r="1.1" fill="#ffffff" />
+      <circle cx="13.2" cy="10.8" r="1" fill="#ffffff" fillOpacity="0.75" />
     </svg>
   );
 }
@@ -85,11 +85,11 @@ export function OnlineVisitors() {
 
   return (
     <div
-      className="inline-flex items-center gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#0b1410] border border-emerald-500/60 select-none shrink-0"
+      className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-900/80 border border-emerald-500/25 select-none shrink-0"
       title="Online visitors right now"
     >
-      <EyeIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
-      <span className="text-white font-bold text-xs sm:text-sm leading-none tabular-nums min-w-[1ch] text-center">
+      <EyeIcon className="h-3.5 w-3.5 text-emerald-400/70 shrink-0" />
+      <span className="text-slate-300 font-medium text-xs leading-none tabular-nums min-w-[1ch] text-center">
         {count !== null ? count : "..."}
       </span>
     </div>
