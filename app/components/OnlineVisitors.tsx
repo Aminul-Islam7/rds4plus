@@ -30,21 +30,26 @@ export function OnlineVisitors() {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    // Generate or retrieve persistent session ID
-    let visitorId = sessionStorage.getItem("rds4plus_vid");
+    // Persistent visitor ID shared across all tabs of same browser
+    let visitorId = localStorage.getItem("rds4plus_vid");
     if (!visitorId) {
       visitorId =
         typeof crypto !== "undefined" && crypto.randomUUID
           ? crypto.randomUUID()
           : Math.random().toString(36).substring(2) + Date.now().toString(36);
-      sessionStorage.setItem("rds4plus_vid", visitorId);
+      try {
+        localStorage.setItem("rds4plus_vid", visitorId);
+      } catch {
+        // storage disabled or quota exceeded
+      }
     }
 
     const ping = async () => {
       try {
-        const res = await fetch(`/api/visitors?id=${encodeURIComponent(visitorId!)}`, {
-          cache: "no-store",
-        });
+        const res = await fetch(
+          `/api/visitors?id=${encodeURIComponent(visitorId!)}`,
+          { cache: "no-store" }
+        );
         if (res.ok) {
           const data = await res.json();
           if (typeof data.count === "number") {
@@ -59,33 +64,22 @@ export function OnlineVisitors() {
     // Initial ping
     ping();
 
-    // Heartbeat every 25 seconds
-    const interval = setInterval(ping, 25000);
+    // Heartbeat every 10 seconds for responsive updates
+    const interval = setInterval(ping, 10000);
 
-    // On visibility change, ping if user comes back
-    const handleVisibilityChange = () => {
+    // On visibility change or tab focus, ping immediately
+    const handleActivity = () => {
       if (document.visibilityState === "visible") {
         ping();
       }
     };
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    // Leave beacon on page unload
-    const handleUnload = () => {
-      if (navigator.sendBeacon) {
-        const blob = new Blob(
-          [JSON.stringify({ id: visitorId, action: "leave" })],
-          { type: "application/json" }
-        );
-        navigator.sendBeacon("/api/visitors", blob);
-      }
-    };
-    window.addEventListener("beforeunload", handleUnload);
+    document.addEventListener("visibilitychange", handleActivity);
+    window.addEventListener("focus", handleActivity);
 
     return () => {
       clearInterval(interval);
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-      window.removeEventListener("beforeunload", handleUnload);
+      document.removeEventListener("visibilitychange", handleActivity);
+      window.removeEventListener("focus", handleActivity);
     };
   }, []);
 

@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const UPSTASH_URL = process.env.UPSTASH_REDIS_REST_URL;
-const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
+const UPSTASH_URL =
+  process.env.UPSTASH_REDIS_REST_URL ||
+  "https://hot-adder-124963.upstash.io";
+const UPSTASH_TOKEN =
+  process.env.UPSTASH_REDIS_REST_TOKEN ||
+  "gQAAAAAAAegjAAIgcDE0NzU1Y2YzMTIzMzA0ZTgzYmUwNmFhZjZhZTcxMGZmYg";
 const REDIS_KEY = "rds4plus:active_visitors";
-const TIMEOUT_MS = 60 * 1000; // 60 seconds inactivity window
+const TIMEOUT_MS = 30 * 1000; // 30 seconds inactivity window
 
 // In-memory fallback if Redis is unavailable
 const localVisitors = new Map<string, number>();
