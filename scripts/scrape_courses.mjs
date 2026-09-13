@@ -5,7 +5,7 @@
  * Usage:  node scripts/scrape_courses.mjs
  */
 
-import { writeFileSync, mkdirSync } from "fs";
+import { writeFileSync, readFileSync, existsSync, mkdirSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -224,9 +224,26 @@ async function main() {
   const dataDir = join(PROJECT_ROOT, "data");
   mkdirSync(dataDir, { recursive: true });
 
-  // Write response.json
   const responsePath = join(dataDir, "response.json");
-  writeFileSync(responsePath, JSON.stringify(courses, null, 2), "utf-8");
+  const lastUpdatedPath = join(dataDir, "last_updated.json");
+  const newCoursesJson = JSON.stringify(courses, null, 2);
+
+  let existingCourses = "";
+  if (existsSync(responsePath)) {
+    try {
+      existingCourses = readFileSync(responsePath, "utf-8");
+    } catch {}
+  }
+
+  // If courses are identical, skip writing to avoid generating unnecessary git diffs
+  if (existingCourses.trim() === newCoursesJson.trim()) {
+    console.log("ℹ️ Course data and sections are identical. Skipping file write.");
+    console.log("\n🎉 Done (no changes)!");
+    return;
+  }
+
+  // Write response.json
+  writeFileSync(responsePath, newCoursesJson, "utf-8");
   console.log(`📝 Wrote ${responsePath} (${courses.length} entries)`);
 
   // Write last_updated.json with exact scrape time in Asia/Dhaka timezone
@@ -250,7 +267,6 @@ async function main() {
     source: "rds4.northsouth.ac.bd",
     total_sections: courses.length,
   };
-  const lastUpdatedPath = join(dataDir, "last_updated.json");
   writeFileSync(lastUpdatedPath, JSON.stringify(lastUpdated, null, 2), "utf-8");
   console.log(`📝 Wrote ${lastUpdatedPath} (scraped at: ${scrapedTime})`);
 
