@@ -5,11 +5,14 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
+  color-scheme: light;
 }
 
+html.dark,
 .dark {
   --background: #020617;
   --foreground: #f1f5f9;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -18,13 +21,18 @@
   --font-sans: var(--font-inter);
 }
 
+html,
+body,
 * {
   scrollbar-width: thin;
   scrollbar-color: #cbd5e1 #f1f5f9;
 }
 
+html.dark,
+html.dark *,
+.dark,
 .dark * {
-  scrollbar-color: #334155 #0f172a;
+  scrollbar-color: #334155 #020617;
 }
 
 *::-webkit-scrollbar {
@@ -36,8 +44,10 @@
   background: #f1f5f9;
 }
 
+html.dark *::-webkit-scrollbar-track,
+html.dark::-webkit-scrollbar-track,
 .dark *::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #020617;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -45,6 +55,8 @@
   border-radius: 4px;
 }
 
+html.dark *::-webkit-scrollbar-thumb,
+html.dark::-webkit-scrollbar-thumb,
 .dark *::-webkit-scrollbar-thumb {
   background: #334155;
 }
@@ -53,6 +65,8 @@
   background: #94a3b8;
 }
 
+html.dark *::-webkit-scrollbar-thumb:hover,
+html.dark::-webkit-scrollbar-thumb:hover,
 .dark *::-webkit-scrollbar-thumb:hover {
   background: #475569;
 }
