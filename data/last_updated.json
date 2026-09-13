@@ -1,14 +1,8 @@
 {
-<<<<<<< Updated upstream
-  "scraped_at": "Sep 13, 6:45 PM",
-  "scraped_iso": "2026-09-13T12:45:16.755Z",
-  "synced_at": "13 Sep 2026, 06:43 PM",
-=======
-  "scraped_at": "Sep 13, 6:49 PM",
-  "scraped_iso": "2026-09-13T12:49:04.639Z",
-  "synced_at": "13 Sep 2026, 06:48 PM",
->>>>>>> Stashed changes
+  "scraped_at": "Sep 13, 6:54 PM",
+  "scraped_iso": "2026-09-13T12:54:04.364Z",
+  "synced_at": "13 Sep 2026, 06:53 PM",
   "semester": "Fall 2026",
-  "source": "rds4.northsouth.ac.bd",
+  "source": "local-pc-daemon",
   "total_sections": 3335
 }
