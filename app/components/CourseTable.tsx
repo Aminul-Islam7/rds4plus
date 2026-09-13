@@ -6,6 +6,7 @@ import { Course } from "../types/course";
 import { formatTimeDisplay } from "../lib/parser";
 import { useTableState, DAY_FILTERS, DayFilter, ColumnKey } from "../hooks/useTableState";
 import { ExportImportButtons } from "./ExportImportButtons";
+import { ClearPrioritiesModal } from "./ClearPrioritiesModal";
 
 // Icons as components
 function StarIcon({ filled, className }: { filled: boolean; className?: string }) {
@@ -718,6 +719,7 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
   lastUpdated?: string;
 }) {
   const { refresh, isRefreshing } = useCourses();
+  const [showClearPrioritiesModal, setShowClearPrioritiesModal] = useState(false);
   const hasActiveFilters =
     tableState.activeCourseFilters.size > 0 ||
     tableState.activeFacultyFilters.size > 0 ||
@@ -849,13 +851,23 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
         </div>
         
         <div className="flex items-center flex-wrap gap-3">
-          {tableState.sortConfigs.length > 0 && (
+          {tableState.sortConfigs.length > 1 && (
             <button
               onClick={tableState.clearSorts}
               className="text-sm text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
             >
               <XIcon className="h-4 w-4 shrink-0" />
               <span>Clear sorts ({tableState.sortConfigs.length})</span>
+            </button>
+          )}
+
+          {tableState.priorities.size > 3 && (
+            <button
+              onClick={() => setShowClearPrioritiesModal(true)}
+              className="text-sm text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300 transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
+            >
+              <XIcon className="h-4 w-4 shrink-0" />
+              <span>Clear priorities ({tableState.priorities.size})</span>
             </button>
           )}
           
@@ -873,6 +885,13 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
           <ColumnsDropdown tableState={tableState} />
         </div>
       </div>
+
+      <ClearPrioritiesModal
+        isOpen={showClearPrioritiesModal}
+        count={tableState.priorities.size}
+        onClose={() => setShowClearPrioritiesModal(false)}
+        onConfirm={tableState.clearPriorities}
+      />
     </div>
   );
 }

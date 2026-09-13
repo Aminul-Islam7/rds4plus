@@ -43,6 +43,7 @@ export interface TableState {
   priorities: Map<string, number>;
   setPriority: (courseId: string, priority: number) => void;
   getPriority: (courseId: string) => number;
+  clearPriorities: () => void;
 
   // Saved filters
   savedCourses: Set<string>;
@@ -199,6 +200,12 @@ export function useTableState(courses: Course[]): TableState {
     (courseId: string) => priorities.get(courseId) || 0,
     [priorities]
   );
+
+  const clearPriorities = useCallback(() => {
+    const emptyMap = new Map<string, number>();
+    setPriorities(emptyMap);
+    saveMap(STORAGE_KEYS.PRIORITIES, emptyMap);
+  }, []);
 
   // Saved course/faculty functions - normalize for case-insensitivity
   const toggleSavedCourse = useCallback((courseCode: string) => {
@@ -584,6 +591,7 @@ export function useTableState(courses: Course[]): TableState {
     priorities,
     setPriority,
     getPriority,
+    clearPriorities,
     savedCourses,
     savedFaculties,
     toggleSavedCourse,
