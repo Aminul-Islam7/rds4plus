@@ -3,6 +3,7 @@
 import { CourseTable } from "./components/CourseTable";
 import { HelpModal } from "./components/HelpModal";
 import { OnlineVisitors } from "./components/OnlineVisitors";
+import { UpdateNotification } from "./components/UpdateNotification";
 import { useCourses } from "./context/CourseContext";
 import { useMemo, useRef, useState, useEffect } from "react";
 
@@ -248,6 +249,9 @@ export default function Home() {
         onClose={() => setShowHelpModal(false)}
         onDontShowAgain={handleDontShowAgain}
       />
+
+      {/* Floating Update Notification (if idle > 30m and data changed) */}
+      <UpdateNotification />
     </div>
   );
 }

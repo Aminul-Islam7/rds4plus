@@ -236,15 +236,28 @@ async function getCourseData(): Promise<{ data: CourseData; source: string }> {
 }
 
 // ─── Route Handler ────────────────────────────────────────────────────────────
-export async function GET(): Promise<NextResponse<ApiResponse<CourseData>>> {
+export async function GET(request: Request): Promise<NextResponse> {
   try {
+    const url = new URL(request.url);
+    const isCheck =
+      url.searchParams.get("check") === "1" ||
+      url.searchParams.get("meta") === "1";
+
     const { data, source } = await getCourseData();
 
-    const response = NextResponse.json({
-      success: true,
-      data,
-      timestamp: new Date().toISOString(),
-    });
+    const payload = isCheck
+      ? {
+          success: true,
+          meta: data.meta,
+          timestamp: new Date().toISOString(),
+        }
+      : {
+          success: true,
+          data,
+          timestamp: new Date().toISOString(),
+        };
+
+    const response = NextResponse.json(payload);
 
     // Disable aggressive browser caching so semester updates immediately
     response.headers.set(
