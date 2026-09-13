@@ -3877,7 +3877,7 @@
     "Faculty": "TBA",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "NAC513",
-    "Seats": "40",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3888,7 +3888,7 @@
     "Faculty": "TBA",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NAC513",
-    "Seats": "40",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -4204,7 +4204,7 @@
   {
     "Course": "BIO103",
     "Section": "60",
-    "Faculty": "TBA",
+    "Faculty": "MbMd",
     "Time": "RA 06:00 PM - 07:30 PM",
     "Room": "NAC413",
     "Seats": "45",
@@ -4218,7 +4218,7 @@
     "Faculty": "TBA",
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "NAC603",
-    "Seats": "40",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -13579,6 +13579,17 @@
     "Faculty": "NJL",
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "SAC502",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE332/EEE336",
+    "Section": "7",
+    "Faculty": "TnF",
+    "Time": "MW 08:00 AM - 09:30 AM",
+    "Room": "NAC303",
     "Seats": "35",
     "Semester": "",
     "Prediction": "",
