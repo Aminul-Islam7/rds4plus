@@ -585,6 +585,42 @@ function SearchBar({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Global keyboard shortcuts: '/' and 'Ctrl+K' / 'Cmd+K' to focus search box
+  useEffect(() => {
+    function handleGlobalKeyDown(e: KeyboardEvent) {
+      // Ignore if any modal is open
+      if (document.querySelector(".fixed.inset-0.z-50")) return;
+
+      const isCtrlOrCmdK = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k";
+      const isSlash = e.key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey;
+
+      if (isCtrlOrCmdK) {
+        e.preventDefault();
+        inputRef.current?.focus();
+        inputRef.current?.select();
+        return;
+      }
+
+      if (isSlash) {
+        const target = e.target as HTMLElement | null;
+        const isEditable =
+          target?.isContentEditable ||
+          target?.tagName === "INPUT" ||
+          target?.tagName === "TEXTAREA" ||
+          target?.tagName === "SELECT";
+
+        if (!isEditable) {
+          e.preventDefault();
+          inputRef.current?.focus();
+          inputRef.current?.select();
+        }
+      }
+    }
+
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown);
+  }, []);
+
   const applySuggestion = (suggestion: string) => {
     const terms = value.split(/\s+/);
     terms.pop();
@@ -626,7 +662,7 @@ function SearchBar({
           onBlur={() => setIsFocused(false)}
           className="w-full bg-transparent py-3 pl-12 pr-10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 outline-none"
         />
-        {value && (
+        {value ? (
           <button
             onClick={() => {
               onChange("");
@@ -636,6 +672,16 @@ function SearchBar({
           >
             <XIcon className="h-4 w-4" />
           </button>
+        ) : (
+          <div className="absolute right-3 hidden sm:flex items-center gap-1.5 pointer-events-none select-none">
+            <kbd className="inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-medium text-slate-400 dark:text-slate-500 bg-slate-200/70 dark:bg-slate-700/60 rounded">
+              /
+            </kbd>
+            <span className="text-[10px] text-slate-400 dark:text-slate-500">or</span>
+            <kbd className="inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-medium text-slate-400 dark:text-slate-500 bg-slate-200/70 dark:bg-slate-700/60 rounded">
+              Ctrl K
+            </kbd>
+          </div>
         )}
       </div>
 
