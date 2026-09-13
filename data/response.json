@@ -11451,6 +11451,17 @@
     "Records": ""
   },
   {
+    "Course": "CHN201",
+    "Section": "2",
+    "Faculty": "Rbt",
+    "Time": "MW 04:20 PM - 05:50 PM",
+    "Room": "NAC515",
+    "Seats": "40",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "CSE101",
     "Section": "1",
     "Faculty": "MSLK",
@@ -18385,7 +18396,7 @@
     "Section": "3",
     "Faculty": "FMZN",
     "Time": "R 02:40 PM - 04:10 PM",
-    "Room": "SAC502",
+    "Room": "LIB611",
     "Seats": "21",
     "Semester": "",
     "Prediction": "",
@@ -18396,7 +18407,7 @@
     "Section": "4",
     "Faculty": "FMA",
     "Time": "R 04:20 PM - 05:50 PM",
-    "Room": "SAC502",
+    "Room": "LIB611",
     "Seats": "21",
     "Semester": "",
     "Prediction": "",
@@ -21543,17 +21554,6 @@
     "Faculty": "NCA",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "NAC411",
-    "Seats": "40",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "ENG111",
-    "Section": "20",
-    "Faculty": "SNCY",
-    "Time": "MW 04:20 PM - 05:50 PM",
-    "Room": "NAC515",
     "Seats": "40",
     "Semester": "",
     "Prediction": "",
