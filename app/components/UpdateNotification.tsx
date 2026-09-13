@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useCourses } from "../context/CourseContext";
 
-const ONE_HOUR_MS = 60 * 60 * 1000; // 1 hour idle before checking for updates
+const THIRTY_MINUTES_MS = 30 * 60 * 1000; // 30 minutes idle before checking for updates
 const CHECK_INTERVAL_MS = 60 * 1000; // Check every 60s once threshold is reached
 
 declare global {
@@ -35,7 +35,7 @@ export function UpdateNotification() {
     }
   }, [data]);
 
-  // Check for updates if page has been open > 1 hour without refresh
+  // Check for updates if page has been open > 30 minutes without refresh
   useEffect(() => {
     // 1. Secret testing support (URL param ?testUpdate=true or console window.__testUpdateNotice())
     if (typeof window !== "undefined") {
@@ -54,8 +54,8 @@ export function UpdateNotification() {
 
     const checkServerForUpdates = async () => {
       const elapsed = Date.now() - loadedAtRef.current;
-      // Only check if user has not reloaded or refreshed for more than 1 hour
-      if (elapsed < ONE_HOUR_MS) {
+      // Only check if user has not reloaded or refreshed for more than 30 minutes
+      if (elapsed < THIRTY_MINUTES_MS) {
         return;
       }
 
@@ -89,9 +89,9 @@ export function UpdateNotification() {
 
     const interval = setInterval(checkServerForUpdates, CHECK_INTERVAL_MS);
 
-    // Also check on tab focus if > 1 hour elapsed
+    // Also check on tab focus if > 30 mins elapsed
     const handleFocus = () => {
-      if (Date.now() - loadedAtRef.current >= ONE_HOUR_MS) {
+      if (Date.now() - loadedAtRef.current >= THIRTY_MINUTES_MS) {
         checkServerForUpdates();
       }
     };

@@ -880,16 +880,7 @@ function FilterBar({ tableState, totalCount, filteredCount, displayedCount, last
               </button>
               <div className="flex flex-wrap items-center gap-1.5">
                 <span>
-                  Last synced with{" "}
-                  <a
-                    href="https://rds4.northsouth.ac.bd/offered_courses"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline underline-offset-2 hover:text-slate-800 dark:hover:text-slate-300 transition-colors"
-                  >
-                    RDS4
-                  </a>
-                  :
+                  Last updated:
                 </span>
                 <span className="text-slate-800 dark:text-slate-300 font-medium">{lastUpdated}</span>
               </div>
