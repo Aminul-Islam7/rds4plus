@@ -110,11 +110,17 @@ async function fetchHTML() {
         locale: "en-US",
       });
       const page = await context.newPage();
-      await page.goto(RDS4_URL, { waitUntil: "domcontentloaded", timeout: 45000 });
-      await page.waitForSelector("tbody tr", { timeout: 30000 });
-      const html = await page.content();
+      await page.goto(RDS4_URL, { waitUntil: "domcontentloaded", timeout: 60000 });
+      await page.waitForSelector("tbody", { timeout: 30000 });
+
+      // Fetch raw HTML within validated session (preserves Cloudflare clearance cookies and avoids DataTables pagination pruning)
+      const html = await page.evaluate(async () => {
+        const res = await fetch(window.location.href);
+        return res.text();
+      });
+
       if (html.includes("<tbody>") && html.includes("Offered Course List")) {
-        console.log("✅ Playwright succeeded in retrieving RDS4 page");
+        console.log(`✅ Playwright retrieved full raw HTML (${(html.length / 1024).toFixed(0)} KB)`);
         return html;
       }
     } finally {
