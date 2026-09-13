@@ -18925,7 +18925,7 @@
     "Faculty": "FKr",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "SAC306",
-    "Seats": "33",
+    "Seats": "34",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18936,7 +18936,7 @@
     "Faculty": "FKr",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "SAC306",
-    "Seats": "35",
+    "Seats": "34",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -20048,6 +20048,17 @@
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "NAC514",
     "Seats": "34",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "ENG102",
+    "Section": "55",
+    "Faculty": "TBA",
+    "Time": "MW 08:00 AM - 09:30 AM",
+    "Room": "NAC603",
+    "Seats": "40",
     "Semester": "",
     "Prediction": "",
     "Records": ""
