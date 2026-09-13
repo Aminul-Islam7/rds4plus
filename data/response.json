@@ -13664,7 +13664,7 @@
   {
     "Course": "CSE332/EEE336",
     "Section": "3",
-    "Faculty": "ALHQ",
+    "Faculty": "TBA",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "SAC511",
     "Seats": "35",
@@ -13675,7 +13675,7 @@
   {
     "Course": "CSE332/EEE336",
     "Section": "4",
-    "Faculty": "MAQM",
+    "Faculty": "MAQm",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "SAC209",
     "Seats": "35",
@@ -13686,7 +13686,7 @@
   {
     "Course": "CSE332/EEE336",
     "Section": "5",
-    "Faculty": "NLH",
+    "Faculty": "TBA",
     "Time": "MW 01:00 PM - 02:30 PM",
     "Room": "SAC316",
     "Seats": "0",
@@ -13719,7 +13719,7 @@
   {
     "Course": "CSE332/EEE336",
     "Section": "8",
-    "Faculty": "TnF",
+    "Faculty": "TBA",
     "Time": "MW 01:00 PM - 02:30 PM",
     "Room": "SAC502",
     "Seats": "35",
@@ -13730,7 +13730,7 @@
   {
     "Course": "CSE332/EEE336",
     "Section": "9",
-    "Faculty": "Sfm",
+    "Faculty": "TBA",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "SAC207",
     "Seats": "35",
@@ -13741,7 +13741,7 @@
   {
     "Course": "CSE332/EEE336",
     "Section": "10",
-    "Faculty": "Sfm",
+    "Faculty": "TBA",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "SAC207",
     "Seats": "35",
@@ -13752,7 +13752,7 @@
   {
     "Course": "CSE332/EEE336",
     "Section": "11",
-    "Faculty": "TnR",
+    "Faculty": "TBA",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "SAC311",
     "Seats": "0",
@@ -13763,7 +13763,7 @@
   {
     "Course": "CSE332/EEE336",
     "Section": "12",
-    "Faculty": "MAQM",
+    "Faculty": "TBA",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC310",
     "Seats": "0",
@@ -13785,7 +13785,7 @@
   {
     "Course": "CSE332L/EEE336L",
     "Section": "2",
-    "Faculty": "TNR",
+    "Faculty": "TnR",
     "Time": "M 08:00 AM - 11:10 AM",
     "Room": "SAC801",
     "Seats": "35",
@@ -13796,7 +13796,7 @@
   {
     "Course": "CSE332L/EEE336L",
     "Section": "3",
-    "Faculty": "ALHQ",
+    "Faculty": "TBA",
     "Time": "W 02:40 PM - 05:50 PM",
     "Room": "SAC801",
     "Seats": "35",
@@ -13807,7 +13807,7 @@
   {
     "Course": "CSE332L/EEE336L",
     "Section": "4",
-    "Faculty": "MAQM",
+    "Faculty": "MAQm",
     "Time": "S 08:00 AM - 11:10 AM",
     "Room": "SAC801",
     "Seats": "35",
@@ -13818,7 +13818,7 @@
   {
     "Course": "CSE332L/EEE336L",
     "Section": "5",
-    "Faculty": "NLH",
+    "Faculty": "TBA",
     "Time": "T 11:20 AM - 02:30 PM",
     "Room": "SAC801",
     "Seats": "0",
@@ -13851,7 +13851,7 @@
   {
     "Course": "CSE332L/EEE336L",
     "Section": "8",
-    "Faculty": "TNF",
+    "Faculty": "TBA",
     "Time": "R 11:20 AM - 02:30 PM",
     "Room": "SAC801",
     "Seats": "35",
@@ -13862,7 +13862,7 @@
   {
     "Course": "CSE332L/EEE336L",
     "Section": "9",
-    "Faculty": "Sfm",
+    "Faculty": "TBA",
     "Time": "A 11:20 AM - 02:30 PM",
     "Room": "SAC801",
     "Seats": "35",
@@ -13873,7 +13873,7 @@
   {
     "Course": "CSE332L/EEE336L",
     "Section": "10",
-    "Faculty": "Sfm",
+    "Faculty": "TBA",
     "Time": "A 02:40 PM - 05:50 PM",
     "Room": "SAC801",
     "Seats": "35",
@@ -13884,7 +13884,7 @@
   {
     "Course": "CSE332L/EEE336L",
     "Section": "11",
-    "Faculty": "TNR",
+    "Faculty": "TBA",
     "Time": "W 08:00 AM - 11:10 AM",
     "Room": "SAC801",
     "Seats": "0",
@@ -13895,7 +13895,7 @@
   {
     "Course": "CSE332L/EEE336L",
     "Section": "12",
-    "Faculty": "MAQM",
+    "Faculty": "TBA",
     "Time": "T 08:00 AM - 11:10 AM",
     "Room": "SAC801",
     "Seats": "0",
