@@ -13431,6 +13431,39 @@
     "Records": ""
   },
   {
+    "Course": "CSE325/CSE425",
+    "Section": "1",
+    "Faculty": "MSK1",
+    "Time": "MW 01:00 PM - 02:30 PM",
+    "Room": "SAC307",
+    "Seats": "30",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE325/CSE425",
+    "Section": "2",
+    "Faculty": "MSK1",
+    "Time": "MW 02:40 PM - 04:10 PM",
+    "Room": "SAC307",
+    "Seats": "30",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE325/CSE425",
+    "Section": "3",
+    "Faculty": "SSI",
+    "Time": "ST 04:20 PM - 05:50 PM",
+    "Room": "SAC209",
+    "Seats": "18",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "CSE327",
     "Section": "1",
     "Faculty": "AFE",
@@ -13948,6 +13981,17 @@
     "Records": ""
   },
   {
+    "Course": "CSE338/CSE438",
+    "Section": "2",
+    "Faculty": "RjP",
+    "Time": "MW 11:20 AM - 12:50 PM",
+    "Room": "SAC306",
+    "Seats": "17",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "CSE338/CSE438/EEE331/ETE331",
     "Section": "1",
     "Faculty": "Auq",
@@ -13965,6 +14009,17 @@
     "Time": "W 02:40 PM - 05:50 PM",
     "Room": "LIB610",
     "Seats": "19",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE338L/CSE438L/EEE331L/ETE331L",
+    "Section": "1",
+    "Faculty": "AUQ",
+    "Time": "T 08:00 AM - 11:10 AM",
+    "Room": "LIB610",
+    "Seats": "33",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -14135,34 +14190,12 @@
     "Records": ""
   },
   {
-    "Course": "CSE325/CSE425",
+    "Course": "CSE434/CSE534",
     "Section": "1",
-    "Faculty": "MSK1",
-    "Time": "MW 01:00 PM - 02:30 PM",
-    "Room": "SAC307",
-    "Seats": "30",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "CSE325/CSE425",
-    "Section": "2",
-    "Faculty": "MSK1",
-    "Time": "MW 02:40 PM - 04:10 PM",
-    "Room": "SAC307",
-    "Seats": "30",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "CSE325/CSE425",
-    "Section": "3",
     "Faculty": "SSI",
-    "Time": "ST 04:20 PM - 05:50 PM",
-    "Room": "SAC209",
-    "Seats": "18",
+    "Time": "A 07:00 PM - 10:10 PM",
+    "Room": "SAC511",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -14207,17 +14240,6 @@
     "Time": "R 11:20 AM - 02:30 PM",
     "Room": "LIB611",
     "Seats": "32",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "CSE338/CSE438",
-    "Section": "2",
-    "Faculty": "RjP",
-    "Time": "MW 11:20 AM - 12:50 PM",
-    "Room": "SAC306",
-    "Seats": "17",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -14405,6 +14427,28 @@
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "SAC503",
     "Seats": "33",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE468/CSE553/EEE660",
+    "Section": "1",
+    "Faculty": "NbM",
+    "Time": "S 07:00 PM - 10:10 PM",
+    "Room": "SAC316",
+    "Seats": "0",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "CSE468/CSE553/EEE660",
+    "Section": "2",
+    "Faculty": "Shaifur",
+    "Time": "S 07:00 PM - 10:10 PM",
+    "Room": "SAC511",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -15191,17 +15235,6 @@
     "Records": ""
   },
   {
-    "Course": "CSE434/CSE534",
-    "Section": "1",
-    "Faculty": "SSI",
-    "Time": "A 07:00 PM - 10:10 PM",
-    "Room": "SAC511",
-    "Seats": "0",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
     "Course": "CSE545/EEE424/EEE534/ETE424",
     "Section": "1",
     "Faculty": "FMZN",
@@ -15219,28 +15252,6 @@
     "Time": "F 03:00 PM - 06:00 PM",
     "Room": "SAC511",
     "Seats": "25",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "CSE468/CSE553/EEE660",
-    "Section": "1",
-    "Faculty": "NbM",
-    "Time": "S 07:00 PM - 10:10 PM",
-    "Room": "SAC316",
-    "Seats": "0",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "CSE468/CSE553/EEE660",
-    "Section": "2",
-    "Faculty": "Shaifur",
-    "Time": "S 07:00 PM - 10:10 PM",
-    "Room": "SAC511",
-    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17875,6 +17886,17 @@
     "Records": ""
   },
   {
+    "Course": "EEE141",
+    "Section": "11",
+    "Faculty": "AbO",
+    "Time": "ST 04:20 PM - 05:50 PM",
+    "Room": "SAC307",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "EEE141/ETE141",
     "Section": "1",
     "Faculty": "mtn",
@@ -17969,17 +17991,6 @@
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "SAC310",
     "Seats": "28",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "EEE141",
-    "Section": "11",
-    "Faculty": "AbO",
-    "Time": "ST 04:20 PM - 05:50 PM",
-    "Room": "SAC307",
-    "Seats": "35",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18458,6 +18469,39 @@
     "Records": ""
   },
   {
+    "Course": "EEE221L/ETE221L",
+    "Section": "1",
+    "Faculty": "Mdy",
+    "Time": "M 11:20 AM - 02:30 PM",
+    "Room": "LIB606",
+    "Seats": "33",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "EEE221L/ETE221L",
+    "Section": "2",
+    "Faculty": "FQC",
+    "Time": "A 08:00 AM - 11:10 AM",
+    "Room": "LIB607",
+    "Seats": "34",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "EEE221L/ETE221L",
+    "Section": "3",
+    "Faculty": "FKR",
+    "Time": "M 11:20 AM - 02:30 PM",
+    "Room": "LIB607",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "EEE241/ETE241",
     "Section": "1",
     "Faculty": "AJH",
@@ -18871,6 +18915,39 @@
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "SAC503",
     "Seats": "17",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "EEE342L/ETE418L",
+    "Section": "1",
+    "Faculty": "LIH",
+    "Time": "T 11:20 AM - 02:30 PM",
+    "Room": "LIB607",
+    "Seats": "32",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "EEE342L/ETE418L",
+    "Section": "2",
+    "Faculty": "SNS1",
+    "Time": "T 02:40 PM - 05:50 PM",
+    "Room": "LIB607",
+    "Seats": "29",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "EEE342L/ETE418L",
+    "Section": "3",
+    "Faculty": "SVS",
+    "Time": "M 08:00 AM - 11:10 AM",
+    "Room": "LIB607",
+    "Seats": "21",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -24244,83 +24321,6 @@
     "Records": ""
   },
   {
-    "Course": "EEE221L/ETE221L",
-    "Section": "1",
-    "Faculty": "Mdy",
-    "Time": "M 11:20 AM - 02:30 PM",
-    "Room": "LIB606",
-    "Seats": "33",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "EEE221L/ETE221L",
-    "Section": "2",
-    "Faculty": "FQC",
-    "Time": "A 08:00 AM - 11:10 AM",
-    "Room": "LIB607",
-    "Seats": "34",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "EEE221L/ETE221L",
-    "Section": "3",
-    "Faculty": "FKR",
-    "Time": "M 11:20 AM - 02:30 PM",
-    "Room": "LIB607",
-    "Seats": "35",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "CSE338L/CSE438L/EEE331L/ETE331L",
-    "Section": "1",
-    "Faculty": "AUQ",
-    "Time": "T 08:00 AM - 11:10 AM",
-    "Room": "LIB610",
-    "Seats": "33",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "EEE342L/ETE418L",
-    "Section": "1",
-    "Faculty": "LIH",
-    "Time": "T 11:20 AM - 02:30 PM",
-    "Room": "LIB607",
-    "Seats": "32",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "EEE342L/ETE418L",
-    "Section": "2",
-    "Faculty": "SNS1",
-    "Time": "T 02:40 PM - 05:50 PM",
-    "Room": "LIB607",
-    "Seats": "29",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "EEE342L/ETE418L",
-    "Section": "3",
-    "Faculty": "SVS",
-    "Time": "M 08:00 AM - 11:10 AM",
-    "Room": "LIB607",
-    "Seats": "21",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
     "Course": "ETE498R",
     "Section": "1",
     "Faculty": "TBA",
@@ -29249,6 +29249,17 @@
     "Records": ""
   },
   {
+    "Course": "MGT470/MIS410",
+    "Section": "1",
+    "Faculty": "RAR",
+    "Time": "ST 06:00 PM - 07:30 PM",
+    "Room": "NTR202",
+    "Seats": "34",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "MGT489",
     "Section": "1",
     "Faculty": "JnA",
@@ -29430,6 +29441,17 @@
     "Faculty": "JAH",
     "Time": "R 07:00 PM - 10:10 PM",
     "Room": "NAC605",
+    "Seats": "30",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "MGT680/SCM601",
+    "Section": "1",
+    "Faculty": "AdZ",
+    "Time": "A 07:00 PM - 10:10 PM",
+    "Room": "NAC602",
     "Seats": "30",
     "Semester": "",
     "Prediction": "",
@@ -30993,17 +31015,6 @@
     "Time": "RA 06:00 PM - 07:30 PM",
     "Room": "NTR202",
     "Seats": "38",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "MGT470/MIS410",
-    "Section": "1",
-    "Faculty": "RAR",
-    "Time": "ST 06:00 PM - 07:30 PM",
-    "Room": "NTR202",
-    "Seats": "34",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -35965,17 +35976,6 @@
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC205",
     "Seats": "32",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "MGT680/SCM601",
-    "Section": "1",
-    "Faculty": "AdZ",
-    "Time": "A 07:00 PM - 10:10 PM",
-    "Room": "NAC602",
-    "Seats": "30",
     "Semester": "",
     "Prediction": "",
     "Records": ""
