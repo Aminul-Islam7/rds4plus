@@ -20454,7 +20454,7 @@
     "Faculty": "FzM",
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "NAC215",
-    "Seats": "12",
+    "Seats": "13",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -21048,7 +21048,7 @@
     "Faculty": "RBI",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "NAC207",
-    "Seats": "37",
+    "Seats": "36",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -27065,6 +27065,28 @@
     "Faculty": "NSr",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "SAC204",
+    "Seats": "30",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "MAT120",
+    "Section": "8",
+    "Faculty": "REK",
+    "Time": "RA 04:20 PM - 05:50 PM",
+    "Room": "NAC619A",
+    "Seats": "30",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "MAT120",
+    "Section": "9",
+    "Faculty": "REK",
+    "Time": "RA 06:00 PM - 07:30 PM",
+    "Room": "NAC515",
     "Seats": "30",
     "Semester": "",
     "Prediction": "",
