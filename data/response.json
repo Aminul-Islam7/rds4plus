@@ -11709,7 +11709,7 @@
     "Faculty": "TnS1",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "LIB607",
-    "Seats": "21",
+    "Seats": "20",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -11929,7 +11929,7 @@
     "Faculty": "TnS1",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "LIB603",
-    "Seats": "31",
+    "Seats": "30",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -20300,7 +20300,7 @@
     "Faculty": "AHRF",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC509",
-    "Seats": "20",
+    "Seats": "19",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -20938,7 +20938,7 @@
     "Faculty": "STO",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC203",
-    "Seats": "31",
+    "Seats": "30",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -26790,7 +26790,7 @@
     "Faculty": "FUA",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "NAC402",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -33588,7 +33588,7 @@
     "Faculty": "BCh",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "45",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
