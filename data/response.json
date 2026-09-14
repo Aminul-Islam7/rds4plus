@@ -5997,7 +5997,7 @@
   {
     "Course": "BUS135",
     "Section": "14",
-    "Faculty": "MLtR",
+    "Faculty": "SAJ",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "NAC502",
     "Seats": "39",
@@ -6360,7 +6360,7 @@
   {
     "Course": "BUS172",
     "Section": "25",
-    "Faculty": "MJS",
+    "Faculty": "MLtR",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC501",
     "Seats": "40",
@@ -26823,7 +26823,7 @@
     "Faculty": "FUA",
     "Time": "RA 06:00 PM - 07:30 PM",
     "Room": "NAC216",
-    "Seats": "6",
+    "Seats": "7",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -26889,7 +26889,7 @@
     "Faculty": "NISD",
     "Time": "MW 01:00 PM - 02:30 PM",
     "Room": "NAC313",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
