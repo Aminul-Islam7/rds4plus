@@ -759,12 +759,34 @@
     "Records": ""
   },
   {
+    "Course": "AMCS501L",
+    "Section": "1",
+    "Faculty": "TBA",
+    "Time": "A 08:40 PM - 10:10 PM",
+    "Room": "LIB607",
+    "Seats": "35",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "AMCS504",
     "Section": "1",
     "Faculty": "PNG",
     "Time": "R 07:00 PM - 10:10 PM",
     "Room": "SAC315",
     "Seats": "29",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "AMCS504L",
+    "Section": "1",
+    "Faculty": "TBA",
+    "Time": "A 07:00 PM - 08:30 PM",
+    "Room": "LIB607",
+    "Seats": "35",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12402,7 +12424,7 @@
     "Faculty": "RIh",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "LIB602",
-    "Seats": "33",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -20718,7 +20740,7 @@
     "Faculty": "NHU",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC408",
-    "Seats": "39",
+    "Seats": "40",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -21026,7 +21048,7 @@
     "Faculty": "RBI",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "NAC207",
-    "Seats": "38",
+    "Seats": "37",
     "Semester": "",
     "Prediction": "",
     "Records": ""
