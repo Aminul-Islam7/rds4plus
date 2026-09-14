@@ -50,33 +50,56 @@ async function tryDirectFetch() {
   return null;
 }
 
-// ─── Playwright Headless Scraper ──────────────────────────────────────────────
+// ─── Playwright Scraper ───────────────────────────────────────────────────────
 async function scrapeWithPlaywright() {
-  console.log("🌐 Launching Playwright Chromium...");
+  console.log("🌐 Launching Playwright browser...");
   const { chromium } = await import("playwright");
-  const browser = await chromium.launch({
-    headless: true,
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-      "--disable-blink-features=AutomationControlled",
-    ],
-  });
 
-  try {
-    const context = await browser.newContext({
+  const isWindows = process.platform === "win32";
+  const userDataDir = join(PROJECT_ROOT, ".browser_profile");
+  mkdirSync(userDataDir, { recursive: true });
+
+  let context = null;
+  let browser = null;
+
+  if (isWindows) {
+    try {
+      context = await chromium.launchPersistentContext(userDataDir, {
+        channel: "chrome",
+        headless: false,
+        args: [
+          "--disable-blink-features=AutomationControlled",
+          "--window-position=-2400,-2400",
+          "--window-size=1280,800",
+          "--no-first-run",
+          "--no-default-browser-check",
+        ],
+        viewport: { width: 1280, height: 800 },
+      });
+    } catch (err) {
+      console.warn(`⚠️ Could not launch persistent Chrome: ${err.message}`);
+    }
+  }
+
+  if (!context) {
+    browser = await chromium.launch({
+      headless: true,
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-blink-features=AutomationControlled",
+      ],
+    });
+    context = await browser.newContext({
       userAgent:
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
       viewport: { width: 1920, height: 1080 },
-      locale: "en-US",
     });
+  }
 
-    await context.addInitScript(() => {
-      Object.defineProperty(navigator, "webdriver", { get: () => undefined });
-    });
-
-    const page = await context.newPage();
+  try {
+    const page = context.pages()[0] || (await context.newPage());
     console.log("🌐 Navigating to RDS4...");
     await page.goto(RDS4_URL, {
       waitUntil: "domcontentloaded",
@@ -84,6 +107,16 @@ async function scrapeWithPlaywright() {
     });
 
     console.log(`🌐 Waiting for course table (current title: "${await page.title()}")...`);
+
+    // Allow Cloudflare verification challenge to settle if present
+    for (let i = 0; i < 20; i++) {
+      const title = await page.title();
+      if (!title.includes("Just a moment") && !title.includes("Security verification")) {
+        break;
+      }
+      await page.waitForTimeout(1000);
+    }
+
     await page.waitForSelector("tbody tr", { timeout: 30000 });
 
     // Extract pre-parsed rows directly from the page's DataTables instance
@@ -135,7 +168,8 @@ async function scrapeWithPlaywright() {
     const html = await page.content();
     return parseCoursesFromHTML(html);
   } finally {
-    await browser.close();
+    if (context) await context.close().catch(() => {});
+    if (browser) await browser.close().catch(() => {});
   }
 }
 
