@@ -5,7 +5,7 @@
     "Faculty": "ARM",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "NAC202",
-    "Seats": "37",
+    "Seats": "36",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -4207,7 +4207,7 @@
     "Faculty": "TBA",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC602",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -13271,7 +13271,7 @@
     "Faculty": "RIH",
     "Time": "W 11:20 AM - 02:30 PM",
     "Room": "LIB605",
-    "Seats": "35",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -27648,7 +27648,7 @@
     "Faculty": "RIH",
     "Time": "W 11:20 AM - 02:30 PM",
     "Room": "LIB605",
-    "Seats": "35",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -29338,6 +29338,28 @@
   },
   {
     "Course": "HIS101",
+    "Section": "11",
+    "Faculty": "ASZ",
+    "Time": "RA 08:00 AM - 09:30 AM",
+    "Room": "NAC1080",
+    "Seats": "40",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "HIS101",
+    "Section": "12",
+    "Faculty": "ASZ",
+    "Time": "RA 09:40 AM - 11:10 AM",
+    "Room": "NAC1080",
+    "Seats": "40",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "HIS101",
     "Section": "13",
     "Faculty": "ABP1",
     "Time": "ST 01:00 PM - 02:30 PM",
@@ -30794,7 +30816,7 @@
     "Faculty": "AdA",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "SAC203",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -30981,7 +31003,7 @@
     "Faculty": "MTK",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC1077",
-    "Seats": "9",
+    "Seats": "8",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -37350,7 +37372,7 @@
     "Faculty": "TBA",
     "Time": "F 10:35 AM - 01:20 PM",
     "Room": "SAC310",
-    "Seats": "35",
+    "Seats": "40",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -37581,7 +37603,7 @@
     "Faculty": "MIMD",
     "Time": "F 07:30 AM - 10:30 AM",
     "Room": "SAC311",
-    "Seats": "35",
+    "Seats": "40",
     "Semester": "",
     "Prediction": "",
     "Records": ""
