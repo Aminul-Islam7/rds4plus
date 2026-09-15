@@ -918,7 +918,7 @@
     "Faculty": "NJE",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC303",
-    "Seats": "34",
+    "Seats": "33",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17110,7 +17110,7 @@
     "Faculty": "GHA",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC401",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -40548,7 +40548,7 @@
   {
     "Course": "SOC101",
     "Section": "41",
-    "Faculty": "MzK",
+    "Faculty": "TBA",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC211",
     "Seats": "63",
