@@ -31659,6 +31659,17 @@
   },
   {
     "Course": "MAT130",
+    "Section": "9",
+    "Faculty": "AKAD",
+    "Time": "ST 01:00 PM - 02:30 PM",
+    "Room": "NAC991",
+    "Seats": "30",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "MAT130",
     "Section": "10",
     "Faculty": "AKAd",
     "Time": "ST 02:40 PM - 04:10 PM",
@@ -31719,17 +31730,6 @@
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "NAC991",
     "Seats": "30",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "MAT130",
-    "Section": "16",
-    "Faculty": "ZHN",
-    "Time": "ST 01:00 PM - 02:30 PM",
-    "Room": "NAC991",
-    "Seats": "29",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -40559,10 +40559,10 @@
   {
     "Course": "SOC101",
     "Section": "20",
-    "Faculty": "TBA",
+    "Faculty": "MzK",
     "Time": "MW 06:00 PM - 07:30 PM",
     "Room": "NAC311",
-    "Seats": "45",
+    "Seats": "70",
     "Semester": "",
     "Prediction": "",
     "Records": ""
