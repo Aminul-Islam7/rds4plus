@@ -3124,6 +3124,17 @@
     "Records": ""
   },
   {
+    "Course": "BBT422",
+    "Section": "1",
+    "Faculty": "TBA",
+    "Time": "TBA",
+    "Room": "TBA",
+    "Seats": "45",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "BBT423",
     "Section": "1",
     "Faculty": "MAKN",
@@ -3295,6 +3306,17 @@
     "Time": "W 07:00 PM - 10:10 PM",
     "Room": "SAC404",
     "Seats": "31",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "BBT702",
+    "Section": "1",
+    "Faculty": "TBA",
+    "Time": "TBA",
+    "Room": "TBA",
+    "Seats": "25",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38186,7 +38208,7 @@
     "Faculty": "DHH",
     "Time": "F 10:35 AM - 01:20 PM",
     "Room": "SAC402",
-    "Seats": "0",
+    "Seats": "5",
     "Semester": "",
     "Prediction": "",
     "Records": ""
