@@ -9663,7 +9663,7 @@
     "Faculty": "SEq",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "22",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9674,7 +9674,7 @@
     "Faculty": "MMS4",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "22",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9685,7 +9685,7 @@
     "Faculty": "Mfq",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "22",
+    "Seats": "5",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9696,7 +9696,7 @@
     "Faculty": "TMY",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "22",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9707,7 +9707,7 @@
     "Faculty": "NMSN",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "22",
+    "Seats": "10",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9718,7 +9718,7 @@
     "Faculty": "AMW",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "22",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9729,7 +9729,7 @@
     "Faculty": "SAKM",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "22",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9740,7 +9740,7 @@
     "Faculty": "TTA",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "22",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9751,7 +9751,7 @@
     "Faculty": "AIKN",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "22",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
