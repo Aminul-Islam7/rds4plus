@@ -3723,7 +3723,7 @@
     "Faculty": "TBA",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "SAC407",
-    "Seats": "12",
+    "Seats": "11",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3910,7 +3910,7 @@
     "Faculty": "MRIS",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "SAC206",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8134,7 +8134,7 @@
     "Faculty": "NMSN",
     "Time": "T 07:00 PM - 10:10 PM",
     "Room": "SAC313",
-    "Seats": "31",
+    "Seats": "30",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8145,7 +8145,7 @@
     "Faculty": "Sbc",
     "Time": "A 07:00 PM - 10:10 PM",
     "Room": "SAC313",
-    "Seats": "32",
+    "Seats": "31",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10477,7 +10477,7 @@
     "Faculty": "TBA",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "NAC214",
-    "Seats": "12",
+    "Seats": "11",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10554,7 +10554,7 @@
     "Faculty": "MKR",
     "Time": "MW 09:40 AM - 11:10 AM",
     "Room": "NAC311",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12487,10 +12487,10 @@
   {
     "Course": "CSE215",
     "Section": "12",
-    "Faculty": "CFA",
+    "Faculty": "TBA",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "NAC1078",
-    "Seats": "40",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12498,10 +12498,10 @@
   {
     "Course": "CSE215",
     "Section": "13",
-    "Faculty": "MAY",
+    "Faculty": "TBA",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "NAC403",
-    "Seats": "40",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -13862,7 +13862,7 @@
   {
     "Course": "CSE331",
     "Section": "7",
-    "Faculty": "MUA3",
+    "Faculty": "TBA",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC991",
     "Seats": "0",
@@ -13873,7 +13873,7 @@
   {
     "Course": "CSE331",
     "Section": "8",
-    "Faculty": "MUA3",
+    "Faculty": "TBA",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "LIB907",
     "Seats": "0",
@@ -19736,7 +19736,7 @@
   {
     "Course": "EEE332",
     "Section": "7",
-    "Faculty": "MUA3",
+    "Faculty": "TBA",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC991",
     "Seats": "0",
@@ -19747,7 +19747,7 @@
   {
     "Course": "EEE332",
     "Section": "8",
-    "Faculty": "MUA3",
+    "Faculty": "TBA",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "LIB907",
     "Seats": "0",
@@ -20759,7 +20759,7 @@
   {
     "Course": "EEE453",
     "Section": "7",
-    "Faculty": "MUA3",
+    "Faculty": "TBA",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC991",
     "Seats": "0",
@@ -20770,7 +20770,7 @@
   {
     "Course": "EEE453",
     "Section": "8",
-    "Faculty": "MUA3",
+    "Faculty": "TBA",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "LIB907",
     "Seats": "0",
@@ -27700,7 +27700,7 @@
   {
     "Course": "ETE332",
     "Section": "7",
-    "Faculty": "MUA3",
+    "Faculty": "TBA",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC991",
     "Seats": "0",
@@ -27711,7 +27711,7 @@
   {
     "Course": "ETE332",
     "Section": "8",
-    "Faculty": "MUA3",
+    "Faculty": "TBA",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "LIB907",
     "Seats": "0",
@@ -31872,7 +31872,7 @@
     "Faculty": "MSHS",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "SAC315",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
