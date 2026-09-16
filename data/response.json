@@ -15669,7 +15669,7 @@
     "Faculty": "Azk",
     "Time": "F 09:00 AM - 12:00 PM",
     "Room": "SAC511",
-    "Seats": "16",
+    "Seats": "15",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -21400,7 +21400,7 @@
     "Faculty": "Azk",
     "Time": "F 09:00 AM - 12:00 PM",
     "Room": "SAC511",
-    "Seats": "16",
+    "Seats": "15",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -30837,7 +30837,7 @@
     "Section": "2",
     "Faculty": "TAS",
     "Time": "MW 04:20 PM - 05:50 PM",
-    "Room": "NAC617",
+    "Room": "NAC414",
     "Seats": "0",
     "Semester": "",
     "Prediction": "",
@@ -38186,7 +38186,7 @@
     "Faculty": "SMSR",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "37",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38197,7 +38197,7 @@
     "Faculty": "DHH",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "42",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38208,7 +38208,7 @@
     "Faculty": "DKM",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "41",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38219,7 +38219,7 @@
     "Faculty": "HtN",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "43",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
