@@ -3257,17 +3257,6 @@
   },
   {
     "Course": "BBT654",
-    "Section": "2",
-    "Faculty": "ACN",
-    "Time": "T 07:00 PM - 10:10 PM",
-    "Room": "SAC401",
-    "Seats": "35",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "BBT654",
     "Section": "3",
     "Faculty": "ACN",
     "Time": "T 07:00 PM - 10:10 PM",
@@ -10914,7 +10903,7 @@
   {
     "Course": "CHE101L",
     "Section": "23",
-    "Faculty": "MEH",
+    "Faculty": "ACN",
     "Time": "W 08:00 AM - 11:00 AM",
     "Room": "SAC409",
     "Seats": "0",
@@ -10925,7 +10914,7 @@
   {
     "Course": "CHE101L",
     "Section": "24",
-    "Faculty": "MEH",
+    "Faculty": "ACN",
     "Time": "W 08:00 AM - 11:00 AM",
     "Room": "SAC409_V",
     "Seats": "0",
@@ -11907,7 +11896,7 @@
     "Faculty": "SMSL",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "SAC310",
-    "Seats": "3",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12138,7 +12127,7 @@
     "Faculty": "SMSL",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "LIB603",
-    "Seats": "3",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -21895,7 +21884,7 @@
     "Faculty": "SMSR",
     "Time": "F 06:10 PM - 09:00 PM",
     "Room": "SAC209",
-    "Seats": "39",
+    "Seats": "36",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -21906,7 +21895,7 @@
     "Faculty": "TBA",
     "Time": "F 10:35 AM - 01:20 PM",
     "Room": "SAC307",
-    "Seats": "37",
+    "Seats": "34",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -22016,7 +22005,7 @@
     "Faculty": "MZIm",
     "Time": "TBA",
     "Room": "TBA",
-    "Seats": "44",
+    "Seats": "41",
     "Semester": "",
     "Prediction": "",
     "Records": ""
