@@ -1827,17 +1827,6 @@
   },
   {
     "Course": "ARC384",
-    "Section": "1",
-    "Faculty": "TBA",
-    "Time": "MW 04:20 PM - 05:50 PM",
-    "Room": "LAB2",
-    "Seats": "35",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "ARC384",
     "Section": "2",
     "Faculty": "TBA",
     "Time": "MW 04:20 PM - 05:50 PM",
@@ -26086,7 +26075,7 @@
     "Faculty": "ASUH",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC305",
-    "Seats": "3",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -26108,7 +26097,7 @@
     "Faculty": "ASUH",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "NAC415",
-    "Seats": "35",
+    "Seats": "30",
     "Semester": "",
     "Prediction": "",
     "Records": ""
