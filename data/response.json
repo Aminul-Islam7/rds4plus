@@ -3184,7 +3184,7 @@
     "Faculty": "IQM",
     "Time": "R 07:00 PM - 10:10 PM",
     "Room": "SAC404",
-    "Seats": "32",
+    "Seats": "31",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3195,7 +3195,7 @@
     "Faculty": "AWN",
     "Time": "S 07:00 PM - 10:10 PM",
     "Room": "SAC405",
-    "Seats": "27",
+    "Seats": "26",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3206,7 +3206,7 @@
     "Faculty": "IQM",
     "Time": "M 07:00 PM - 10:10 PM",
     "Room": "SAC406",
-    "Seats": "34",
+    "Seats": "32",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3217,7 +3217,7 @@
     "Faculty": "MBE",
     "Time": "S 07:00 PM - 10:10 PM",
     "Room": "SAC404",
-    "Seats": "27",
+    "Seats": "26",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3228,7 +3228,7 @@
     "Faculty": "CQA",
     "Time": "T 07:00 PM - 10:10 PM",
     "Room": "SAC404",
-    "Seats": "38",
+    "Seats": "37",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3272,7 +3272,7 @@
     "Faculty": "OAH",
     "Time": "W 07:00 PM - 10:10 PM",
     "Room": "LIB601",
-    "Seats": "32",
+    "Seats": "31",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18496,7 +18496,7 @@
     "Faculty": "KMM",
     "Time": "S 02:40 PM - 05:50 PM",
     "Room": "SAC506",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18507,7 +18507,7 @@
     "Faculty": "KMM",
     "Time": "W 11:20 AM - 02:30 PM",
     "Room": "SAC508",
-    "Seats": "14",
+    "Seats": "15",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18540,7 +18540,7 @@
     "Faculty": "SSH1",
     "Time": "R 08:00 AM - 11:10 AM",
     "Room": "SAC508",
-    "Seats": "21",
+    "Seats": "22",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18551,7 +18551,7 @@
     "Faculty": "SSH1",
     "Time": "A 08:00 AM - 11:10 AM",
     "Room": "SAC508",
-    "Seats": "13",
+    "Seats": "14",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18562,7 +18562,7 @@
     "Faculty": "AbO",
     "Time": "T 11:20 AM - 02:30 PM",
     "Room": "SAC508",
-    "Seats": "11",
+    "Seats": "12",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18573,7 +18573,7 @@
     "Faculty": "FKr",
     "Time": "M 08:00 AM - 11:10 AM",
     "Room": "SAC506",
-    "Seats": "3",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18584,7 +18584,7 @@
     "Faculty": "MFT",
     "Time": "M 02:40 PM - 05:50 PM",
     "Room": "SAC506",
-    "Seats": "3",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18595,7 +18595,7 @@
     "Faculty": "MFT",
     "Time": "W 02:40 PM - 05:50 PM",
     "Room": "SAC506",
-    "Seats": "5",
+    "Seats": "6",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18606,7 +18606,7 @@
     "Faculty": "TBA",
     "Time": "A 02:40 PM - 05:50 PM",
     "Room": "SAC508",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -26955,7 +26955,7 @@
     "Faculty": "KMM",
     "Time": "S 02:40 PM - 05:50 PM",
     "Room": "SAC506",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -26966,7 +26966,7 @@
     "Faculty": "KMM",
     "Time": "W 11:20 AM - 02:30 PM",
     "Room": "SAC508",
-    "Seats": "14",
+    "Seats": "15",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -26999,7 +26999,7 @@
     "Faculty": "SSH1",
     "Time": "R 08:00 AM - 11:10 AM",
     "Room": "SAC508",
-    "Seats": "21",
+    "Seats": "22",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -27010,7 +27010,7 @@
     "Faculty": "SSH1",
     "Time": "A 08:00 AM - 11:10 AM",
     "Room": "SAC508",
-    "Seats": "13",
+    "Seats": "14",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -27021,7 +27021,7 @@
     "Faculty": "AbO",
     "Time": "T 11:20 AM - 02:30 PM",
     "Room": "SAC508",
-    "Seats": "11",
+    "Seats": "12",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -27032,7 +27032,7 @@
     "Faculty": "FKr",
     "Time": "M 08:00 AM - 11:10 AM",
     "Room": "SAC506",
-    "Seats": "3",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -27043,7 +27043,7 @@
     "Faculty": "MFT",
     "Time": "M 02:40 PM - 05:50 PM",
     "Room": "SAC506",
-    "Seats": "3",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -27054,7 +27054,7 @@
     "Faculty": "MFT",
     "Time": "W 02:40 PM - 05:50 PM",
     "Room": "SAC506",
-    "Seats": "5",
+    "Seats": "6",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -27065,7 +27065,7 @@
     "Faculty": "TBA",
     "Time": "A 02:40 PM - 05:50 PM",
     "Room": "SAC508",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
