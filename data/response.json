@@ -1320,17 +1320,6 @@
     "Records": ""
   },
   {
-    "Course": "ARC131",
-    "Section": "6",
-    "Faculty": "TBA",
-    "Time": "ST 01:00 PM - 02:30 PM",
-    "Room": "SEPS Conference Room",
-    "Seats": "0",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
     "Course": "ARC133",
     "Section": "1",
     "Faculty": "SNF",
@@ -1485,17 +1474,6 @@
     "Records": ""
   },
   {
-    "Course": "ARC241",
-    "Section": "2",
-    "Faculty": "TBA",
-    "Time": "ST 04:20 PM - 05:50 PM",
-    "Room": "TV LAB",
-    "Seats": "0",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
     "Course": "ARC242",
     "Section": "2",
     "Faculty": "SIK3",
@@ -1545,17 +1523,6 @@
     "Faculty": "SIU",
     "Time": "MW 01:00 PM - 02:30 PM",
     "Room": "SAC513",
-    "Seats": "0",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "ARC262",
-    "Section": "3",
-    "Faculty": "TBA",
-    "Time": "MW 04:20 PM - 05:50 PM",
-    "Room": "Rehearsal Room",
     "Seats": "0",
     "Semester": "",
     "Prediction": "",
@@ -1864,7 +1831,7 @@
     "Faculty": "TBA",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "LAB2",
-    "Seats": "18",
+    "Seats": "35",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -1876,6 +1843,17 @@
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "NAC1079",
     "Seats": "0",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "ARC384",
+    "Section": "3",
+    "Faculty": "TBA",
+    "Time": "RA 04:20 PM - 05:50 PM",
+    "Room": "OAT901",
+    "Seats": "18",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -26108,7 +26086,7 @@
     "Faculty": "ASUH",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC305",
-    "Seats": "1",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
