@@ -22233,7 +22233,7 @@
   {
     "Course": "ENG102",
     "Section": "14",
-    "Faculty": "TBA",
+    "Faculty": "ZNP",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC514",
     "Seats": "0",
@@ -22706,7 +22706,7 @@
   {
     "Course": "ENG103",
     "Section": "2",
-    "Faculty": "TBA",
+    "Faculty": "RTU",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "NAC990",
     "Seats": "0",
@@ -22816,7 +22816,7 @@
   {
     "Course": "ENG103",
     "Section": "12",
-    "Faculty": "NCA",
+    "Faculty": "TBA",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC207",
     "Seats": "1",
@@ -23201,7 +23201,7 @@
   {
     "Course": "ENG103",
     "Section": "47",
-    "Faculty": "RBI",
+    "Faculty": "NCA",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "NAC207",
     "Seats": "0",
@@ -23278,7 +23278,7 @@
   {
     "Course": "ENG103",
     "Section": "54",
-    "Faculty": "TBA",
+    "Faculty": "RBI",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC502",
     "Seats": "20",
@@ -23333,7 +23333,7 @@
   {
     "Course": "ENG103",
     "Section": "59",
-    "Faculty": "TBA",
+    "Faculty": "NCA",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "NAC208",
     "Seats": "24",
@@ -23388,7 +23388,7 @@
   {
     "Course": "ENG103",
     "Section": "64",
-    "Faculty": "ZNP",
+    "Faculty": "NCA",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "NAC210",
     "Seats": "0",
@@ -26075,7 +26075,7 @@
     "Faculty": "ASUH",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC305",
-    "Seats": "5",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
