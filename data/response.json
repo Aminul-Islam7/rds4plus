@@ -40173,22 +40173,11 @@
   },
   {
     "Course": "POL101",
-    "Section": "51",
-    "Faculty": "TBA",
-    "Time": "ST 06:00 PM - 07:30 PM",
-    "Room": "NAC304",
-    "Seats": "35",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "POL101",
     "Section": "52",
     "Faculty": "SAE",
     "Time": "ST 06:00 PM - 07:30 PM",
     "Room": "NAC307",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
