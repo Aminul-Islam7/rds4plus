@@ -8145,7 +8145,7 @@
     "Faculty": "JIS",
     "Time": "F 09:00 AM - 12:00 PM",
     "Room": "SAC316",
-    "Seats": "20",
+    "Seats": "19",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8156,7 +8156,7 @@
     "Faculty": "NMSN",
     "Time": "T 07:00 PM - 10:10 PM",
     "Room": "SAC313",
-    "Seats": "23",
+    "Seats": "22",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -23201,7 +23201,7 @@
   {
     "Course": "ENG103",
     "Section": "47",
-    "Faculty": "NCA",
+    "Faculty": "TBA",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "NAC207",
     "Seats": "0",
