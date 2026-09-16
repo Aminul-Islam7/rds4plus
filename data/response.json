@@ -22277,7 +22277,7 @@
   {
     "Course": "ENG102",
     "Section": "18",
-    "Faculty": "RTU",
+    "Faculty": "TBA",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "NAC509",
     "Seats": "0",
@@ -22783,7 +22783,7 @@
   {
     "Course": "ENG103",
     "Section": "9",
-    "Faculty": "NCA",
+    "Faculty": "TBA",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NAC207",
     "Seats": "0",
@@ -26075,7 +26075,7 @@
     "Faculty": "ASUH",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC305",
-    "Seats": "4",
+    "Seats": "5",
     "Semester": "",
     "Prediction": "",
     "Records": ""
