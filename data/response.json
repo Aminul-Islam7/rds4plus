@@ -38183,10 +38183,10 @@
   {
     "Course": "PBH611",
     "Section": "2",
-    "Faculty": "TBA",
+    "Faculty": "DKM",
     "Time": "F 07:30 AM - 10:30 AM",
     "Room": "SAC405",
-    "Seats": "0",
+    "Seats": "40",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38219,7 +38219,7 @@
     "Faculty": "TBA",
     "Time": "F 06:10 PM - 09:00 PM",
     "Room": "SAC404",
-    "Seats": "34",
+    "Seats": "33",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38263,7 +38263,7 @@
     "Faculty": "SBAH",
     "Time": "F 10:35 AM - 01:20 PM",
     "Room": "SAC407",
-    "Seats": "35",
+    "Seats": "34",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38307,7 +38307,7 @@
     "Faculty": "SzP",
     "Time": "F 03:00 PM - 06:00 PM",
     "Room": "SAC407",
-    "Seats": "26",
+    "Seats": "25",
     "Semester": "",
     "Prediction": "",
     "Records": ""
