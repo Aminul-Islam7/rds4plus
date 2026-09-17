@@ -3125,17 +3125,6 @@
   },
   {
     "Course": "BBT423",
-    "Section": "3",
-    "Faculty": "MAKN",
-    "Time": "MW 08:00 AM - 09:30 AM",
-    "Room": "LAB4",
-    "Seats": "0",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "BBT423",
     "Section": "4",
     "Faculty": "MAKN",
     "Time": "ST 08:00 AM - 09:30 AM",
@@ -5714,7 +5703,7 @@
     "Faculty": "MMRh",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC508",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25052,7 +25041,7 @@
     "Faculty": "NAKN",
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "OAT602",
-    "Seats": "13",
+    "Seats": "12",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -31564,7 +31553,7 @@
     "Faculty": "REK",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC1078",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -36140,7 +36129,7 @@
     "Faculty": "FCH",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "NAC511",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38384,7 +38373,7 @@
     "Faculty": "SBAH",
     "Time": "F 07:30 AM - 10:30 AM",
     "Room": "SAC404",
-    "Seats": "6",
+    "Seats": "5",
     "Semester": "",
     "Prediction": "",
     "Records": ""
