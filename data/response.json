@@ -11742,7 +11742,7 @@
     "Faculty": "NvA",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "SAC308",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -11995,7 +11995,7 @@
     "Faculty": "RjP",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "LIB606",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -31630,7 +31630,7 @@
     "Faculty": "MTK",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "SAC208",
-    "Seats": "29",
+    "Seats": "28",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38274,7 +38274,7 @@
     "Faculty": "SBAH",
     "Time": "F 10:35 AM - 01:20 PM",
     "Room": "SAC407",
-    "Seats": "39",
+    "Seats": "36",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38318,7 +38318,7 @@
     "Faculty": "SzP",
     "Time": "F 03:00 PM - 06:00 PM",
     "Room": "SAC407",
-    "Seats": "32",
+    "Seats": "29",
     "Semester": "",
     "Prediction": "",
     "Records": ""
