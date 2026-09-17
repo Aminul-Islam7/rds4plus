@@ -17220,7 +17220,7 @@
     "Faculty": "GHA",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NAC401",
-    "Seats": "0",
+    "Seats": "5",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17253,7 +17253,7 @@
     "Faculty": "AYO",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "NAC412",
-    "Seats": "3",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17264,7 +17264,7 @@
     "Faculty": "CNq",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "NAC401",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17297,7 +17297,7 @@
     "Faculty": "MCw",
     "Time": "MW 09:40 AM - 11:10 AM",
     "Room": "NAC401",
-    "Seats": "1",
+    "Seats": "5",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17308,7 +17308,7 @@
     "Faculty": "JVHn",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "NAC401",
-    "Seats": "0",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17319,7 +17319,7 @@
     "Faculty": "ABA",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC403",
-    "Seats": "0",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17330,7 +17330,7 @@
     "Faculty": "MCw",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "NAC402",
-    "Seats": "0",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17352,7 +17352,7 @@
     "Faculty": "ISN",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NAC605",
-    "Seats": "0",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -26119,17 +26119,6 @@
     "Faculty": "ARK",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "SAC314",
-    "Seats": "0",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
-    "Course": "ENV307",
-    "Section": "1",
-    "Faculty": "ASUH",
-    "Time": "ST 04:20 PM - 05:50 PM",
-    "Room": "SAC305",
     "Seats": "0",
     "Semester": "",
     "Prediction": "",
