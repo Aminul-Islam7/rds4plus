@@ -21950,7 +21950,7 @@
     "Faculty": "TBA",
     "Time": "F 07:30 AM - 10:30 AM",
     "Room": "SAC209",
-    "Seats": "40",
+    "Seats": "39",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -21983,7 +21983,7 @@
     "Faculty": "SBAH",
     "Time": "F 10:35 AM - 01:20 PM",
     "Room": "SAC210",
-    "Seats": "40",
+    "Seats": "39",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -22016,7 +22016,7 @@
     "Faculty": "SzP",
     "Time": "F 06:10 PM - 09:00 PM",
     "Room": "SAC211",
-    "Seats": "40",
+    "Seats": "39",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -22313,7 +22313,7 @@
     "Faculty": "SDMA",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "NAC505",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -33445,7 +33445,7 @@
     "Faculty": "ShH",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "NAC308",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -36129,7 +36129,7 @@
     "Faculty": "MHZ",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC503",
-    "Seats": "5",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -37259,7 +37259,7 @@
   {
     "Course": "PBH101",
     "Section": "12",
-    "Faculty": "TBA",
+    "Faculty": "RkY",
     "Time": "ST 06:00 PM - 07:30 PM",
     "Room": "SAC202",
     "Seats": "0",
@@ -41167,7 +41167,7 @@
     "Faculty": "IZS",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "NAC304",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
