@@ -25393,7 +25393,7 @@
     "Faculty": "YKB",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "SAC726",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25404,7 +25404,7 @@
     "Faculty": "YKB",
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "SAC726",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25415,7 +25415,7 @@
     "Faculty": "YKB",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "SAC726",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25426,7 +25426,7 @@
     "Faculty": "AfI2",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "SAC726",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25437,7 +25437,7 @@
     "Faculty": "AfI2",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "SAC726",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25448,7 +25448,7 @@
     "Faculty": "AfI2",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC726",
-    "Seats": "1",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25459,7 +25459,7 @@
     "Faculty": "AfI2",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "SAC726_V",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25470,7 +25470,7 @@
     "Faculty": "AfI2",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "SAC726_V",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25481,7 +25481,7 @@
     "Faculty": "AfI2",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC726_V",
-    "Seats": "1",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25492,7 +25492,7 @@
     "Faculty": "AfI2",
     "Time": "MW 01:00 PM - 02:30 PM",
     "Room": "SAC726",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25503,7 +25503,7 @@
     "Faculty": "AfI2",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "SAC726",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25514,7 +25514,7 @@
     "Faculty": "AfI2",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "SAC726",
-    "Seats": "0",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
