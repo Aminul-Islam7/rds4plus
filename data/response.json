@@ -2761,6 +2761,17 @@
     "Records": ""
   },
   {
+    "Course": "BBT318",
+    "Section": "4",
+    "Faculty": "MAKN",
+    "Time": "MW 08:00 AM - 09:30 AM",
+    "Room": "NTR203",
+    "Seats": "0",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "BBT335",
     "Section": "1",
     "Faculty": "IJN",
@@ -3117,7 +3128,7 @@
     "Section": "3",
     "Faculty": "MAKN",
     "Time": "MW 08:00 AM - 09:30 AM",
-    "Room": "NTR203",
+    "Room": "LAB4",
     "Seats": "0",
     "Semester": "",
     "Prediction": "",
@@ -5076,7 +5087,7 @@
     "Faculty": "ACN",
     "Time": "ST 06:00 PM - 07:30 PM",
     "Room": "NTR304",
-    "Seats": "30",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -15482,7 +15493,7 @@
     "Faculty": "Mdy",
     "Time": "W 02:40 PM - 04:10 PM",
     "Room": "LIB608",
-    "Seats": "0",
+    "Seats": "8",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -21367,7 +21378,7 @@
     "Faculty": "Mdy",
     "Time": "W 02:40 PM - 04:10 PM",
     "Room": "LIB608",
-    "Seats": "0",
+    "Seats": "8",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -28660,7 +28671,7 @@
     "Faculty": "Mdy",
     "Time": "W 02:40 PM - 04:10 PM",
     "Room": "LIB608",
-    "Seats": "0",
+    "Seats": "8",
     "Semester": "",
     "Prediction": "",
     "Records": ""
