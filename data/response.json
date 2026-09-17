@@ -9020,17 +9020,6 @@
     "Records": ""
   },
   {
-    "Course": "CEE330",
-    "Section": "4",
-    "Faculty": "TBA",
-    "Time": "ST 04:20 PM - 05:50 PM",
-    "Room": "SAC513",
-    "Seats": "0",
-    "Semester": "",
-    "Prediction": "",
-    "Records": ""
-  },
-  {
     "Course": "CEE330L",
     "Section": "1",
     "Faculty": "Nzu",
@@ -38186,7 +38175,7 @@
     "Faculty": "DKM",
     "Time": "M 06:00 PM - 09:10 PM",
     "Room": "SAC401",
-    "Seats": "38",
+    "Seats": "37",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38219,7 +38208,7 @@
     "Faculty": "KqZ",
     "Time": "T 06:00 PM - 09:10 PM",
     "Room": "SAC402",
-    "Seats": "32",
+    "Seats": "31",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -38252,7 +38241,7 @@
     "Faculty": "MIMd",
     "Time": "S 06:00 PM - 09:10 PM",
     "Room": "SAC402",
-    "Seats": "39",
+    "Seats": "38",
     "Semester": "",
     "Prediction": "",
     "Records": ""
