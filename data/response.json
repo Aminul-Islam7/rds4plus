@@ -8574,7 +8574,7 @@
     "Faculty": "NMSN",
     "Time": "M 11:20 AM - 02:30 PM",
     "Room": "B113",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8585,7 +8585,7 @@
     "Faculty": "NMSN",
     "Time": "W 11:20 AM - 02:30 PM",
     "Room": "B113",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8662,7 +8662,7 @@
     "Faculty": "MMS4",
     "Time": "M 02:40 PM - 05:50 PM",
     "Room": "B117",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8673,7 +8673,7 @@
     "Faculty": "MMS4",
     "Time": "T 09:40 AM - 12:50 PM",
     "Room": "B117",
-    "Seats": "3",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8684,7 +8684,7 @@
     "Faculty": "MMS4",
     "Time": "W 02:40 PM - 05:50 PM",
     "Room": "B117",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8695,7 +8695,7 @@
     "Faculty": "MMS4",
     "Time": "R 09:40 AM - 12:50 PM",
     "Room": "B117",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8706,7 +8706,7 @@
     "Faculty": "MMS4",
     "Time": "R 02:40 PM - 05:50 PM",
     "Room": "B117",
-    "Seats": "1",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8717,7 +8717,7 @@
     "Faculty": "Jbr",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "SAC304",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8728,7 +8728,7 @@
     "Faculty": "Jbr",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "SAC304",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8750,7 +8750,7 @@
     "Faculty": "TTA",
     "Time": "S 11:20 AM - 02:30 PM",
     "Room": "B115",
-    "Seats": "0",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8761,7 +8761,7 @@
     "Faculty": "TTA",
     "Time": "S 02:40 PM - 05:50 PM",
     "Room": "B115",
-    "Seats": "2",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8772,7 +8772,7 @@
     "Faculty": "TTA",
     "Time": "M 09:40 AM - 12:50 PM",
     "Room": "B115",
-    "Seats": "0",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8805,7 +8805,7 @@
     "Faculty": "YKB",
     "Time": "S 02:40 PM - 05:50 PM",
     "Room": "B113",
-    "Seats": "3",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8816,7 +8816,7 @@
     "Faculty": "YKB",
     "Time": "T 02:40 PM - 05:50 PM",
     "Room": "B115",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8827,7 +8827,7 @@
     "Faculty": "YKB",
     "Time": "M 11:20 AM - 02:30 PM",
     "Room": "B117",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8838,7 +8838,7 @@
     "Faculty": "YKB",
     "Time": "W 11:20 AM - 02:30 PM",
     "Room": "B117",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8849,7 +8849,7 @@
     "Faculty": "YKB",
     "Time": "R 08:00 AM - 11:10 AM",
     "Room": "B115",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8871,7 +8871,7 @@
     "Faculty": "Mfq",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "SAC513",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8882,7 +8882,7 @@
     "Faculty": "Mfq",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "NAC508",
-    "Seats": "0",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8926,7 +8926,7 @@
     "Faculty": "TMY",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "SAC204",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9036,7 +9036,7 @@
     "Faculty": "AMW",
     "Time": "M 08:00 AM - 11:10 AM",
     "Room": "B118",
-    "Seats": "1",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9047,7 +9047,7 @@
     "Faculty": "AMW",
     "Time": "M 11:20 AM - 02:30 PM",
     "Room": "B118",
-    "Seats": "0",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9058,7 +9058,7 @@
     "Faculty": "AMW",
     "Time": "W 11:20 AM - 02:30 PM",
     "Room": "B118",
-    "Seats": "0",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -9113,7 +9113,7 @@
     "Faculty": "Sbc",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "SAC313",
-    "Seats": "0",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
