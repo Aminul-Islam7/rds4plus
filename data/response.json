@@ -41261,6 +41261,17 @@
     "Records": ""
   },
   {
+    "Course": "SCM310",
+    "Section": "2",
+    "Faculty": "FAS",
+    "Time": "ST 06:00 PM - 07:30 PM",
+    "Room": "NAC208",
+    "Seats": "40",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
     "Course": "SCM320",
     "Section": "1",
     "Faculty": "ZTM",
@@ -41278,6 +41289,17 @@
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC205",
     "Seats": "0",
+    "Semester": "",
+    "Prediction": "",
+    "Records": ""
+  },
+  {
+    "Course": "SCM450",
+    "Section": "2",
+    "Faculty": "MOF",
+    "Time": "MW 06:00 PM - 07:30 PM",
+    "Room": "NAC411",
+    "Seats": "40",
     "Semester": "",
     "Prediction": "",
     "Records": ""
