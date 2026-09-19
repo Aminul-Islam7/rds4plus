@@ -4966,7 +4966,7 @@
     "Faculty": "MALM",
     "Time": "M 02:40 PM - 05:40 PM",
     "Room": "SAC414_V",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8211,7 +8211,7 @@
     "Faculty": "SAKM",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "SAC313",
-    "Seats": "2",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8222,7 +8222,7 @@
     "Faculty": "SAKM",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "SAC309",
-    "Seats": "18",
+    "Seats": "17",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -32070,7 +32070,7 @@
     "Faculty": "HHS",
     "Time": "MW 06:00 PM - 07:30 PM",
     "Room": "SAC204",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
