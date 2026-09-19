@@ -4284,7 +4284,7 @@
     "Faculty": "FHA",
     "Time": "S 11:20 AM - 02:20 PM",
     "Room": "SAC415",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17088,7 +17088,7 @@
     "Faculty": "MMDR",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "NAC605",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -23413,7 +23413,7 @@
     "Faculty": "RBI",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "NAC207",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -23578,7 +23578,7 @@
     "Faculty": "SuT",
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "NAC620",
-    "Seats": "1",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
