@@ -2414,7 +2414,7 @@
     "Faculty": "ARIM",
     "Time": "R 08:00 AM - 11:00 AM",
     "Room": "SAC414",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -2436,7 +2436,7 @@
     "Faculty": "MTSA",
     "Time": "S 11:20 AM - 02:20 PM",
     "Room": "SAC414",
-    "Seats": "5",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -4009,7 +4009,7 @@
     "Faculty": "MRIS",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC512",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -4130,7 +4130,7 @@
     "Faculty": "LTB",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC413",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -33698,7 +33698,7 @@
     "Faculty": "SDHN",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NAC204",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -33951,7 +33951,7 @@
     "Faculty": "EUM",
     "Time": "RA 06:00 PM - 07:30 PM",
     "Room": "NAC505",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -37229,7 +37229,7 @@
     "Faculty": "DsR",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "NAC506",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -37251,7 +37251,7 @@
     "Faculty": "MNE",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC301",
-    "Seats": "27",
+    "Seats": "26",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -40309,7 +40309,7 @@
     "Faculty": "NOS",
     "Time": "MW 01:00 PM - 02:30 PM",
     "Room": "NAC211",
-    "Seats": "4",
+    "Seats": "5",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -40320,7 +40320,7 @@
     "Faculty": "NOS",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "NAC413",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
