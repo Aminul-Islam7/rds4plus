@@ -6891,7 +6891,7 @@
     "Faculty": "LkK",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "NAC507",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12545,7 +12545,7 @@
     "Faculty": "MUO",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "LIB603",
-    "Seats": "3",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12589,7 +12589,7 @@
     "Faculty": "CFA",
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "LIB605",
-    "Seats": "2",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -16219,7 +16219,7 @@
     "Faculty": "AAR",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC401",
-    "Seats": "2",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -16626,7 +16626,7 @@
     "Faculty": "RDB",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "NAC412",
-    "Seats": "1",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17165,7 +17165,7 @@
     "Faculty": "JVHN",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "NAC403",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -17308,7 +17308,7 @@
     "Faculty": "SME",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "NAC401",
-    "Seats": "9",
+    "Seats": "10",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -21477,7 +21477,7 @@
     "Faculty": "lih",
     "Time": "T 07:00 PM - 10:10 PM",
     "Room": "LIB608",
-    "Seats": "22",
+    "Seats": "21",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -24051,7 +24051,7 @@
     "Faculty": "SZn",
     "Time": "MW 09:40 AM - 11:10 AM",
     "Room": "NAC990",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -40353,7 +40353,7 @@
     "Faculty": "MMH3",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC314",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
