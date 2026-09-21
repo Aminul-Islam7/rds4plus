@@ -12688,7 +12688,7 @@
     "Faculty": "SFRN",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "SAC311",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12787,7 +12787,7 @@
     "Faculty": "SFRN",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "LIB602",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -23908,7 +23908,7 @@
     "Faculty": "MZ",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "NAC505",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -34160,7 +34160,7 @@
     "Faculty": "ShL",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "NAC305",
-    "Seats": "11",
+    "Seats": "10",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -34182,7 +34182,7 @@
     "Faculty": "SRS2",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "NAC301",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -39990,7 +39990,7 @@
     "Faculty": "MJU",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "NAC304",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
