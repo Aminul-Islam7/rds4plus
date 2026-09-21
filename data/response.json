@@ -5945,7 +5945,7 @@
     "Faculty": "PKK",
     "Time": "ST 06:00 PM - 07:30 PM",
     "Room": "NAC209",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10037,7 +10037,7 @@
     "Faculty": "ABI",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "OAT601",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10444,7 +10444,7 @@
     "Faculty": "MKR",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "NAC415",
-    "Seats": "4",
+    "Seats": "5",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -22984,7 +22984,7 @@
     "Faculty": "DBs",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC503",
-    "Seats": "18",
+    "Seats": "19",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -23226,7 +23226,7 @@
     "Faculty": "RBI",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC502",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -23248,7 +23248,7 @@
     "Faculty": "RT1",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC621",
-    "Seats": "3",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -31179,7 +31179,7 @@
     "Faculty": "SSA1",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NAC503",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -35623,7 +35623,7 @@
     "Faculty": "AIK",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NTR202",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
