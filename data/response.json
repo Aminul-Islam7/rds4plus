@@ -1600,7 +1600,7 @@
     "Faculty": "NTL",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "SAC801A",
-    "Seats": "19",
+    "Seats": "20",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3558,7 +3558,7 @@
     "Faculty": "AbMn",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "NAC207",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -8508,7 +8508,7 @@
     "Faculty": "MIF",
     "Time": "T 02:40 PM - 05:50 PM",
     "Room": "SAC724",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12259,7 +12259,7 @@
     "Faculty": "SfT",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "SAC209",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12270,7 +12270,7 @@
     "Faculty": "ITN",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "SAC209",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -23556,7 +23556,7 @@
     "Faculty": "NHU",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "NAC214",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -24018,7 +24018,7 @@
     "Faculty": "SZn",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "NAC990",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -24084,7 +24084,7 @@
     "Faculty": "TBA",
     "Time": "RA 06:00 PM - 07:30 PM",
     "Room": "NAC411",
-    "Seats": "20",
+    "Seats": "19",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -42234,7 +42234,7 @@
     "Faculty": "SABy",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC992",
-    "Seats": "8",
+    "Seats": "7",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -42245,7 +42245,7 @@
     "Faculty": "NJE",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "NAC303",
-    "Seats": "1",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
