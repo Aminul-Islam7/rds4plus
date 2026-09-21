@@ -4515,7 +4515,7 @@
     "Faculty": "Fddn",
     "Time": "W 02:40 PM - 05:40 PM",
     "Room": "SAC415_v1",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -36910,7 +36910,7 @@
     "Faculty": "ZbR",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC619A",
-    "Seats": "17",
+    "Seats": "16",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -42201,7 +42201,7 @@
     "Faculty": "MHR3",
     "Time": "MW 06:00 PM - 07:30 PM",
     "Room": "NAC401",
-    "Seats": "2",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
