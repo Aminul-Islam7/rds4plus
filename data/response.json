@@ -181,7 +181,7 @@
     "Faculty": "MhMR",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC309",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3360,7 +3360,7 @@
     "Faculty": "Shg",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "NAC602",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3635,7 +3635,7 @@
     "Faculty": "KNA",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "SAC407",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3932,7 +3932,7 @@
     "Faculty": "Mfz",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "NAC513",
-    "Seats": "1",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12336,7 +12336,7 @@
     "Faculty": "RRn",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "SAC308",
-    "Seats": "5",
+    "Seats": "4",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -12479,7 +12479,7 @@
     "Faculty": "RRn",
     "Time": "MW 04:20 PM - 05:50 PM",
     "Room": "LIB602",
-    "Seats": "4",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -22753,7 +22753,7 @@
     "Faculty": "AtB",
     "Time": "ST 09:40 AM - 11:10 AM",
     "Room": "NAC409",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -22841,7 +22841,7 @@
     "Faculty": "SLI",
     "Time": "ST 04:20 PM - 05:50 PM",
     "Room": "NAC210",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
