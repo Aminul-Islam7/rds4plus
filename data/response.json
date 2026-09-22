@@ -10235,7 +10235,7 @@
     "Faculty": "SPR",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "OAT601",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10268,7 +10268,7 @@
     "Faculty": "MRKL",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "OAT601",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18870,7 +18870,7 @@
     "Faculty": "MSRH",
     "Time": "R 08:00 AM - 09:30 AM",
     "Room": "LIB606",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18892,7 +18892,7 @@
     "Faculty": "MSRH",
     "Time": "R 11:20 AM - 12:50 PM",
     "Room": "LIB606",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25096,7 +25096,7 @@
     "Faculty": "EAA",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC311",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
