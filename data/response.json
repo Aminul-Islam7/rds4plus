@@ -951,7 +951,7 @@
     "Faculty": "TAE",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "NAC314",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -23919,7 +23919,7 @@
     "Faculty": "SDMA",
     "Time": "ST 08:00 AM - 09:30 AM",
     "Room": "NAC515",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -40826,7 +40826,7 @@
     "Faculty": "IHT",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "NAC406",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
