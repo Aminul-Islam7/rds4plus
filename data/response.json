@@ -3525,7 +3525,7 @@
     "Faculty": "SAP",
     "Time": "RA 06:00 PM - 07:30 PM",
     "Room": "NAC310",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3602,7 +3602,7 @@
     "Faculty": "TBA",
     "Time": "RA 06:00 PM - 07:30 PM",
     "Room": "NAC408",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -32378,7 +32378,7 @@
     "Faculty": "MTK",
     "Time": "RA 06:00 PM - 07:30 PM",
     "Room": "NAC215",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
