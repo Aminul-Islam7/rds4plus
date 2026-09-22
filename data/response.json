@@ -13579,7 +13579,7 @@
     "Faculty": "MSLK",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NAC992",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -22368,7 +22368,7 @@
     "Faculty": "RBI",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "NAC509",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -22632,7 +22632,7 @@
     "Faculty": "TZN",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "NAC408",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -22665,7 +22665,7 @@
     "Faculty": "TJB",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "NAC603",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -23325,7 +23325,7 @@
     "Faculty": "RBI",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "NAC207",
-    "Seats": "1",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
