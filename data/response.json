@@ -2216,7 +2216,7 @@
     "Faculty": "MSH3",
     "Time": "MW 09:40 AM - 11:10 AM",
     "Room": "OAT601",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -2260,7 +2260,7 @@
     "Faculty": "ESD",
     "Time": "M 08:00 AM - 11:00 AM",
     "Room": "SAC412",
-    "Seats": "4",
+    "Seats": "3",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25580,7 +25580,7 @@
     "Faculty": "MNA3",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "SAC726",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -25602,7 +25602,7 @@
     "Faculty": "MNA3",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "SAC726_V",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
