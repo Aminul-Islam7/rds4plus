@@ -6737,7 +6737,7 @@
     "Faculty": "Sqt",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "NAC404",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10235,7 +10235,7 @@
     "Faculty": "SPR",
     "Time": "RA 01:00 PM - 02:30 PM",
     "Room": "OAT601",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10268,7 +10268,7 @@
     "Faculty": "MRKL",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "OAT601",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -30475,7 +30475,7 @@
     "Faculty": "SWH1",
     "Time": "RA 02:40 PM - 04:10 PM",
     "Room": "NTR1001",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
