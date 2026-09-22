@@ -18815,7 +18815,7 @@
     "Faculty": "MWN",
     "Time": "R 02:40 PM - 04:10 PM",
     "Room": "LIB608",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -18870,7 +18870,7 @@
     "Faculty": "MSRH",
     "Time": "R 08:00 AM - 09:30 AM",
     "Room": "LIB606",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -33412,7 +33412,7 @@
     "Faculty": "JnA",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "NAC210",
-    "Seats": "9",
+    "Seats": "10",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -33478,7 +33478,7 @@
     "Faculty": "SRS2",
     "Time": "MW 02:40 PM - 04:10 PM",
     "Room": "NAC501",
-    "Seats": "3",
+    "Seats": "2",
     "Semester": "",
     "Prediction": "",
     "Records": ""
