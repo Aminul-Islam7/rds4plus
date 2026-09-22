@@ -2458,7 +2458,7 @@
     "Faculty": "SMDA",
     "Time": "ST 11:20 AM - 12:50 PM",
     "Room": "LIB907",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -35469,7 +35469,7 @@
     "Faculty": "AIK",
     "Time": "ST 01:00 PM - 02:30 PM",
     "Room": "NTR202",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -35634,7 +35634,7 @@
     "Faculty": "KMS2",
     "Time": "MW 11:20 AM - 12:50 PM",
     "Room": "NTR202",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -41772,7 +41772,7 @@
     "Faculty": "NJE",
     "Time": "MW 08:00 AM - 09:30 AM",
     "Room": "NAC314",
-    "Seats": "2",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -41794,7 +41794,7 @@
     "Faculty": "TBA",
     "Time": "ST 06:00 PM - 07:30 PM",
     "Room": "NAC412",
-    "Seats": "22",
+    "Seats": "23",
     "Semester": "",
     "Prediction": "",
     "Records": ""
