@@ -61,26 +61,8 @@ export function OnlineVisitors() {
       }
     };
 
-    // Initial ping
+    // Initial ping on load (snapshot mode - no continuous polling)
     ping();
-
-    // Heartbeat every 10 seconds for responsive updates
-    const interval = setInterval(ping, 10000);
-
-    // On visibility change or tab focus, ping immediately
-    const handleActivity = () => {
-      if (document.visibilityState === "visible") {
-        ping();
-      }
-    };
-    document.addEventListener("visibilitychange", handleActivity);
-    window.addEventListener("focus", handleActivity);
-
-    return () => {
-      clearInterval(interval);
-      document.removeEventListener("visibilitychange", handleActivity);
-      window.removeEventListener("focus", handleActivity);
-    };
   }, []);
 
   return (

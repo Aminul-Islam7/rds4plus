@@ -1,10 +1,13 @@
 name: Update Course Data
 
+# on:
+#   schedule:
+#     # Run every 15 minutes
+#     - cron: '*/15 * * * *'
+#   workflow_dispatch: # Allow manual trigger from GitHub Actions UI
+
 on:
-  schedule:
-    # Run every 15 minutes
-    - cron: '*/15 * * * *'
-  workflow_dispatch: # Allow manual trigger from GitHub Actions UI
+  workflow_dispatch: # Manual trigger only (Sync paused)
 
 permissions:
   contents: write

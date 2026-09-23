@@ -14,65 +14,23 @@ const CACHE_TTL_MS = 60 * 1000;
 let cachedData: CourseData | null = null;
 let cacheTimestamp = 0;
 
-// ─── Fallback: remote GitHub or bundled JSON (kept fresh by local daemon & Actions) ──
+// ─── Bundled Snapshot Loader (Semester Snapshot) ──────────────────────────────
 async function loadFallbackData(): Promise<CourseData> {
-  let localData: any = null;
+  const filePath = path.join(process.cwd(), "data", "response.json");
+  const raw = await fs.readFile(filePath, "utf-8");
+  const localData = JSON.parse(raw);
+
   let localLu: any = null;
-
   try {
-    const filePath = path.join(process.cwd(), "data", "response.json");
-    const raw = await fs.readFile(filePath, "utf-8");
-    localData = JSON.parse(raw);
-
     const luPath = path.join(process.cwd(), "data", "last_updated.json");
     const luRaw = await fs.readFile(luPath, "utf-8");
     localLu = JSON.parse(luRaw);
   } catch {
-    // Bundled files missing or error reading
+    // metadata file optional
   }
 
-  // Check GitHub raw for newer scrape (important on Vercel between deployments)
-  try {
-    const ghLuRes = await fetch(
-      `https://raw.githubusercontent.com/Aminul-Islam7/rds4plus/main/data/last_updated.json?_t=${Date.now()}`,
-      {
-        cache: "no-store",
-        headers: { "User-Agent": "Mozilla/5.0 RDS4Plus" },
-        signal: AbortSignal.timeout(6000),
-      }
-    );
-    if (ghLuRes.ok) {
-      const ghLu = await ghLuRes.json();
-      const ghIso = new Date(ghLu.scraped_iso || 0).getTime();
-      const localIso = new Date(localLu?.scraped_iso || 0).getTime();
-
-      // If GitHub has a newer or equal scrape than bundled local file
-      if (ghIso >= localIso || !localData) {
-        const ghDataRes = await fetch(
-          `https://raw.githubusercontent.com/Aminul-Islam7/rds4plus/main/data/response.json?_t=${Date.now()}`,
-          {
-            cache: "no-store",
-            headers: { "User-Agent": "Mozilla/5.0 RDS4Plus" },
-            signal: AbortSignal.timeout(10000),
-          }
-        );
-        if (ghDataRes.ok) {
-          const ghData = await ghDataRes.json();
-          const updateTime = ghLu?.scraped_at || ghLu?.scraped_iso || ghLu?.synced_at;
-          return parseBffJson(ghData, updateTime, "263");
-        }
-      }
-    }
-  } catch (err) {
-    console.warn("[courses] GitHub raw fetch error:", err);
-  }
-
-  if (localData) {
-    const updateTime = localLu?.scraped_at || localLu?.scraped_iso || localLu?.synced_at;
-    return parseBffJson(localData, updateTime, "263");
-  }
-
-  throw new Error("No course data available locally or from GitHub");
+  const updateTime = localLu?.scraped_at || localLu?.scraped_iso || localLu?.synced_at;
+  return parseBffJson(localData, updateTime, "263");
 }
 
 // ─── Parse courses from RDS4 HTML ─────────────────────────────────────────────
@@ -205,47 +163,13 @@ async function fetchLiveData(): Promise<CourseData> {
 
 // ─── Main loader with TTL cache + fallback ────────────────────────────────────
 async function getCourseData(): Promise<{ data: CourseData; source: string }> {
-  const now = Date.now();
-
-  // Serve from cache if fresh
-  if (cachedData && now - cacheTimestamp < CACHE_TTL_MS) {
-    return { data: cachedData, source: "cache" };
+  if (cachedData) {
+    return { data: cachedData, source: "snapshot" };
   }
 
-  // Try live fetch from RDS4
-  try {
-    const live = await fetchLiveData();
-    cachedData = live;
-    cacheTimestamp = now;
-    return { data: live, source: "live" };
-  } catch (liveErr) {
-    console.warn(
-      "[courses] Live RDS4 fetch failed, trying fallback:",
-      liveErr instanceof Error ? liveErr.message : liveErr
-    );
-
-    // Try fallback: remote GitHub or bundled JSON
-    try {
-      const fallback = await loadFallbackData();
-      cachedData = fallback;
-      cacheTimestamp = now;
-      return { data: fallback, source: "fallback" };
-    } catch (fallbackErr) {
-      console.warn(
-        "[courses] Fallback also failed:",
-        fallbackErr instanceof Error ? fallbackErr.message : fallbackErr
-      );
-
-      // Last resort: serve stale cache if we have it (better than nothing)
-      if (cachedData) {
-        return { data: cachedData, source: "stale-cache" };
-      }
-
-      throw new Error(
-        `Both live fetch and fallback failed. Live: ${liveErr instanceof Error ? liveErr.message : liveErr}. Fallback: ${fallbackErr instanceof Error ? fallbackErr.message : fallbackErr}`
-      );
-    }
-  }
+  const snapshot = await loadFallbackData();
+  cachedData = snapshot;
+  return { data: snapshot, source: "snapshot" };
 }
 
 // ─── Route Handler ────────────────────────────────────────────────────────────
