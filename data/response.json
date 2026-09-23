@@ -291,7 +291,7 @@
     "Faculty": "SHA1",
     "Time": "ST 02:40 PM - 04:10 PM",
     "Room": "NAC620",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -3536,7 +3536,7 @@
     "Faculty": "SAP",
     "Time": "RA 06:00 PM - 07:30 PM",
     "Room": "NAC310",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10125,7 +10125,7 @@
     "Faculty": "ABI",
     "Time": "RA 08:00 AM - 09:30 AM",
     "Room": "OAT601",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -10169,7 +10169,7 @@
     "Faculty": "ABI",
     "Time": "RA 09:40 AM - 11:10 AM",
     "Room": "OAT602",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -33049,7 +33049,7 @@
     "Faculty": "NNK",
     "Time": "RA 11:20 AM - 12:50 PM",
     "Room": "NTR304",
-    "Seats": "1",
+    "Seats": "0",
     "Semester": "",
     "Prediction": "",
     "Records": ""
@@ -41739,7 +41739,7 @@
     "Faculty": "Fns",
     "Time": "RA 04:20 PM - 05:50 PM",
     "Room": "NAC517",
-    "Seats": "0",
+    "Seats": "1",
     "Semester": "",
     "Prediction": "",
     "Records": ""
